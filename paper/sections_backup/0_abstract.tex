@@ -1,0 +1,9 @@
+\begin{abstract}
+We present ProfyNet, a novel multimodal deep learning framework for distinguishing between professional and amateur piano performances using high-resolution sensor data from 88-key piano keyboards. 
+Unlike existing approaches that rely solely on audio analysis, our method leverages millisecond-precision keystroke dynamics captured at 1000Hz, revealing subtle performance characteristics imperceptible in audio recordings alone. 
+Through comprehensive data analysis of 859 performances, we identified key discriminative features: professionals demonstrate 54\% fewer total key presses (369k vs 797k), 51\% higher velocity consistency (0.806 vs 0.532), and significantly better timing regularity. 
+Our architecture combines dilated temporal convolutions for multi-scale feature extraction, statistical feature modules for performance metrics, and a memory-efficient local attention mechanism (window size=100) that identifies critical performance regions while reducing computational complexity by 87\% compared to full attention. 
+Extensive experiments demonstrate that ProfyNet achieves an F1 score of 0.625, representing an 83\% improvement over the audio-only MERT baseline (0.342) while using 99.9\% fewer parameters (288K vs 330M). 
+The attention visualization reveals that the model focuses on phrase boundaries, technical passages, and dynamic changes, providing interpretable insights for performance improvement. 
+Our work establishes a new paradigm for objective music performance assessment with applications in music education, competition judging, and automated feedback systems.
+\end{abstract}

@@ -1,0 +1,67 @@
+/* カスタムスライダースタイル */
+.slider::-webkit-slider-thumb {
+  appearance: none;
+  width: 20px;
+  height: 20px;
+  background: #3B82F6;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.slider::-moz-range-thumb {
+  width: 20px;
+  height: 20px;
+  background: #3B82F6;
+  border-radius: 50%;
+  cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+  border: none;
+}
+
+/* WaveSurferカスタマイズ */
+.waveform-container {
+  user-select: none;
+}
+
+.waveform-container::-webkit-scrollbar {
+  height: 8px;
+}
+
+.waveform-container::-webkit-scrollbar-track {
+  background: #f1f1f1;
+  border-radius: 4px;
+}
+
+.waveform-container::-webkit-scrollbar-thumb {
+  background: #888;
+  border-radius: 4px;
+}
+
+.waveform-container::-webkit-scrollbar-thumb:hover {
+  background: #666;
+}
+
+/* リージョンのカスタマイズ */
+.wavesurfer-region {
+  cursor: move;
+}
+
+.wavesurfer-handle {
+  background-color: #EF4444 !important;
+  width: 3px !important;
+}
+
+/* アニメーション */
+@keyframes pulse-marking {
+  0%, 100% {
+    opacity: 0.6;
+  }
+  50% {
+    opacity: 0.3;
+  }
+}
+
+.marking-preview {
+  animation: pulse-marking 1.5s ease-in-out infinite;
+}

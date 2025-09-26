@@ -1,0 +1,32 @@
+\section{Discussion}
+\subsection{Implications for Human-AI Collaborative Learning}
+Our work demonstrates that prescriptive AI systems can fundamentally reshape skill acquisition by transforming diagnostic feedback into actionable guidance. The three-layer objective evaluation framework offers a scalable alternative to traditional user studies, particularly valuable for domains where objective performance metrics exist. This approach has broader implications for human-AI collaboration in expertise development, suggesting that AI systems can move beyond passive assessment to active coaching roles.
+
+\subsection{Threats to Validity}
+\textbf{Internal validity:} Synthetic interventions may not capture all real-world error patterns, particularly complex interactions between simultaneous errors or stylistic variations across musical periods. We mitigate this through multiple error types, magnitudes, and cross-validation with diverse musical examples (240 recordings spanning Baroque to Romantic repertoire).
+\textbf{External validity:} Evaluation focuses on solo classical piano performance. Generalization to other instruments (strings, winds), genres (jazz, contemporary), and ensemble contexts requires adapted alignment algorithms and target curve extraction methods.
+\textbf{Construct validity:} External judge models trained on specific performance aesthetics may exhibit systematic biases toward particular interpretive styles. Cross-validation with multiple independent assessment models and human expert validation reduces but cannot eliminate this risk.
+
+\subsection{Limitations and Validation Robustness}
+\textbf{Transcription dependency:} MT3 transcription errors propagate to prescription generation. Our multi-factor confidence scoring ($C_{note} = P_{trans} \times Q_{align} \times S_{context} \times H_{harmony}$) mitigates this through uncertainty quantification. Cross-validation with Onsets-and-Frames transcription shows consistent results (F1=0.91 vs 0.92), indicating robustness across transcription methods.
+
+\textbf{Expression boundary detection:} Distinguishing intentional rubato from timing errors requires musical understanding beyond current algorithms. Our phrase-level tempo modeling reduces but cannot eliminate this ambiguity. Human override mechanisms allow performers to mark intentional deviations.
+
+\textbf{Physical technique gap:} Prescriptions target acoustic outcomes without addressing underlying physical causes (posture, fingering, pedaling). Integration with motion capture or video analysis represents important future work for comprehensive coaching.
+
+\textbf{Genre and cultural specificity:} Target curves assume Western classical performance conventions. Adaptation to jazz, world music, and contemporary styles requires culturally-informed training data and alternative aesthetic models. Validation across diverse musical traditions remains necessary.
+
+\subsection{Design Implications}
+\textbf{Prescription boundaries:} Magnitude limits prevent over-correction while maintaining musical expression.
+\textbf{Confidence visualization:} Opacity encoding helps users prioritize reliable prescriptions.
+\textbf{Progressive disclosure:} Details appear on demand to avoid overwhelming beginners.
+\textbf{Customizable targets:} Users can select reference performances matching their goals.
+
+\subsection{Competitive Analysis and Future Directions}
+Our approach fundamentally advances beyond existing commercial and academic systems. While SmartMusic and Yousician provide binary feedback, we deliver quantified corrections. Compared to research systems like Con Espressione and VirtuosoNet that focus on analysis, we translate insights into actionable prescriptions. Our three-layer objective evaluation framework offers significant advantages over traditional user studies: eliminated confounds, reproducible results, and scalable validation.
+
+\textbf{Immediate extensions:} Real-time prescription generation requires reducing latency from 2-3 seconds to <100ms through optimized transcription and parallel processing. Ensemble support demands synchronization models for chamber music contexts with inter-performer timing prescriptions.
+
+\textbf{Long-term research directions:} Personalized learning trajectories adapting prescription difficulty to individual skill progression. Multi-modal integration combining audio analysis with video-based physical technique assessment. Cross-cultural validation extending beyond Western classical music to diverse musical traditions and aesthetic frameworks.
+
+\textbf{Broader HCI implications:} This prescription generation paradigm generalizes to other skill acquisition domains where objective performance measures exist—athletic coaching, surgical training, language pronunciation—establishing a new framework for human-AI collaborative learning systems.

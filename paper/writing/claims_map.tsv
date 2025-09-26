@@ -1,0 +1,8 @@
+Claim	Figure/Table	Metric	Evidence	Counter-evidence	Validation_Method
+C1: Note error prescription with F1=0.92	Table 1, Fig 2	F1, Precision, Recall	218/240 synthetic cases correct	8% false positives in ornaments	Synthetic intervention recovery
+C2: Rhythm quantification with 4.2% beat MAE	Table 1, Fig 3	MAE (%beat), RMSE (ms)	95% within ±8% beat accuracy	5.2% MAE in rubato passages	DTW alignment ground truth
+C3: Dynamics prescription with r=0.82 correlation	Table 2, Fig 4	Pearson correlation, RMSE	r=0.89 for gradual changes	r=0.71 for sudden dynamics	Professional target curve matching
+C4: 71% error reduction after prescription	Table 3, Fig 5	Error density, improvement %	From 8.3 to 2.4 errors/measure	Variable improvement by skill level	Before/after MIDI simulation
+C5: +2.3 skill score from external judge	Table 4	Judge score (1-10)	Consistent across skill levels	+1.2 for advanced vs +2.6 beginner	Independent assessment model
+C6: Objective validation without user studies	Overall framework	Multiple convergent metrics	Three-layer validation consistent	Small-scale user validation (n=12)	Triangulation across methods
+C7: Score-aligned visualization interface	Fig 1, UI screenshots	Usability (SUS=78.3)	Confidence-aware opacity display	Complex interface for beginners	Minimal user study validation

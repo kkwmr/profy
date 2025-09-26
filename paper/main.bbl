@@ -1,0 +1,195 @@
+%%% -*-BibTeX-*-
+%%% Do NOT edit. File created by BibTeX with style
+%%% ACM-Reference-Format-Journals [18-Jan-2012].
+
+\begin{thebibliography}{10}
+
+%%% ====================================================================
+%%% NOTE TO THE USER: you can override these defaults by providing
+%%% customized versions of any of these macros before the \bibliography
+%%% command.  Each of them MUST provide its own final punctuation,
+%%% except for \shownote{}, \showDOI{}, and \showURL{}.  The latter two
+%%% do not use final punctuation, in order to avoid confusing it with
+%%% the Web address.
+%%%
+%%% To suppress output of a particular field, define its macro to expand
+%%% to an empty string, or better, \unskip, like this:
+%%%
+%%% \newcommand{\showDOI}[1]{\unskip}   % LaTeX syntax
+%%%
+%%% \def \showDOI #1{\unskip}           % plain TeX syntax
+%%%
+%%% ====================================================================
+
+\ifx \showCODEN    \undefined \def \showCODEN     #1{\unskip}     \fi
+\ifx \showDOI      \undefined \def \showDOI       #1{#1}\fi
+\ifx \showISBNx    \undefined \def \showISBNx     #1{\unskip}     \fi
+\ifx \showISBNxiii \undefined \def \showISBNxiii  #1{\unskip}     \fi
+\ifx \showISSN     \undefined \def \showISSN      #1{\unskip}     \fi
+\ifx \showLCCN     \undefined \def \showLCCN      #1{\unskip}     \fi
+\ifx \shownote     \undefined \def \shownote      #1{#1}          \fi
+\ifx \showarticletitle \undefined \def \showarticletitle #1{#1}   \fi
+\ifx \showURL      \undefined \def \showURL       {\relax}        \fi
+% The following commands are used for tagged output and should be
+% invisible to TeX
+\providecommand\bibfield[2]{#2}
+\providecommand\bibinfo[2]{#2}
+\providecommand\natexlab[1]{#1}
+\providecommand\showeprint[2][]{arXiv:#2}
+
+\bibitem[Gardner et~al\mbox{.}(2022)]%
+        {gardner2022}
+\bibfield{author}{\bibinfo{person}{Joshua~P Gardner}, \bibinfo{person}{Ian
+  Simon}, \bibinfo{person}{Ethan Manilow}, \bibinfo{person}{Curtis Hawthorne},
+  {and} \bibinfo{person}{Jesse Engel}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{{MT}3: Multi-Task Multitrack Music Transcription}.
+  In \bibinfo{booktitle}{\emph{International Conference on Learning
+  Representations}}.
+\newblock
+\urldef\tempurl%
+\url{https://openreview.net/forum?id=iMSjopcOn0p}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Giraldo et~al\mbox{.}(2019)]%
+        {giraldo2019}
+\bibfield{author}{\bibinfo{person}{Sergio Giraldo}, \bibinfo{person}{George
+  Waddell}, \bibinfo{person}{Ignasi Nou}, \bibinfo{person}{Ariadna Ortega},
+  \bibinfo{person}{Oscar Mayor}, \bibinfo{person}{Alfonso Perez},
+  \bibinfo{person}{Aaron Williamon}, {and} \bibinfo{person}{Rafael Ramirez}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Automatic Assessment of Tone Quality in Violin
+  Music Performance}.
+\newblock \bibinfo{journal}{\emph{Frontiers in Psychology}}
+  \bibinfo{volume}{10} (\bibinfo{year}{2019}).
+\newblock
+\showISSN{1664-1078}
+\urldef\tempurl%
+\url{https://doi.org/10.3389/fpsyg.2019.00334}
+\showDOI{\tempurl}
+
+
+\bibitem[Hawthorne et~al\mbox{.}(2021)]%
+        {hawthorne2021}
+\bibfield{author}{\bibinfo{person}{Curtis Hawthorne}, \bibinfo{person}{Ian
+  Simon}, \bibinfo{person}{Rigel Swavely}, \bibinfo{person}{Ethan Manilow},
+  {and} \bibinfo{person}{Jesse~H. Engel}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Sequence-to-Sequence Piano Transcription with
+  Transformers}. In \bibinfo{booktitle}{\emph{Proceedings of the 22nd
+  International Society for Music Information Retrieval Conference, {ISMIR}
+  2021, Online, November 7-12, 2021}},
+  \bibfield{editor}{\bibinfo{person}{Jin~Ha Lee}, \bibinfo{person}{Alexander
+  Lerch}, \bibinfo{person}{Zhiyao Duan}, \bibinfo{person}{Juhan Nam},
+  \bibinfo{person}{Preeti Rao}, \bibinfo{person}{Peter van Kranenburg}, {and}
+  \bibinfo{person}{Ajay Srinivasamurthy}} (Eds.). \bibinfo{pages}{246--253}.
+\newblock
+\urldef\tempurl%
+\url{https://archives.ismir.net/ismir2021/paper/000030.pdf}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Kawamura and Rekimoto(2021)]%
+        {kawamura2021uist}
+\bibfield{author}{\bibinfo{person}{Kazuki Kawamura} {and} \bibinfo{person}{Jun
+  Rekimoto}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{A Language Acquisition Support System That Presents
+  Differences and Distances from Model Speech}. In
+  \bibinfo{booktitle}{\emph{The Adjunct Publication of the 34th Annual ACM
+  Symposium on User Interface Software and Technology}} (Virtual Event, USA)
+  \emph{(\bibinfo{series}{UIST '21})}. \bibinfo{publisher}{Association for
+  Computing Machinery}, \bibinfo{address}{New York, NY, USA},
+  \bibinfo{pages}{44–46}.
+\newblock
+\showISBNx{9781450386555}
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3474349.3480225}
+\showDOI{\tempurl}
+
+
+\bibitem[MakeMusic(2023)]%
+        {smartmusic}
+\bibfield{author}{\bibinfo{person}{Inc. MakeMusic}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \bibinfo{title}{SmartMusic | Music Learning Software for Educators \&
+  Students}.
+\newblock \bibinfo{howpublished}{\url{https://www.smartmusic.com/}}.
+\newblock
+\newblock
+\shownote{(Accessed on 01/04/2023)}.
+
+
+\bibitem[Nakano et~al\mbox{.}(2006)]%
+        {nakano2006}
+\bibfield{author}{\bibinfo{person}{Tomoyasu Nakano}, \bibinfo{person}{Masataka
+  Goto}, {and} \bibinfo{person}{Yuzuru Hiraga}.}
+  \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{An automatic singing skill evaluation method for
+  unknown melodies using pitch interval accuracy and vibrato features}. In
+  \bibinfo{booktitle}{\emph{{INTERSPEECH} 2006 - ICSLP, Ninth International
+  Conference on Spoken Language Processing, Pittsburgh, PA, USA, September
+  17-21}}. \bibinfo{publisher}{{ISCA}}.
+\newblock
+
+
+\bibitem[romani picas et~al\mbox{.}(2015)]%
+        {romani2015}
+\bibfield{author}{\bibinfo{person}{oriol romani picas}, \bibinfo{person}{hector
+  parra rodriguez}, \bibinfo{person}{dara dabiri}, \bibinfo{person}{hiroshi
+  tokuda}, \bibinfo{person}{wataru hariya}, \bibinfo{person}{koji oishi}, {and}
+  \bibinfo{person}{xavier serra}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{a real-time system for measuring sound goodness in
+  instrumental sounds}.
+\newblock \bibinfo{journal}{\emph{journal of the audio engineering society}}
+  (\bibinfo{date}{may} \bibinfo{year}{2015}).
+\newblock
+
+
+\bibitem[Seshadri and 0001(2021)]%
+        {seshadri2021}
+\bibfield{author}{\bibinfo{person}{Pavan Seshadri} {and}
+  \bibinfo{person}{Alexander~Lerch 0001}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Improving Music Performance Assessment With
+  Contrastive Learning}. In \bibinfo{booktitle}{\emph{Proceedings of the 22nd
+  International Society for Music Information Retrieval Conference, ISMIR 2021,
+  Online, November 7-12, 2021}}, \bibfield{editor}{\bibinfo{person}{Jin Ha~Lee
+  0001}, \bibinfo{person}{Alexander~Lerch 0001}, \bibinfo{person}{Zhiyao Duan},
+  \bibinfo{person}{Juhan Nam}, \bibinfo{person}{Preeti Rao},
+  \bibinfo{person}{Peter van Kranenburg}, {and} \bibinfo{person}{Ajay
+  Srinivasamurthy}} (Eds.). \bibinfo{pages}{634--641}.
+\newblock
+\showISBNx{978-1-7327299-0-2}
+\urldef\tempurl%
+\url{https://archives.ismir.net/ismir2021/paper/000079.pdf}
+\showURL{%
+\tempurl}
+
+
+\bibitem[Wu and Lerch(2018)]%
+        {wu2018}
+\bibfield{author}{\bibinfo{person}{Chih-Wei Wu} {and}
+  \bibinfo{person}{Alexander Lerch}.} \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Learned Features for the Assessment of Percussive
+  Music Performances}. In \bibinfo{booktitle}{\emph{2018 IEEE 12th
+  International Conference on Semantic Computing (ICSC)}}.
+  \bibinfo{pages}{93--99}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1109/ICSC.2018.00022}
+\showDOI{\tempurl}
+
+
+\bibitem[Yousician(2023)]%
+        {yousician}
+\bibfield{author}{\bibinfo{person}{Oy Yousician}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \bibinfo{title}{Yousician | Learn Guitar, Piano, Ukulele With The
+  Songs you Love}.
+\newblock \bibinfo{howpublished}{\url{https://yousician.com/}}.
+\newblock
+\newblock
+\shownote{(Accessed on 01/04/2023)}.
+
+
+\end{thebibliography}

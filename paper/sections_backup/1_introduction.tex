@@ -1,0 +1,48 @@
+\section{Introduction}
+
+The assessment of musical performance quality has traditionally relied on subjective human judgment, introducing inconsistencies and biases that can significantly impact educational progress and competition outcomes.
+While expert evaluation remains valuable, the development of objective, reproducible assessment methods has become increasingly important as music education scales globally through online platforms.
+The challenge lies not just in identifying errors, but in understanding the subtle characteristics that distinguish professional from amateur performances—characteristics that are often imperceptible in audio recordings alone.
+
+Recent advances in Music Information Retrieval (MIR) have enabled automated analysis of musical performances, primarily through audio-based approaches.
+State-of-the-art models like MERT achieve impressive results on general music understanding tasks.
+However, when applied to the nuanced task of professional performance assessment, these audio-only approaches show significant limitations, achieving only F1=0.342 in our experiments.
+This performance gap highlights a fundamental issue: audio analysis alone cannot capture the complete picture of performance quality, particularly the subtle physical interactions between performer and instrument that distinguish professional from amateur playing.
+
+Modern digital pianos equipped with high-resolution sensors offer unprecedented insights into these interactions.
+Capturing keystroke dynamics at 1000Hz sampling rate—millisecond precision for all 88 keys—reveals timing patterns, velocity variations, and articulation nuances invisible in audio recordings.
+Yet existing performance assessment systems have not fully exploited this rich sensor data, either focusing solely on audio features or employing simplistic statistical analysis without considering temporal dependencies and attention patterns.
+
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/performance_comparison.png}
+  \caption{Statistical analysis of 859 piano performances reveals key differences between professionals and amateurs. 
+  Professionals use 54\% fewer key presses while maintaining 51\% higher velocity consistency, suggesting more efficient and controlled playing techniques.}
+  \Description{}
+  \label{fig:performance_comparison}
+\end{figure}
+
+Through comprehensive analysis of 859 piano performances, we discovered striking quantitative differences between professional and amateur players.
+Professionals demonstrate remarkable efficiency: using 54\% fewer total key presses (369k vs 797k) while maintaining 51\% higher velocity consistency (0.806 vs 0.532).
+These findings suggest that professional expertise manifests not through complexity but through precision and control—insights that inform our model design.
+
+ProfyNet addresses these challenges through a novel multimodal architecture specifically designed for performance assessment.
+Our approach combines three key innovations:
+First, dilated temporal convolutions capture multi-scale patterns efficiently, from local note transitions to phrase-level structures.
+Second, a statistical feature module extracts global performance metrics that complement temporal features.
+Third, a memory-efficient local attention mechanism (window size=100) identifies performance-critical regions while reducing computational complexity by 87\% compared to full attention.
+
+The results demonstrate substantial improvements over existing approaches.
+ProfyNet achieves F1=0.625, representing an 83\% improvement over the MERT baseline while using 99.9\% fewer parameters (288K vs 330M).
+Beyond classification accuracy, our attention visualization reveals interpretable patterns: the model consistently focuses on phrase boundaries, technical passages, and dynamic changes—precisely the elements that music teachers emphasize in instruction.
+
+Our contributions advance the field of automated music performance assessment:
+\begin{itemize}
+    \item \textbf{C1: Comprehensive performance analysis} - We conduct the first large-scale statistical analysis of professional vs amateur piano performances using high-resolution sensor data, identifying six key discriminative features with effect sizes (Cohen's d) ranging from 0.52 to 1.63.
+    \item \textbf{C2: Novel architecture design} - We propose ProfyNet, a multimodal architecture combining dilated temporal convolutions, statistical feature extraction, and local attention mechanisms, achieving 83\% improvement over audio-only baselines while reducing parameters by 99.9\%.
+    \item \textbf{C3: Attention-based interpretability} - We demonstrate that local attention mechanisms can identify performance-critical regions, providing actionable feedback for improvement aligned with music pedagogy principles.
+    \item \textbf{C4: Empirical validation} - Through extensive experiments on 859 performances, we establish new benchmarks for piano performance assessment, achieving F1=0.625 with balanced per-class performance and interpretable attention patterns.
+\end{itemize}
+
+This work establishes a new paradigm for objective music performance assessment, bridging the gap between subjective artistic evaluation and quantitative technical analysis.
+By combining high-resolution sensor data with efficient deep learning architectures, ProfyNet contributes to more effective and accessible music education worldwide.

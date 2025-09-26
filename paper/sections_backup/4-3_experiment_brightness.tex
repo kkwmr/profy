@@ -1,0 +1,56 @@
+\subsection{Musical brightness expression assessment}
+\begin{table*}[h!]
+  \caption{List of musical pieces for brightness assessment.}
+  \begin{tabular}{l|lcc}
+    \toprule
+    Song & Details & Duration mean (secs) & Duration std \\
+    \midrule
+    Hanon: No.1     & first 4 bars & 4.41 & 0.33\\ \hline
+    Chopin: Etude Op.10-4    & first 4 bars & 9.70 & 1.04\\ \hline
+    Chopin: Etude Op.10-4    & 5th to 8th bars & 9.50 & 0.98\\ \hline
+    Chopin: Etude Op.25-2     & first 8 bars & 14.29 & 1.43\\ \hline
+  \end{tabular}
+  \label{brightness_dataset_song}
+\end{table*}
+
+\subsubsection*{Brightness expression dataset}
+We enlisted 20 pianists with their ages ranging from 20 to 49, and with 12 female pianists and eight male pianists. 
+Their piano performance experience spanned 15 to 45 years, and all of them have an educational background in music. 
+All of them have experience winning prizes at international or domestic piano competitions. 
+
+\subsubsection*{Musical pieces for brightness expression assessment}
+We selected four pieces from the classical piano repertoire due to their widespread use in piano practice.
+We provide a list of the selected pieces for the brightness expression dataset and their details in Table \ref{brightness_dataset_song}.
+
+We asked the pianists to play each piece with either a bright or dark expression. 
+We instructed the pianists to play each piece at a certain tempo, ensuring that the duration of each performance remained almost consistent.
+One performance was excluded from the dataset due to errors in the performance.
+As a result, with 20 pianists playing each of the four pieces in either of the brightness expression, our brightness expression dataset comprises 159 recorded performances. 
+
+All of the recordings were conducted in the same way as the performance experiment of the skill assessment (Figure \ref{recording_env}).
+The recordings of the piano performances were made at a sampling rate of 44.1 kHz. 
+Several recordings of the performances are included in our supplementary video.
+
+
+\subsubsection*{Labeling of the brightness expression dataset}
+We enlisted 18 additional pianists, separate from those who participated in the performance experiment, to listen to the recorded performances and assess their brightness expression. 
+Their ages range from 19 to 38, and the majority are female.  % , with X male pianist. 
+Their piano performance experience spanned 14 to 33 years, and all have an educational background in music. Furthermore, each of them has experience of winning prizes at either international or domestic piano competitions, or both.
+
+We instructed them to listen through all of the performances, and rate the performances on a seven-point scale, with one representing "very bright" to seven signifying "very dark." 
+Based on these ratings, we re-labeled the performance assessments as binary - bright or dark - by categorizing performances with a rating less than four as bright and the others as dark. 
+In addition to the human experts' ratings, two of the authors categorized the pianists who performed based on their ability to express brightness, classifying them as either very good, good, or not good at brightness expression.
+
+
+\subsubsection*{Model Training for brightness expression assessment}
+As pre-processing of our dataset, we resampled the recordings to 16 kHz as wav2vec 2.0 is pre-trained at a sampling rate of 16 kHz.
+Furthermore, we truncated the audio data of the performances to a duration of 10 seconds.
+
+We employed a 4-Fold cross-validation method to divide our brightness expression dataset into training and validation sets. 
+This process involved selecting five pianists and using all their performances as the validation set, while the performances of the remaining pianists served as the training set. 
+We repeated this procedure four times, ultimately generating four distinct models trained to analyze the musical expression of brightness in piano performance.
+
+We initiated the training of our models using the initial weights of the wav2vec2.0 base model. 
+Subsequently, we fine-tuned it on our brightness expression dataset for 100 epochs. 
+We set the batch size to 32 and set a constant learning rate to 3e-6 throughout the training process. 
+We trained the models using an NVIDIA V100 GPU.

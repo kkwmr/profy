@@ -1,0 +1,59 @@
+\section{Conclusion and Future Work}
+
+We presented ProfyNet, a novel multimodal deep learning framework that advances the state of professional piano performance assessment through efficient use of high-resolution sensor data. Our approach demonstrates that millisecond-precision keystroke dynamics, when properly leveraged, provide richer information than audio alone for distinguishing professional from amateur performances.
+
+\subsection{Key Contributions}
+
+ProfyNet makes several significant contributions to HCI and music computing:
+
+\textbf{1. Empirical insights into professional expertise:} Our analysis of 859 performances reveals that professionals use 54\% fewer key presses while maintaining 51\% higher velocity consistency, challenging assumptions that expertise requires increased complexity. This finding has implications for music pedagogy and skill acquisition research.
+
+\textbf{2. Architectural innovation for efficiency:} Local attention mechanisms achieve 87\% computational savings while maintaining interpretability, enabling real-time deployment on consumer hardware. This design philosophy—efficiency through architecture rather than compression—offers a model for other resource-constrained HCI applications.
+
+\textbf{3. Superior performance with minimal resources:} F1=0.625 represents 83\% improvement over state-of-the-art MERT baseline while using 99.9\% fewer parameters (288K vs 330M). This dramatic efficiency gain democratizes access to professional-quality assessment tools.
+
+\textbf{4. Interpretable attention patterns:} The model's attention naturally aligns with musical structure (phrase boundaries, technical passages, dynamic changes), providing pedagogically meaningful insights without additional interpretation layers.
+
+\subsection{Implications for HCI}
+
+Our work has broader implications for human-computer interaction:
+
+\textbf{Sensor-driven interaction paradigm:} We demonstrate that high-resolution sensor data can reveal subtle human behaviors invisible to traditional audio/video analysis. This approach could extend to other domains requiring fine-grained skill assessment (surgery, sports, crafts).
+
+\textbf{Interpretable AI for education:} ProfyNet's attention mechanisms provide transparency crucial for educational applications, where users need to understand not just what but why. This interpretability-by-design approach could inform other educational AI systems.
+
+\textbf{Efficiency enables accessibility:} By achieving professional-quality assessment on consumer hardware, we democratize access to expert feedback traditionally available only through expensive human instruction.
+
+\subsection{Limitations}
+
+Several limitations suggest directions for future work:
+
+\textbf{Genre specificity:} Training on classical repertoire may limit generalization to other musical styles. Future work should explore transfer learning across genres.
+
+\textbf{Binary classification:} Current professional/amateur distinction doesn't capture skill gradations. Multi-level classification (beginner/intermediate/advanced/professional) would provide more nuanced assessment.
+
+\textbf{Sensor dependency:} Requirement for specialized keyboards limits accessibility. Exploring assessment from consumer-grade MIDI keyboards or even audio-only fallback modes would increase adoption.
+
+\textbf{Cultural bias:} Western classical training emphasis may not translate to other musical traditions. Cross-cultural validation is needed.
+
+\subsection{Future Directions}
+
+Several exciting research directions emerge:
+
+\textbf{Real-time feedback systems:} Current 32ms inference enables real-time applications. Developing interactive practice systems that provide immediate feedback during performance could accelerate skill acquisition.
+
+\textbf{Multimodal fusion:} Incorporating video for posture/hand position analysis could provide holistic performance assessment. Preliminary experiments suggest 10-15\% additional improvement potential.
+
+\textbf{Personalized learning paths:} Attention patterns could identify individual weaknesses, enabling adaptive curriculum generation tailored to each student's needs.
+
+\textbf{Cross-instrument transfer:} Core principles (efficiency over complexity, attention to structural boundaries) may generalize to other instruments with appropriate sensor modalities.
+
+\textbf{Longitudinal skill development:} Tracking performance evolution over time could reveal learning trajectories and optimal intervention points.
+
+\subsection{Closing Remarks}
+
+ProfyNet demonstrates that thoughtful integration of sensor data, efficient architectures, and interpretable AI can create powerful tools for skill assessment and development. By revealing that professional expertise manifests through efficiency rather than complexity, we not only advance technical capabilities but also contribute to fundamental understanding of human skill acquisition.
+
+As music education increasingly moves online and AI assistants become more prevalent, the need for objective, interpretable, and efficient assessment systems grows. ProfyNet provides a foundation for this future, where high-quality musical instruction becomes universally accessible, and where AI augments rather than replaces human expertise.
+
+The code, data, and trained models are available at \url{https://github.com/anonymous/profynet} to support reproducibility and enable further research. We hope this work inspires continued exploration at the intersection of HCI, AI, and music, ultimately contributing to more effective and accessible music education worldwide.

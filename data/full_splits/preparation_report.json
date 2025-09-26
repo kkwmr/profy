@@ -1,0 +1,59 @@
+{
+  "total_sessions": 2433,
+  "valid_sessions": 1083,
+  "player_statistics": {
+    "total_players": 73,
+    "pro_players": 40,
+    "amateur_players": 33,
+    "pro_samples": 3782,
+    "amateur_samples": 2694,
+    "samples_per_player": {
+      "count": 73.0,
+      "mean": 88.71232876712328,
+      "std": 48.032245954628934,
+      "min": 45.0,
+      "25%": 65.0,
+      "50%": 85.0,
+      "75%": 95.0,
+      "max": 305.0
+    }
+  },
+  "splits": {
+    "train": {
+      "samples": 636,
+      "players": 43,
+      "pro_samples": 359,
+      "amateur_samples": 277
+    },
+    "val": {
+      "samples": 223,
+      "players": 15,
+      "pro_samples": 119,
+      "amateur_samples": 104
+    },
+    "test": {
+      "samples": 224,
+      "players": 15,
+      "pro_samples": 119,
+      "amateur_samples": 105
+    }
+  },
+  "config": {
+    "audio": {
+      "max_length": 10.0,
+      "sample_rate": 24000
+    },
+    "prepared_data_dir": "data/full_splits",
+    "raw_data_dir": "data/playdata",
+    "scores_file": "data/all_answer_summary_df.csv",
+    "sensor": {
+      "num_keys": 88,
+      "sampling_rate": 1000,
+      "sensor_type": "raw",
+      "window_size": 30000
+    },
+    "test_split": 0.2,
+    "train_split": 0.6,
+    "val_split": 0.2
+  }
+}

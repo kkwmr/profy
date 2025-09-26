@@ -1,0 +1,48 @@
+\subsection{Score-Aligned Visualization Interface}
+\begin{figure*}[h]
+  \centering
+  \includegraphics[width=0.8\linewidth]{figures/attention_highlight.png}
+  \caption{Overview of the visualization of attention. (Left) During the supervised fine-tuning for musical performance analysis, the model computes its attention weights to ascertain which portions of the performance are significant and to what extent they contribute to the analysis. 
+In the figure, we depict the strength of the attention weights using varying shades of red, with darker shades representing stronger weights. (Right) During inference, the model identifies significant portions where the attention weights are high and highlights them (depicted in red in the figure) within the audio waveform of the performance.}
+  \Description{}
+  \label{attention_highlight}
+\end{figure*}
+
+The visualization interface displays prescriptions directly on musical scores with three layers of information.
+First, error locations are color-coded: red for note errors, yellow for rhythm deviations, blue for dynamics.
+Second, prescription text appears on hover: "G→A", "+6\% beat", "+0.6 dB/beat".
+Third, confidence indicators show prescription reliability using opacity (high confidence = opaque, low = transparent).
+
+The interface provides synchronized playback with visual highlighting.
+During playback, a green cursor tracks the current position while prescribed corrections flash.
+Users can A/B compare original and corrected versions with single-key switching.
+The split-view mode shows before/after scores side-by-side with difference highlighting.
+
+Prescription rationale appears in a dedicated panel showing:
+- Deviation measurements: actual vs expected values
+- Target curves: professional reference overlaid with student performance  
+- Confidence scores: transcription certainty and alignment quality
+
+More specifically, we calculate the attention scores for each timestep in the performances as follows:
+\begin{enumerate}
+    \item Taking ${i}$th performance audio of length ${n}$, ${x_{i1}, x_{i2}, ..., x_{in}}$, as input, we firstly computed the attention matrix ${A}$ of size ${(N_{head}, n, n)}$,
+    \begin{equation}
+        A = wav2vec 2.0(x_{i1}, x_{i2}, ..., x_{in})
+    \end{equation}
+    \item As the Transformer layers in the wav2vec 2.0 incorporates multiple attention heads, we compute the average of the attention matrix ${A}$ along the attention head axis.
+    \begin{equation}
+        A = \frac{1}{N_{head}} \sum_{i=1}^{N_{head}} A_{i, j, k}
+        \end{equation}
+    \item Also, we computed the average along time axis as the contextualized features are averaged over time during the performance analysis fine-tuning and can be considered to be equally contributing to the analysis.
+    Thus, we computed the attention score ${a}$,
+    \begin{equation}
+        a = \frac{1}{n} \sum_{j=1}^{n} A_{j, k}
+    \end{equation}
+
+    \item Lastly, for each timestep ${t = 1, 2, ..., n}$, we identify the timestep with high attention score when ${a_{t} >}$ 80th percentile of ${a}$.
+\end{enumerate}
+
+The UI design follows established patterns from music notation software while adding prescription layers.
+We extend the score visualization approach from Wav2MusicAnalysis but add quantified corrections.
+Unlike prior work showing only attention regions, we specify exact adjustments.
+The interface renders in standard web browsers using MusicXML for compatibility with existing workflows.

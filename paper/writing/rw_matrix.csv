@@ -1,0 +1,18 @@
+System,Note Error Detection,Rhythm Deviation,Dynamics Analysis,Prescription Quantity,Score UI,Objective Evaluation,User Studies,Prescription Specificity
+SmartMusic,●,○,○,,○,○,●,
+Yousician,●,○,○,,○,○,●,
+Nakano2006,●,○,○,,○,○,○,
+Seshadri2021,●,●,○,,○,●,○,
+Wang2022,●,●,○,,○,●,○,
+Con Espressione,●,●,○,,●,○,●,
+MT3,●,●,○,,○,●,,
+Onsets-and-Frames,●,●,○,,○,●,,
+Widmer2003,○,○,●,,○,○,○,
+Basis Mixer,○,○,●,,○,●,○,
+VirtuosoNet,○,○,●,,○,●,○,
+Performance Worm,○,○,●,,●,○,○,
+Piano Tutor,●,●,○,,●,○,●,
+Wav2MusicAnalysis,●,○,○,,●,○,●,
+P.I.A.N.O.,●,○,○,,●,○,●,
+PianoBART,●,○,●,,○,●,○,
+Our System,●,●,●,●,●,●,●,●

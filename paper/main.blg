@@ -1,0 +1,94 @@
+This is BibTeX, Version 0.99d (TeX Live 2019/Debian)
+Capacity: max_strings=200000, hash_size=200000, hash_prime=170003
+The top-level auxiliary file: main.aux
+The style file: ACM-Reference-Format.bst
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
+Database file #1: references/references.bib
+Database file #2: references/refs_1_beginner.bib
+Database file #3: references/refs_2_intermediate.bib
+Database file #4: references/refs_3_intermediate_feature_learning.bib
+Database file #5: references/refs_4_speech.bib
+Warning--I didn't find a database entry for "dannenberg2013"
+Warning--I didn't find a database entry for "andante2020"
+Warning--I didn't find a database entry for "xiao2014"
+Warning--I didn't find a database entry for "oshima2021"
+Warning--I didn't find a database entry for "holland2010"
+Warning--I didn't find a database entry for "anderson1995"
+Warning--I didn't find a database entry for "porayska2013"
+Warning--I didn't find a database entry for "holstein2019"
+Warning--I didn't find a database entry for "duolingo2019"
+Warning--I didn't find a database entry for "koedinger2013"
+Warning--I didn't find a database entry for "davis2016"
+Warning--I didn't find a database entry for "wang2022"
+Warning--I didn't find a database entry for "sigtia2016"
+Warning--I didn't find a database entry for "chou2022"
+Warning--I didn't find a database entry for "mt3"
+Warning--I didn't find a database entry for "nakamura2017"
+Warning--I didn't find a database entry for "widmer2003"
+Warning--I didn't find a database entry for "jeong2019"
+Warning--I didn't find a database entry for "goebl2008"
+Warning--I didn't find a database entry for "cancino2018"
+Warning--I didn't find a database entry for "mert2023"
+Warning--I didn't find a database entry for "atanasova2020diagnostic"
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
+Reallocated global_strs (elt_size=200001) to 20 items from 10.
+Reallocated glb_str_end (elt_size=4) to 20 items from 10.
+Reallocated singl_function (elt_size=4) to 100 items from 50.
+Warning--empty publisher in gardner2022
+Warning--empty address in gardner2022
+Warning--page numbers missing in both pages and numpages fields in gardner2022
+Warning--page numbers missing in both pages and numpages fields in giraldo2019
+Warning--empty publisher in hawthorne2021
+Warning--empty address in hawthorne2021
+Warning--empty address in nakano2006
+Warning--page numbers missing in both pages and numpages fields in nakano2006
+Warning--no number and no volume in romani2015
+Warning--empty publisher in seshadri2021
+Warning--empty address in seshadri2021
+Warning--empty publisher in wu2018
+Warning--empty address in wu2018
+You've used 10 entries,
+            5981 wiz_defined-function locations,
+            1568 strings with 21193 characters,
+and the built_in function-call counts, 11342 in all, are:
+= -- 1266
+> -- 432
+< -- 0
++ -- 148
+- -- 154
+* -- 847
+:= -- 1142
+add.period$ -- 51
+call.type$ -- 10
+change.case$ -- 76
+chr.to.int$ -- 10
+cite$ -- 23
+duplicate$ -- 1015
+empty$ -- 710
+format.name$ -- 186
+if$ -- 2650
+int.to.chr$ -- 2
+int.to.str$ -- 1
+missing$ -- 38
+newline$ -- 142
+num.names$ -- 74
+pop$ -- 436
+preamble$ -- 1
+purify$ -- 156
+quote$ -- 0
+skip$ -- 378
+stack$ -- 0
+substring$ -- 711
+swap$ -- 85
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 272
+warning$ -- 13
+while$ -- 60
+width$ -- 0
+write$ -- 253
+(There were 35 warnings)

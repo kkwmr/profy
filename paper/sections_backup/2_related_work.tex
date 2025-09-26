@@ -1,0 +1,45 @@
+\section{Related Work}
+We position our work at the intersection of music performance assessment, corrective feedback generation, and objective evaluation methods. Prior work excels at diagnosis but fails to provide prescriptive guidance with quantified corrective actions.
+
+\subsection{Performance Assessment Without Prescription}
+Commercial systems like SmartMusic \cite{smartmusic} and Yousician \cite{yousician} achieve F1$\approx$0.85 in error detection but provide only binary feedback ("correct/incorrect") without corrective guidance.
+Academic approaches using CNNs \cite{nakano2006} and RNNs \cite{seshadri2021} classify performance quality with 79-84\% accuracy, while transformer-based models \cite{wang2022} achieve up to 89\% accuracy in performance assessment but similarly lack prescription mechanisms.
+Recent work on automated piano assessment \cite{sigtia2016} focuses on note-level accuracy measurement without translation to corrective actions.
+The Con Espressione system \cite{wu2018} visualizes timing deviations using color-coded feedback, and PianoBART \cite{chou2022} provides phrase-level expression analysis, but neither specifies quantified adjustment amounts.
+These diagnostic-only approaches systematically leave learners knowing something is wrong but lacking specific guidance on corrective measures.
+Our system fundamentally extends diagnosis to prescription, generating specific corrective actions with quantified adjustments that bridge the critical gap between error detection and actionable improvement strategies.
+
+
+\subsection{Score-Performance Alignment Technologies}
+Recent advances in alignment enable precise error localization. Dynamic Time Warping (DTW) achieves 95\% accuracy for classical piano \cite{romani2015}, while neural approaches like MT3 \cite{mt3} and Onsets-and-Frames \cite{hawthorne2021} reach F1$\approx$0.90 in transcription.
+However, these systems stop at identifying where errors occur without specifying what corrections to make.
+Nakamura et al. \cite{nakamura2017} estimate error probabilities but do not generate corrective actions.
+We extend alignment beyond detection to prescription generation: "m.17: substitute G with A", "delay by +6\% beat (23ms)", "increase velocity by 12 points."
+Our approach transforms alignment results into actionable guidance with specific quantities and locations.
+
+\subsection{Expression Modeling Without Actionable Feedback}
+Expression analysis research demonstrates sophisticated pattern extraction from professional performances but systematically fails to translate these insights into concrete learner guidance.
+Widmer's pioneering work \cite{widmer2003} identifies systematic expressive patterns in professional performances through computational curve extraction, while recent deep learning approaches \cite{jeong2019} model complex expression patterns in piano performance.
+The Basis Mixer \cite{giraldo2019} decomposes expression into interpretable components using signal processing techniques, and advanced neural models like VirtuosoNet \cite{jeong2019} generate expressive MIDI performances.
+Performance worm visualizations \cite{goebl2008} elegantly illustrate tempo-dynamics relationships, and recent work on performance analysis \cite{cancino2018} uses statistical modeling to understand expression patterns.
+However, these sophisticated analytical frameworks systematically fail to generate actionable prescriptions from their analyses, leaving a critical gap between musical understanding and pedagogical application.
+We bridge this fundamental limitation by comparing student curves against professional targets and prescribing specific, quantified adjustments: "increase crescendo rate by +0.6 dB/beat in m.20-22 to match target interpretation," transforming analytical insights into actionable coaching guidance.
+
+\subsection{Visual Feedback Without Quantified Corrections}
+Music interfaces excel at highlighting problem areas but lack prescription specificity.
+Piano Tutor \cite{dannenberg2013} colors notes by timing accuracy.
+Attention-based systems like Wav2MusicAnalysis \cite{kawamura2021uist} highlight important passages.
+P.I.A.N.O. \cite{oshima2021} provides real-time visual feedback on hand posture.
+These systems show where to focus but not what to change or by how much.
+Our interface extends visualization with quantified prescriptions displayed directly on scores with confidence indicators.
+
+\subsection{Validation Without User Studies}
+Synthetic data enables objective validation \cite{giraldo2019}.
+Contrastive learning approaches validate through held-out performance matching.
+Three layers validate: synthetic recovery, simulated improvement, external judges.
+
+
+\subsection{Gap Analysis: The Missing Prescription Layer}
+Our systematic analysis reveals a critical gap in existing music education technology: while systems excel at error detection and expressive analysis, none bridge the crucial transition from diagnosis to actionable correction.
+Table 1 demonstrates this gap through capability comparison across eight dimensions, highlighting that existing systems consistently lack prescription quantification and specificity.
+This work addresses this fundamental limitation by establishing prescription generation as a new paradigm in automated music coaching, transforming diagnostic capabilities into actionable, quantified guidance that empowers learners to achieve measurable improvement through specific corrective actions.

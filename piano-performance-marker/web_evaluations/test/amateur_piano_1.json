@@ -1,0 +1,22 @@
+{
+  "evaluation_id": "eval_1758305126481",
+  "evaluator": "test",
+  "audio_filename": "amateur_piano_1.wav",
+  "audio_display": "amateur_piano_1.wav",
+  "audio_file": "amateur_piano_1.wav",
+  "audio_index": 1,
+  "duration": 8.96,
+  "total_score": 5.5,
+  "problem_sections": [
+    {
+      "start": 1.9,
+      "end": 2.2
+    },
+    {
+      "start": 2.8,
+      "end": 4.2
+    }
+  ],
+  "evaluation_time": 1758305126481,
+  "timestamp": "2025-09-19T18:05:26.481Z"
+}

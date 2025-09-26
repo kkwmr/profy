@@ -1,0 +1,129 @@
+\subsection{General musical skill assessment}
+\begin{table*}[h!]
+  \caption{Detailed description of musical skill dataset per group.}
+  \begin{tabular}{c|p{5cm}ccc}
+    \toprule
+    Group & Description & Participant & Performances & Skillful performances (\%) \\
+    \midrule
+    A     & Top performers globally or domestically & 6 & 42 & 29 (69.0\%)\\ \hline
+    B     & Middle or top performers \newline at high-ranked universities of the arts & 5 & 35 & 27 (77.1\%)\\ \hline
+    C     & Middle or top performers \newline at middle-ranked universities of the arts & 6 & 42 & 21 (50.0\%)\\ \hline
+    D     & Middle performers \newline at middle-ranked universities of the arts & 6 & 42 & 8 (19.0\%)\\ \hline
+  \end{tabular}
+  \label{skill_dataset_group_details}
+\end{table*}
+% \begin{table*}[h]
+% \begin{longtblr}[
+% caption = {Detailed description of musical skill dataset per group.},
+% label = {tab:skill_dataset_group_details}]{ 
+%     colspec = {X[0.4,c,m] X[c,j] X[c,m] X[c,m] X[c,m]},
+%     rowhead = 1,
+%     % row{1} = {font=\bfseries, bg=white},
+% }
+%     Group & Description  & Participant & Performances & Skillful \newline performances (\%) \\ \hline
+%     A     & Top performers globally or in Japan & 6 & 42 & 29 (69.0\%)\\ \hline
+%     B     & Middle or top performers at high-ranked universities of the arts & 5 & 35 & 27 (77.1\%)\\ \hline
+%     C     & Middle or top performers at middle-ranked universities of the arts & 6 & 42 & 21 (50.0\%)\\ \hline
+%     D     & Middle performers at middle-ranked universities of the arts & 6 & 42 & 8 (19.0\%)  \\ \hline
+% \end{longtblr}
+% \end{table*}
+
+\begin{table*}[h!]
+  \caption{List of musical pieces for musical skill assessment.}
+  \begin{tabular}{l|lcc}
+    \toprule
+    Piece & Details & Duration mean (secs) & Duration std \\
+    \midrule
+    Hanon: No.1     & first 4 bars & 6.65 & 0.29\\ \hline
+    Chopin: Etude Op.10-8     & first 2 bars & 6.19 & 0.27\\ \hline
+    Chopin: Etude Op.10-12     & first 3 bars & 6.02 & 0.23\\ \hline
+    J. S. Bach: Well-Tempered Clavier, Book 1 No.1 prelude     & first 4 bars & 16.58 & 0.64\\ \hline
+    J. S. Bach: Well-Tempered Clavier, Book 1 No.1 prelude     & first 2 bars & 5.34 & 0.20 \\ \hline
+    Beethoven: Sonate No.21     & 23rd and 24th bars & 5.41 & 0.35 \\ \hline
+    Mozart: Sonate No.16 kv.545     & first 6 bars & 12.57 & 0.36\\ \hline
+  \end{tabular}
+  \label{skill_dataset_song}
+\end{table*}
+
+\subsubsection*{Musical skill dataset}
+We enlisted 23 pianists from four distinct groups based on their general proficiency in piano performance. 
+Their ages range from 19 to 40, with the majority being female, except for six male pianists. 
+Their piano performance experience spanned 13 to 34 years, and all of them have an educational background in music. 
+Nearly all of them, with the exception of three pianists, have experience winning prizes at international or domestic piano competitions. 
+We provide detailed information about each group in Table \ref{skill_dataset_group_details}.
+
+\subsubsection*{Musical pieces for musical skill assessment}
+We chose seven pieces from the classical piano repertoire based on their varying levels of difficulty, in order to differentiate between various expertise levels in piano performance.
+We provide a list of the selected pieces for the musical skill dataset and their details in Table \ref{skill_dataset_song}.
+
+We asked the pianists to perform seven different pieces three times each.
+We also instructed the pianists to play each piece at a specified tempo, ensuring that the duration of each performance remained consistent.
+Among the three different performance of each piece, we included to the dataset the performances that the pianists themselves rated as their best. 
+As a result, with 23 pianists playing each of the seven pieces, our musical skill dataset comprises 161 recorded performances. 
+
+All of the recordings of the performance experiment were conducted in the soundproof room with the piano in Figure \ref{recording_env}.
+The recordings of the piano performances were made at a sampling rate of 44.1 kHz. 
+Several recordings of the performances are included in our supplementary video.
+
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=0.8\linewidth]{figures/soundproof_room_2219.png}
+%   \caption{Soundproof room where we recorded all of the performances.}
+%   \Description{}
+%   \label{soundproof_room}
+% \end{figure}
+% \begin{figure}[h]
+%   \centering
+%   \includegraphics[width=0.8\linewidth]{figures/hackey_2222.png}
+%   \caption{The piano we used for all of our performance experiments.}
+%   \Description{}
+%   \label{hackey}
+% \end{figure}
+% \begin{figure}{h}
+%      \centering
+%      \begin{subfigure}[b]{0.3\textwidth}
+%          \centering
+%          \includegraphics[width=\textwidth]{figures/soundproof_room_2219.png}
+%          \caption{Soundproof room where we recorded all of the performances.}
+%          \label{fig:soundproof_room}
+%      \end{subfigure}
+%      \hfill
+%      \begin{subfigure}[b]{\textwidth}
+%          \centering
+%          \includegraphics[width=\textwidth]{figures/hackey_2222.png}
+%          \caption{}
+%          \label{fig:hackey}
+%      \end{subfigure}
+%      \label{recording}
+%  \end{figure}
+\begin{figure}[h]
+  \centering
+  \includegraphics[width=\linewidth]{figures/recording_env.png}
+  \caption{(Left) Soundproof room where we recorded all of the performances. (Right) The piano we used for all of our performance experiments.}
+  \Description{}
+  \label{recording_env}
+\end{figure}
+
+\subsubsection*{Labeling of the musical skill dataset}
+We enlisted six additional pianists, separate from those who participated in the performance experiment, to listen to the recorded performances and assess their skillfulness. 
+Their profiles closely resembled those of the pianists involved in the performance experiments: Their ages range from 25 to 32, and the majority are female, with one male pianist. 
+Their piano performance experience spanned 20 to 26 years, and all have an educational background in music. 
+Furthermore, each of them has experience of winning prizes at either international or domestic piano competitions, or both.
+
+We instructed them to listen through all of the performances once, then listen again for a more accurate assessment. 
+They rated the performances on a five-point scale, with one representing "very non-skillful" and five signifying "very skillful." Based on these ratings, we re-labeled the performance assessments as binary - skillful or non-skillful - by categorizing performances with a rating greater than three as skillful and the others as non-skillful. 
+We present the details of the skillful label for each group in the rightmost column of Table \ref{skill_dataset_group_details}.
+
+
+\subsubsection*{Model Training for musical skill assessment}
+As pre-processing of our dataset, we resampled the recordings to 16 kHz as wav2vec 2.0 is pre-trained at a sampling rate of 16 kHz.
+Furthermore, we truncated the audio data of the performances to a duration of 6 seconds.
+
+We employed a 4-Fold cross-validation method to divide our musical skill dataset into training and validation sets. 
+This process involved selecting six pianists (except for one fold with five pianists) and using all their performances as the validation set, while the performances of the remaining pianists served as the training set. 
+We repeated this procedure four times, ultimately generating four distinct models trained to analyze general musical skills in piano performance.
+
+We initiated the training of our models using the initial weights of the wav2vec 2.0 base model. 
+Subsequently, we fine-tuned it on our musical skill dataset for 100 epochs. 
+We set the batch size to 32 and set a constant learning rate to 3e-6 throughout the training process. 
+We trained the models using an NVIDIA V100 GPU.

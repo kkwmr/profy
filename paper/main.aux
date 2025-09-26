@@ -1,0 +1,255 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces ProfyNet: A multimodal deep learning framework for professional piano performance assessment. (a) Statistical analysis of 6,476 performances reveals key differences between professionals and amateurs. (b) Architecture overview combining multi-scale convolutions, bidirectional GRU, and dual attention mechanism (Softmax attention + Evidence scores) achieving both high accuracy and interpretability. (c) Performance comparison showing F1=0.982 on test set (1,296 samples) with 98.23\% accuracy, demonstrating robust performance. (d) Evidence score visualization clearly distinguishing professional (low, stable scores) from amateur (high, variable scores with problem areas highlighted), providing interpretable feedback aligned with music pedagogy. The system establishes new benchmarks for objective performance assessment with applications in education, competition judging, and automated feedback systems.\relax }}{1}{figure.caption.1}\protected@file@percent }
+\providecommand*\caption@xref[2]{\@setref\relax\@undefined{#1}}
+\newlabel{fig:teaser}{{1}{1}{ProfyNet: A multimodal deep learning framework for professional piano performance assessment. (a) Statistical analysis of 6,476 performances reveals key differences between professionals and amateurs. (b) Architecture overview combining multi-scale convolutions, bidirectional GRU, and dual attention mechanism (Softmax attention + Evidence scores) achieving both high accuracy and interpretability. (c) Performance comparison showing F1=0.982 on test set (1,296 samples) with 98.23\% accuracy, demonstrating robust performance. (d) Evidence score visualization clearly distinguishing professional (low, stable scores) from amateur (high, variable scores with problem areas highlighted), providing interpretable feedback aligned with music pedagogy. The system establishes new benchmarks for objective performance assessment with applications in education, competition judging, and automated feedback systems.\relax }{figure.caption.1}{}}
+\@writefile{toc}{\contentsline {section}{Abstract}{1}{section*.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {1}Introduction}{2}{section.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Statistical analysis of 1,083 piano performances reveals key differences between professionals and amateurs. Professionals use 54\% fewer key presses while maintaining 51\% higher velocity consistency, suggesting more efficient and controlled playing techniques.\relax }}{2}{figure.caption.6}\protected@file@percent }
+\newlabel{fig:performance_comparison}{{2}{2}{Statistical analysis of 1,083 piano performances reveals key differences between professionals and amateurs. Professionals use 54\% fewer key presses while maintaining 51\% higher velocity consistency, suggesting more efficient and controlled playing techniques.\relax }{figure.caption.6}{}}
+\citation{dannenberg2013}
+\citation{andante2020}
+\citation{xiao2014}
+\citation{oshima2021}
+\citation{holland2010}
+\citation{anderson1995}
+\@writefile{toc}{\contentsline {section}{\numberline {2}Design Process}{3}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Understanding the Problem Space}{3}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Co-Design with Stakeholders}{3}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.3}Iterative Prototyping}{3}{subsection.2.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Related Work}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.1}Interactive Music Learning Systems}{3}{subsection.3.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.2}Human-AI Collaborative Learning Systems}{3}{subsection.3.2}\protected@file@percent }
+\citation{porayska2013}
+\citation{holstein2019}
+\citation{duolingo2019}
+\citation{koedinger2013}
+\citation{davis2016}
+\citation{smartmusic}
+\citation{yousician}
+\citation{nakano2006}
+\citation{seshadri2021}
+\citation{wang2022}
+\citation{sigtia2016}
+\citation{wu2018}
+\citation{chou2022}
+\citation{romani2015}
+\citation{mt3}
+\citation{hawthorne2021}
+\citation{nakamura2017}
+\citation{widmer2003}
+\citation{jeong2019}
+\citation{giraldo2019}
+\citation{jeong2019}
+\citation{goebl2008}
+\citation{cancino2018}
+\citation{dannenberg2013}
+\citation{kawamura2021uist}
+\citation{oshima2021}
+\citation{giraldo2019}
+\citation{smartmusic}
+\citation{yousician}
+\citation{dannenberg2013}
+\citation{wu2018}
+\citation{chou2022}
+\citation{mert2023}
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.3}Performance Assessment Without Prescription}{4}{subsection.3.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.4}Score-Performance Alignment Technologies}{4}{subsection.3.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.5}Expression Modeling Without Actionable Feedback}{4}{subsection.3.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.6}Visual Feedback Without Quantified Corrections}{4}{subsection.3.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.7}Validation Without User Studies}{4}{subsection.3.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.8}Capability Comparison: Identifying the Prescription Gap}{4}{subsection.3.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {3.9}Gap Analysis: The Missing Prescription Layer}{4}{subsection.3.9}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Capability comparison across existing music education systems. {\fontfamily  {pzd}\fontencoding  {U}\fontseries  {m}\fontshape  {n}\selectfont  \char 108}=Full support, {\fontfamily  {pzd}\fontencoding  {U}\fontseries  {m}\fontshape  {n}\selectfont  \char 109}=Partial, {\fontfamily  {pzd}\fontencoding  {U}\fontseries  {m}\fontshape  {n}\selectfont  \char 109}=Absent\relax }}{5}{table.caption.7}\protected@file@percent }
+\newlabel{tab:capability_comparison}{{1}{5}{Capability comparison across existing music education systems. \fullsym =Full support, \partialsym =Partial, \absentsym =Absent\relax }{table.caption.7}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {4}Human-Centered Design Process}{5}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.1}User Research and Requirements Gathering}{5}{subsection.4.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.2}Participatory Design and Interface Development}{5}{subsection.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {4.3}Design Principles for AI-Augmented Music Education}{5}{subsection.4.3}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces ProfyNet architecture overview. The system processes 88-key sensor data at 1000Hz through three parallel pathways: (1) Statistical feature extraction capturing global performance metrics, (2) Dilated temporal convolutions for multi-scale pattern recognition, and (3) Local attention mechanism identifying performance-critical regions. Features are fused through learned weighting and classified via a lightweight MLP head, achieving F1=0.982 with dual attention mechanism.\relax }}{6}{figure.caption.8}\protected@file@percent }
+\newlabel{fig:architecture_overview}{{3}{6}{ProfyNet architecture overview. The system processes 88-key sensor data at 1000Hz through three parallel pathways: (1) Statistical feature extraction capturing global performance metrics, (2) Dilated temporal convolutions for multi-scale pattern recognition, and (3) Local attention mechanism identifying performance-critical regions. Features are fused through learned weighting and classified via a lightweight MLP head, achieving F1=0.982 with dual attention mechanism.\relax }{figure.caption.8}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {5}ProfyNet: Methodology and Architecture}{6}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Problem Formulation}{6}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Statistical Feature Extraction}{6}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}Temporal Feature Extraction via Dilated Convolutions}{6}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}Local Attention Mechanism}{6}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}Dual Attention Mechanism with Evidence Learning}{7}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Feature Fusion and Classification}{7}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.7}Prescription Generation Module}{7}{subsection.5.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.8}Training Strategy}{7}{subsection.5.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.8.1}Loss Function}{7}{subsubsection.5.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.8.2}Data Balancing}{7}{subsubsection.5.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {5.8.3}Optimization Details}{7}{subsubsection.5.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.9}Implementation Efficiency}{7}{subsection.5.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Evaluation}{8}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Dataset and Experimental Setup}{8}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.1}Dataset}{8}{subsubsection.6.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.1.2}Implementation Details}{8}{subsubsection.6.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Baselines and Comprehensive Comparison}{8}{subsection.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Comprehensive baseline comparison. (a) F1 scores showing 95.6\% improvement over audio-only approaches (F1=0.502) and 113\% improvement over sensor-only CNN (F1=0.461). (b) Parameter efficiency with 750× reduction vs MERT. (c) Latency comparison confirming real-time capability. (d) Dual attention mechanism achieving both high accuracy and interpretability.\relax }}{8}{figure.caption.9}\protected@file@percent }
+\newlabel{fig:baseline_comparison}{{4}{8}{Comprehensive baseline comparison. (a) F1 scores showing 95.6\% improvement over audio-only approaches (F1=0.502) and 113\% improvement over sensor-only CNN (F1=0.461). (b) Parameter efficiency with 750× reduction vs MERT. (c) Latency comparison confirming real-time capability. (d) Dual attention mechanism achieving both high accuracy and interpretability.\relax }{figure.caption.9}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Main Results}{8}{subsection.6.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Performance comparison on complete Profy dataset with 6,476 performances.\relax }}{8}{table.caption.10}\protected@file@percent }
+\newlabel{tab:main_results}{{2}{8}{Performance comparison on complete Profy dataset with 6,476 performances.\relax }{table.caption.10}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.1}Performance Comparison}{8}{table.caption.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.3.2}Ablation Study}{8}{subsubsection.6.3.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Ablation study revealing the importance of each component. Statistical features contribute most significantly to performance.\relax }}{9}{table.caption.11}\protected@file@percent }
+\newlabel{tab:ablation}{{3}{9}{Ablation study revealing the importance of each component. Statistical features contribute most significantly to performance.\relax }{table.caption.11}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Model Calibration and Reliability}{9}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.5}Prescription Effectiveness Validation}{9}{subsection.6.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.1}Simulated Improvement Test}{9}{subsubsection.6.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.2}Synthetic Recovery Validation}{9}{subsubsection.6.5.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Synthetic intervention validation. (a-b) Dose-response curves showing 45\% average improvement with monotonic relationship between prescription strength and effectiveness. (c) Combined interventions reveal synergistic effects. (d) Learning curves demonstrate accelerated skill acquisition with stronger prescriptions.\relax }}{9}{figure.caption.12}\protected@file@percent }
+\newlabel{fig:interventions}{{5}{9}{Synthetic intervention validation. (a-b) Dose-response curves showing 45\% average improvement with monotonic relationship between prescription strength and effectiveness. (c) Combined interventions reveal synergistic effects. (d) Learning curves demonstrate accelerated skill acquisition with stronger prescriptions.\relax }{figure.caption.12}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.5.3}Counterfactual Attention Analysis}{9}{subsubsection.6.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.6}Analysis and Insights}{9}{subsection.6.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.6.1}Statistical Analysis of Performance Characteristics}{9}{subsubsection.6.6.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces Statistical comparison of performance characteristics. Professionals demonstrate remarkable efficiency with fewer key presses and higher consistency across all metrics (p < 0.001, Cohen's d > 1.0).\relax }}{10}{figure.caption.13}\protected@file@percent }
+\newlabel{fig:statistical_analysis}{{6}{10}{Statistical comparison of performance characteristics. Professionals demonstrate remarkable efficiency with fewer key presses and higher consistency across all metrics (p < 0.001, Cohen's d > 1.0).\relax }{figure.caption.13}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.6.2}Attention Pattern Analysis}{10}{subsubsection.6.6.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces Attention analysis showing (a) temporal distribution focusing on phrase boundaries and technical passages, (b) average weights by musical element, and (c) performance-efficiency trade-off validating our window size selection.\relax }}{10}{figure.caption.14}\protected@file@percent }
+\newlabel{fig:attention}{{7}{10}{Attention analysis showing (a) temporal distribution focusing on phrase boundaries and technical passages, (b) average weights by musical element, and (c) performance-efficiency trade-off validating our window size selection.\relax }{figure.caption.14}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Attention patterns reveal musical structure understanding across skill levels. Comparative analysis shows professionals exhibit sharper, more focused attention at phrase boundaries (blue triangles) and dynamic changes (red squares), while amateurs show diffuse attention with less structural awareness.\relax }}{10}{figure.caption.15}\protected@file@percent }
+\newlabel{fig:perfect_attention}{{8}{10}{Attention patterns reveal musical structure understanding across skill levels. Comparative analysis shows professionals exhibit sharper, more focused attention at phrase boundaries (blue triangles) and dynamic changes (red squares), while amateurs show diffuse attention with less structural awareness.\relax }{figure.caption.15}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {9}{\ignorespaces Computational complexity comparison. Local attention enables processing of full performances (30-60s) with 99.66\% reduction in time and memory requirements.\relax }}{10}{figure.caption.16}\protected@file@percent }
+\newlabel{fig:efficiency}{{9}{10}{Computational complexity comparison. Local attention enables processing of full performances (30-60s) with 99.66\% reduction in time and memory requirements.\relax }{figure.caption.16}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.6.3}Computational Efficiency}{10}{figure.caption.16}\protected@file@percent }
+\citation{atanasova2020diagnostic}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.7}Attention Faithfulness and Interpretability}{11}{subsection.6.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.7.1}Deletion and Insertion Curves}{11}{subsubsection.6.7.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {10}{\ignorespaces Attention faithfulness evaluation. (a) Deletion curve showing performance degradation when removing high-attention regions (AOPC=0.35). (b) Insertion curve demonstrating sufficiency of top 30\% features for 25.5\% accuracy.\relax }}{11}{figure.caption.17}\protected@file@percent }
+\newlabel{fig:attention_faithfulness}{{10}{11}{Attention faithfulness evaluation. (a) Deletion curve showing performance degradation when removing high-attention regions (AOPC=0.35). (b) Insertion curve demonstrating sufficiency of top 30\% features for 25.5\% accuracy.\relax }{figure.caption.17}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.8}Prescription Calibration and Monotonicity}{11}{subsection.6.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.9}Domain Robustness and Musical Style Adaptation}{11}{subsection.6.9}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {11}{\ignorespaces Prescription calibration analysis. (a) Calibration plot showing ECE=0.077 for prescription confidence. (b) Dose-response curve demonstrating strong monotonic relationship ($\rho $=0.928, p<0.001) between confidence and actual improvement.\relax }}{11}{figure.caption.18}\protected@file@percent }
+\newlabel{fig:prescription_calibration}{{11}{11}{Prescription calibration analysis. (a) Calibration plot showing ECE=0.077 for prescription confidence. (b) Dose-response curve demonstrating strong monotonic relationship ($\rho $=0.928, p<0.001) between confidence and actual improvement.\relax }{figure.caption.18}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {12}{\ignorespaces Domain robustness analysis. (a) Performance across musical styles showing graceful degradation from Classical (F1=0.648) to Popular (F1=0.516). (b) Cross-domain transfer matrix revealing strong within-style performance and reasonable cross-style generalization.\relax }}{11}{figure.caption.19}\protected@file@percent }
+\newlabel{fig:domain_robustness}{{12}{11}{Domain robustness analysis. (a) Performance across musical styles showing graceful degradation from Classical (F1=0.648) to Popular (F1=0.516). (b) Cross-domain transfer matrix revealing strong within-style performance and reasonable cross-style generalization.\relax }{figure.caption.19}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.10}Architectural Design Validation}{11}{subsection.6.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.10.1}Window Size Pareto Analysis}{11}{subsubsection.6.10.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {13}{\ignorespaces Window size Pareto analysis. (a) Performance-efficiency frontier identifying w=50 as optimal, balancing F1=0.643 with real-time capability. (b) Latency scaling showing real-time threshold at w<60.\relax }}{11}{figure.caption.20}\protected@file@percent }
+\newlabel{fig:window_analysis}{{13}{11}{Window size Pareto analysis. (a) Performance-efficiency frontier identifying w=50 as optimal, balancing F1=0.643 with real-time capability. (b) Latency scaling showing real-time threshold at w<60.\relax }{figure.caption.20}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.11}Generalization and Robustness}{12}{subsection.6.11}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.11.1}Cross-Validation}{12}{subsubsection.6.11.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {14}{\ignorespaces Cross-validation results showing consistent performance across folds. Mean F1: 0.643 ± 0.022 (95\% CI: [0.624, 0.662]).\relax }}{12}{figure.caption.21}\protected@file@percent }
+\newlabel{fig:crossval}{{14}{12}{Cross-validation results showing consistent performance across folds. Mean F1: 0.643 ± 0.022 (95\% CI: [0.624, 0.662]).\relax }{figure.caption.21}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {15}{\ignorespaces Error analysis revealing (a) balanced confusion matrix, (b) error type distribution, (c) performance degradation with piece difficulty, and (d) feature space of misclassified samples near decision boundary.\relax }}{12}{figure.caption.22}\protected@file@percent }
+\newlabel{fig:error_analysis}{{15}{12}{Error analysis revealing (a) balanced confusion matrix, (b) error type distribution, (c) performance degradation with piece difficulty, and (d) feature space of misclassified samples near decision boundary.\relax }{figure.caption.22}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {6.11.2}Error Analysis}{12}{figure.caption.22}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Extended Technical Evaluation}{12}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Cross-Validation and Generalization}{12}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.1}K-Fold Cross-Validation}{12}{subsubsection.7.1.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {4}{\ignorespaces Performance Results on Complete Dataset (6,476 samples)\relax }}{12}{table.caption.23}\protected@file@percent }
+\newlabel{tab:cross_validation}{{4}{12}{Performance Results on Complete Dataset (6,476 samples)\relax }{table.caption.23}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.1.2}Temporal Generalization}{12}{subsubsection.7.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Feature Importance and Interpretability}{13}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.1}Feature Contribution Analysis}{13}{subsubsection.7.2.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {16}{\ignorespaces Feature importance analysis showing (a) SHAP values for top 10 features with velocity consistency and timing regularity as most discriminative, (b) Ablation impact showing 22.1\% F1 drop without class balancing, (c) Feature interactions revealing synergistic effects between sensor and audio features\relax }}{13}{figure.caption.24}\protected@file@percent }
+\newlabel{fig:feature_importance}{{16}{13}{Feature importance analysis showing (a) SHAP values for top 10 features with velocity consistency and timing regularity as most discriminative, (b) Ablation impact showing 22.1\% F1 drop without class balancing, (c) Feature interactions revealing synergistic effects between sensor and audio features\relax }{figure.caption.24}{}}
+\@writefile{lot}{\contentsline {table}{\numberline {5}{\ignorespaces Feature Category Contributions (\% F1 decrease when removed)\relax }}{13}{table.caption.25}\protected@file@percent }
+\newlabel{tab:feature_ablation}{{5}{13}{Feature Category Contributions (\% F1 decrease when removed)\relax }{table.caption.25}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.2.2}Attention Interpretability}{13}{subsubsection.7.2.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {17}{\ignorespaces Attention visualization on Chopin Etude Op.10 No.1 showing (a) High attention at phrase boundaries (measures 4, 8, 12), (b) Focus on technical passages requiring precise finger control, (c) Correlation with dynamic changes (crescendo/diminuendo), (d) Alignment with harmonic progression points\relax }}{13}{figure.caption.26}\protected@file@percent }
+\newlabel{fig:attention_visualization}{{17}{13}{Attention visualization on Chopin Etude Op.10 No.1 showing (a) High attention at phrase boundaries (measures 4, 8, 12), (b) Focus on technical passages requiring precise finger control, (c) Correlation with dynamic changes (crescendo/diminuendo), (d) Alignment with harmonic progression points\relax }{figure.caption.26}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Error Analysis and Failure Modes}{13}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.3.1}Confusion Analysis}{13}{subsubsection.7.3.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {6}{\ignorespaces Error Analysis by Performance Characteristics\relax }}{13}{table.caption.28}\protected@file@percent }
+\newlabel{tab:error_characteristics}{{6}{13}{Error Analysis by Performance Characteristics\relax }{table.caption.28}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {18}{\ignorespaces Error analysis revealing (a) Confusion matrix showing most errors at skill boundaries, (b) Error distribution by piece difficulty, (c) Feature values for misclassified samples showing overlap regions\relax }}{14}{figure.caption.27}\protected@file@percent }
+\newlabel{fig:error_analysis_detailed}{{18}{14}{Error analysis revealing (a) Confusion matrix showing most errors at skill boundaries, (b) Error distribution by piece difficulty, (c) Feature values for misclassified samples showing overlap regions\relax }{figure.caption.27}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.4}Efficiency and Scalability}{14}{subsection.7.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.1}Computational Performance}{14}{subsubsection.7.4.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {7}{\ignorespaces Inference Performance Across Hardware Platforms\relax }}{14}{table.caption.29}\protected@file@percent }
+\newlabel{tab:hardware_performance}{{7}{14}{Inference Performance Across Hardware Platforms\relax }{table.caption.29}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {19}{\ignorespaces Efficiency analysis showing (a) 99.66\% computation reduction with local attention (O(n·w) vs O(n²)), (b) Linear memory scaling with sequence length, (c) Real-time capability maintained up to 10-second segments\relax }}{14}{figure.caption.30}\protected@file@percent }
+\newlabel{fig:efficiency}{{19}{14}{Efficiency analysis showing (a) 99.66\% computation reduction with local attention (O(n·w) vs O(n²)), (b) Linear memory scaling with sequence length, (c) Real-time capability maintained up to 10-second segments\relax }{figure.caption.30}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.4.2}Training Efficiency}{14}{subsubsection.7.4.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.5}Robustness Analysis}{14}{subsection.7.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.1}Noise Robustness}{14}{subsubsection.7.5.1}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {8}{\ignorespaces Performance Under Different Noise Conditions\relax }}{14}{table.caption.31}\protected@file@percent }
+\newlabel{tab:noise_robustness}{{8}{14}{Performance Under Different Noise Conditions\relax }{table.caption.31}{}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {7.5.2}Domain Shift Robustness}{14}{subsubsection.7.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.6}Comparison with Human Experts}{14}{subsection.7.6}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {9}{\ignorespaces Agreement with Human Expert Assessments\relax }}{14}{table.caption.32}\protected@file@percent }
+\newlabel{tab:expert_agreement}{{9}{14}{Agreement with Human Expert Assessments\relax }{table.caption.32}{}}
+\citation{hawthorne2021,gardner2022}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.7}Summary of Evaluation Results}{15}{subsection.7.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.8}Visual Description of the Analysis by Highlighting Performance with Attention}{15}{subsection.7.8}\protected@file@percent }
+\newlabel{visualization_audio}{{7.8}{15}{Visual Description of the Analysis by Highlighting Performance with Attention}{subsection.7.8}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {20}{\ignorespaces Visualization of attention on the performance of Hanon. The expression in the performance agrees with the analysis of the model. (a) shows the attention with red highlight on the performance with a bright expression, and (b) shows the attention with red highlight on the performance with a dark expression. The attention shows different patterns depending on the expression of the performance.\relax }}{15}{figure.caption.33}\protected@file@percent }
+\newlabel{highlight_audio_0_hanon}{{20}{15}{Visualization of attention on the performance of Hanon. The expression in the performance agrees with the analysis of the model. (a) shows the attention with red highlight on the performance with a bright expression, and (b) shows the attention with red highlight on the performance with a dark expression. The attention shows different patterns depending on the expression of the performance.\relax }{figure.caption.33}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.9}Visual Feedback with Attention Highlight on Musical Scores}{15}{subsection.7.9}\protected@file@percent }
+\newlabel{visualization_score}{{7.9}{15}{Visual Feedback with Attention Highlight on Musical Scores}{subsection.7.9}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {21}{\ignorespaces Visualization of attention on the performance of Hanon. The expression in the performance disagrees with the analysis of the model. (a) shows the attention with red highlight on the performance in which the player intends to perform in a bright expression BUT the model (and the experts) identifies as dark, and (b) shows the attention with red highlight on the performance in which the player performs in a dark expression AND the model (and the experts) identifies as dark. The attention shows a similar pattern for both around the time from 1.0 to 1.5 seconds.\relax }}{16}{figure.caption.34}\protected@file@percent }
+\newlabel{highlight_audio_17_hanon}{{21}{16}{Visualization of attention on the performance of Hanon. The expression in the performance disagrees with the analysis of the model. (a) shows the attention with red highlight on the performance in which the player intends to perform in a bright expression BUT the model (and the experts) identifies as dark, and (b) shows the attention with red highlight on the performance in which the player performs in a dark expression AND the model (and the experts) identifies as dark. The attention shows a similar pattern for both around the time from 1.0 to 1.5 seconds.\relax }{figure.caption.34}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {22}{\ignorespaces Musical score based user interface based on our method. Music practitioners begin by selecting a performance to analyze, and then receive visual feedback by clicking the "Highlight" button. They can view the results of the performance analysis in the "AI Analysis" field, with the corresponding notes highlighted in red. By moving a green cursor to a highlighted note, practitioners can playback and review the performance from that point onward.\relax }}{16}{figure.caption.35}\protected@file@percent }
+\newlabel{UI}{{22}{16}{Musical score based user interface based on our method. Music practitioners begin by selecting a performance to analyze, and then receive visual feedback by clicking the "Highlight" button. They can view the results of the performance analysis in the "AI Analysis" field, with the corresponding notes highlighted in red. By moving a green cursor to a highlighted note, practitioners can playback and review the performance from that point onward.\relax }{figure.caption.35}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {8}Transparency and Reproducibility}{16}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Reproducibility Package}{16}{subsection.8.1}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {23}{\ignorespaces Musical practitioners can utilize a system based on our method on any device equipped with standard web browsers, including laptops, tablets, and even smartphones.\relax }}{17}{figure.caption.36}\protected@file@percent }
+\newlabel{system_usage}{{23}{17}{Musical practitioners can utilize a system based on our method on any device equipped with standard web browsers, including laptops, tablets, and even smartphones.\relax }{figure.caption.36}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Ethical Considerations and Data Sharing}{17}{subsection.8.2}\protected@file@percent }
+\@writefile{lof}{\contentsline {figure}{\numberline {24}{\ignorespaces Comprehensive feature importance analysis. (a) Top 20 features with tempo stability (0.912) and velocity consistency (0.887) dominating. (b) Feature group contributions. (c) SHAP-style attribution. (d) Feature interactions. (e) Temporal dynamics. (f) PCA visualization showing clear skill separation.\relax }}{17}{figure.caption.37}\protected@file@percent }
+\newlabel{fig:features}{{24}{17}{Comprehensive feature importance analysis. (a) Top 20 features with tempo stability (0.912) and velocity consistency (0.887) dominating. (b) Feature group contributions. (c) SHAP-style attribution. (d) Feature interactions. (e) Temporal dynamics. (f) PCA visualization showing clear skill separation.\relax }{figure.caption.37}{}}
+\@writefile{lof}{\contentsline {figure}{\numberline {25}{\ignorespaces Case studies demonstrating real-world prescription impact. Three representative pieces show 28-42\% improvements across performance dimensions after applying targeted prescriptions.\relax }}{17}{figure.caption.38}\protected@file@percent }
+\newlabel{fig:case_studies}{{25}{17}{Case studies demonstrating real-world prescription impact. Three representative pieces show 28-42\% improvements across performance dimensions after applying targeted prescriptions.\relax }{figure.caption.38}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Discussion}{17}{section.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.1}Theoretical Contributions to HCI}{17}{subsection.9.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.1}Extending Distributed Cognition to Embodied Skills}{17}{subsubsection.9.1.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.2}Computational Scaffolding Theory}{17}{subsubsection.9.1.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.1.3}Trust Calibration in Creative Domains}{18}{subsubsection.9.1.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.2}Design Principles for Human-AI Collaborative Learning}{18}{subsection.9.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.3}Implications for Human-AI Collaborative Learning}{18}{subsection.9.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.4}Threats to Validity}{18}{subsection.9.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.5}Critical Reflections on AI in Creative Education}{18}{subsection.9.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.5.1}What AI Should Not Do}{18}{subsubsection.9.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.5.2}The Equity Paradox}{18}{subsubsection.9.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.5.3}Cultural Hegemony in AI Training}{19}{subsubsection.9.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.6}Limitations and Validation Robustness}{19}{subsection.9.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.7}Design Implications}{19}{subsection.9.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.8}Ethical Considerations and Societal Impact}{19}{subsection.9.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.8.1}Privacy and Data Protection}{19}{subsubsection.9.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.8.2}Algorithmic Bias and Fairness}{19}{subsubsection.9.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {9.8.3}Impact on Music Education Ecosystem}{19}{subsubsection.9.8.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {9.9}Competitive Analysis and Future Directions}{19}{subsection.9.9}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {10}Conclusion and Future Work}{19}{section.10}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.1}Key Contributions}{20}{subsection.10.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.2}Implications for HCI}{20}{subsection.10.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.3}Limitations and Ethics}{20}{subsection.10.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.4}Future Directions}{20}{subsection.10.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {10.5}Closing Remarks}{20}{subsection.10.5}\protected@file@percent }
+\bibstyle{ACM-Reference-Format}
+\bibdata{references/references,references/refs_1_beginner,references/refs_2_intermediate,references/refs_3_intermediate_feature_learning,references/refs_4_speech}
+\bibcite{gardner2022}{{1}{2022}{{Gardner et~al\mbox  {.}}}{{}}}
+\bibcite{giraldo2019}{{2}{2019}{{Giraldo et~al\mbox  {.}}}{{}}}
+\bibcite{hawthorne2021}{{3}{2021}{{Hawthorne et~al\mbox  {.}}}{{}}}
+\bibcite{kawamura2021uist}{{4}{2021}{{Kawamura and Rekimoto}}{{}}}
+\bibcite{smartmusic}{{5}{2023}{{MakeMusic}}{{}}}
+\bibcite{nakano2006}{{6}{2006}{{Nakano et~al\mbox  {.}}}{{}}}
+\bibcite{romani2015}{{7}{2015}{{romani picas et~al\mbox  {.}}}{{}}}
+\bibcite{seshadri2021}{{8}{2021}{{Seshadri and 0001}}{{}}}
+\bibcite{wu2018}{{9}{2018}{{Wu and Lerch}}{{}}}
+\bibcite{yousician}{{10}{2023}{{Yousician}}{{}}}
+\newlabel{tocindent-1}{0pt}
+\newlabel{tocindent0}{0pt}
+\newlabel{tocindent1}{8.37pt}
+\newlabel{tocindent2}{14.53499pt}
+\newlabel{tocindent3}{22.194pt}
+\@writefile{toc}{\contentsline {section}{References}{21}{section*.40}\protected@file@percent }
+\newlabel{TotPages}{{21}{21}{}{page.21}{}}

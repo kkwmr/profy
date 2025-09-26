@@ -1,0 +1,127 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+*.egg
+*.egg-info/
+dist/
+build/
+.eggs/
+.Python
+develop-eggs/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.manifest
+*.spec
+
+# Virtual Environment
+.venv/
+venv/
+ENV/
+env/
+.env
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+.DS_Store
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*.ipynb_checkpoints/
+
+# Testing
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+.pytest_cache/
+nosetests.xml
+coverage.xml
+*.cover
+.hypothesis/
+
+# Logs
+*.log
+logs/
+*.tmp
+.experiment_env
+
+# Data
+data/**/*.wav
+data/**/*.mp3
+data/**/*.flac
+data/**/*.tar
+data/**/*.tar.gz
+data/**/*.tar.xz
+data/**/*.zip
+# Keep CSV files for metadata
+!data/*.csv
+# Exclude large playdata but keep directory structure
+data/playdata/*/*
+!data/playdata/.gitkeep
+data/full_splits/*/*
+!data/full_splits/.gitkeep
+
+# Results and outputs
+profy/results/
+results/
+outputs/
+experiments/
+*.pkl
+*.pth
+*.pt
+*.h5
+*.hdf5
+*.ckpt
+
+# Documentation build
+docs/_build/
+docs/.doctrees/
+
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+Icon
+._*
+
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+$RECYCLE.BIN/
+*.cab
+*.msi
+*.msm
+*.msp
+*.lnk
+
+# Linux
+.Trash-*
+.nfs*
+
+# Temporary files
+*.bak
+*.backup
+*.old
+*.orig
+
+# Railway
+railway.toml
+
+# Project-specific ignores
+run_background.log
+profy/profy/  # Duplicate directories

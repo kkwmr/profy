@@ -1,0 +1,27 @@
+{
+  "total_sessions": 544,
+  "valid_sessions": 237,
+  "splits": {
+    "train": 165,
+    "val": 35,
+    "test": 37
+  },
+  "config": {
+    "raw_data_dir": "data/playdata",
+    "scores_file": "data/all_answer_summary_df.csv",
+    "train_split": 0.7,
+    "val_split": 0.15,
+    "test_split": 0.15,
+    "audio": {
+      "sample_rate": 24000,
+      "max_length": 30.0,
+      "n_mels": 128,
+      "hop_length": 512
+    },
+    "sensor": {
+      "num_keys": 88,
+      "sampling_rate": 1000,
+      "window_size": 1000
+    }
+  }
+}
