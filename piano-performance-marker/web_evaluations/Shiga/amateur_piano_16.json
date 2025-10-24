@@ -1,0 +1,26 @@
+{
+  "evaluation_id": "eval_1759804356664",
+  "evaluator": "Shiga",
+  "audio_filename": "amateur_piano_16.wav",
+  "audio_display": "amateur_piano_16.wav",
+  "audio_file": "amateur_piano_16.wav",
+  "audio_index": 16,
+  "duration": 10.48,
+  "total_score": 4,
+  "problem_sections": [
+    {
+      "start": 2.1,
+      "end": 2.4
+    },
+    {
+      "start": 5.6,
+      "end": 6
+    },
+    {
+      "start": 7,
+      "end": 7.3
+    }
+  ],
+  "evaluation_time": 1759804356664,
+  "timestamp": "2025-10-07T02:32:36.664Z"
+}

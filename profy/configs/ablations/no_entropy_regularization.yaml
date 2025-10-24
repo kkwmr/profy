@@ -1,0 +1,2 @@
+# Ablation: disable entropy-based gating regularization.
+entropy_regularization: 0.0

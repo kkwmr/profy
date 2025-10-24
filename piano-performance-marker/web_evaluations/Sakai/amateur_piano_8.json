@@ -1,0 +1,30 @@
+{
+  "evaluation_id": "eval_1759456967120",
+  "evaluator": "Sakai",
+  "audio_filename": "amateur_piano_8.wav",
+  "audio_display": "amateur_piano_8.wav",
+  "audio_file": "amateur_piano_8.wav",
+  "audio_index": 8,
+  "duration": 9.12,
+  "total_score": 6,
+  "problem_sections": [
+    {
+      "start": 2.3,
+      "end": 3
+    },
+    {
+      "start": 3.9,
+      "end": 4.8
+    },
+    {
+      "start": 5,
+      "end": 6
+    },
+    {
+      "start": 6.7,
+      "end": 7.6
+    }
+  ],
+  "evaluation_time": 1759456967120,
+  "timestamp": "2025-10-03T02:02:47.120Z"
+}

@@ -1,0 +1,3 @@
+# Ablation: remove audio-side dilated temporal convolutions.
+model_kwargs:
+  use_audio_tcn: false

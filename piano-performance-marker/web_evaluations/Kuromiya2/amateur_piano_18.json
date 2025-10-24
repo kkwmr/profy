@@ -1,0 +1,30 @@
+{
+  "evaluation_id": "eval_1759726319081",
+  "evaluator": "Kuromiya2",
+  "audio_filename": "amateur_piano_18.wav",
+  "audio_display": "amateur_piano_18.wav",
+  "audio_file": "amateur_piano_18.wav",
+  "audio_index": 18,
+  "duration": 11.03,
+  "total_score": 4,
+  "problem_sections": [
+    {
+      "start": 1.8040355381297406,
+      "end": 2.0129029529580382
+    },
+    {
+      "start": 3,
+      "end": 3.366000553367446
+    },
+    {
+      "start": 6,
+      "end": 6.4
+    },
+    {
+      "start": 7.234588323665483,
+      "end": 7.6
+    }
+  ],
+  "evaluation_time": 1759726319081,
+  "timestamp": "2025-10-06T04:51:59.081Z"
+}

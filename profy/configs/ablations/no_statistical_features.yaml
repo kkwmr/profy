@@ -1,0 +1,3 @@
+# Ablation: remove residual statistical heads.
+model_kwargs:
+  use_residual_heads: false

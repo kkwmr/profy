@@ -78,7 +78,12 @@ class UnifiedAttentionModel(nn.Module):
         modality_dropout_p: float = 0.0,
         audio_quality_dim: int = 3,
         min_sensor_weight: float = 0.35,
+        max_sensor_weight: float = 0.6,
         gating_temperature_scale: float = 2.0,
+        pretrained_audio_dim: Optional[int] = None,
+        use_temporal_attention: bool = True,
+        use_residual_heads: bool = True,
+        use_audio_tcn: bool = True,
     ) -> None:
         super().__init__()
 
@@ -86,7 +91,16 @@ class UnifiedAttentionModel(nn.Module):
         self.modality_dropout_p = modality_dropout_p
         self.audio_quality_dim = audio_quality_dim
         self.min_sensor_weight = min_sensor_weight
+        max_sensor_weight = max(max_sensor_weight, min_sensor_weight)
+        if max_sensor_weight >= 1.0:
+            max_sensor_weight = 0.999
+        self.max_sensor_weight = max_sensor_weight
         self.gating_temperature_scale = gating_temperature_scale
+        self.pretrained_audio_dim = pretrained_audio_dim
+        self.use_temporal_attention = use_temporal_attention
+        self.use_residual_heads = use_residual_heads
+        self.use_audio_tcn = use_audio_tcn
+        self.audio_dim = audio_dim
 
         # Sensor encoder
         self.sensor_conv3 = nn.Sequential(
@@ -126,11 +140,17 @@ class UnifiedAttentionModel(nn.Module):
             nn.ReLU(),
             nn.MaxPool2d(kernel_size=(1, 2)),
         )
+        # Small frequency-attention head to avoid collapsing informative bands
+        # Produces per-frequency weights (softmax over frequency) for weighted pooling
+        self.audio_freq_attn = nn.Conv2d(128, 1, kernel_size=(3, 1), padding=(1, 0))
         self.audio_proj = nn.Linear(128, hidden_dim)
-        self.audio_tcn = nn.Sequential(
-            TemporalConvBlock(hidden_dim, dilation=1, dropout=dropout),
-            TemporalConvBlock(hidden_dim, dilation=2, dropout=dropout),
-        )
+        if self.use_audio_tcn:
+            self.audio_tcn = nn.Sequential(
+                TemporalConvBlock(hidden_dim, dilation=1, dropout=dropout),
+                TemporalConvBlock(hidden_dim, dilation=2, dropout=dropout),
+            )
+        else:
+            self.audio_tcn = nn.Identity()
 
         # Audio quality projection
         self.quality_proj = nn.Linear(audio_quality_dim, hidden_dim) if audio_quality_dim > 0 else None
@@ -164,11 +184,14 @@ class UnifiedAttentionModel(nn.Module):
             bidirectional=True,
             dropout=dropout,
         )
-        self.temporal_attention = nn.Sequential(
-            nn.Linear(hidden_dim * 2, hidden_dim),
-            nn.Tanh(),
-            nn.Linear(hidden_dim, 1),
-        )
+        if self.use_temporal_attention:
+            self.temporal_attention = nn.Sequential(
+                nn.Linear(hidden_dim * 2, hidden_dim),
+                nn.Tanh(),
+                nn.Linear(hidden_dim, 1),
+            )
+        else:
+            self.temporal_attention = None
         self.evidence_layer = nn.Sequential(
             nn.Linear(hidden_dim * 2, hidden_dim),
             nn.ReLU(),
@@ -210,12 +233,15 @@ class UnifiedAttentionModel(nn.Module):
             audio_data = audio_data.unsqueeze(0)
         if audio_data.dim() != 3:
             raise ValueError(f'audio_data must be [B, T, F], got {tuple(audio_data.shape)}')
-        if audio_data.size(-1) != 128:
-            raise ValueError('audio_data last dimension must be 128 features')
+        if audio_data.size(-1) != self.audio_dim:
+            raise ValueError(f'audio_data last dimension must be {self.audio_dim} features')
 
         spec = audio_data.permute(0, 2, 1).unsqueeze(1)  # [B, 1, 128, T]
-        x2d = self.audio_cnn2d(spec)
-        x = torch.mean(x2d, dim=2)  # [B, 128, T/4]
+        x2d = self.audio_cnn2d(spec)  # [B, 128, F, T/4]
+        # Frequency attention: softmax over frequency axis
+        att_f = self.audio_freq_attn(x2d)  # [B, 1, F, T/4]
+        att_f = torch.softmax(att_f.squeeze(1), dim=1).unsqueeze(1)  # [B,1,F,T/4]
+        x = (x2d * att_f).sum(dim=2)  # [B, 128, T/4]
         x = x.transpose(1, 2)
         x = self.audio_proj(x)
         x = self.audio_tcn(x)
@@ -275,12 +301,25 @@ class UnifiedAttentionModel(nn.Module):
         else:
             audio_feat, audio_mask_feat = None, None
 
+        seq_mask: Optional[torch.Tensor] = None  # [B, L] mask of valid timesteps where available
+
         if use_sensor and use_audio:
             sensor_feat, audio_feat = self._apply_modality_dropout(sensor_feat, audio_feat)
 
             audio_padding = None
+            sensor_padding = None
             if audio_mask_feat is not None:
                 audio_padding = (audio_mask_feat < 0.5)
+            # Build a lightweight sensor padding mask from raw sensor energy
+            if sensor_data is not None:
+                with torch.no_grad():
+                    se = sensor_data.abs().mean(dim=-1)  # [B, T_sensor_raw]
+                    se_ds = F.adaptive_avg_pool1d(se.unsqueeze(1), sensor_feat.size(1)).squeeze(1)
+                    # Dynamic threshold relative to per-sample mean to handle scale
+                    thr = (se_ds.mean(dim=1, keepdim=True) * 0.1)
+                    valid = (se_ds > thr).float()
+                    # If all invalid for a sample, disable padding for that sample later
+                    sensor_padding = (valid < 0.5)
 
             attended_audio_on_sensor, _ = self.cross_attention(
                 query=sensor_feat,
@@ -292,7 +331,7 @@ class UnifiedAttentionModel(nn.Module):
                 query=audio_feat,
                 key=sensor_feat,
                 value=sensor_feat,
-                key_padding_mask=None,
+                key_padding_mask=None if (sensor_padding is None or sensor_padding.all(dim=1).any()) else sensor_padding,
             )
 
             audio_resampled = self.audio_resampler(audio_feat, sensor_feat.size(1))
@@ -303,6 +342,15 @@ class UnifiedAttentionModel(nn.Module):
                 mask_sensor = mask_sensor.clamp(0.0, 1.0)
                 attended_audio_on_sensor = attended_audio_on_sensor * mask_sensor.unsqueeze(-1)
                 audio_resampled = audio_resampled * mask_sensor.unsqueeze(-1)
+                # propagate sequence mask for downstream temporal attention/evidence
+                seq_mask = mask_sensor
+            # Merge sensor validity into sequence mask if available
+            if sensor_padding is not None:
+                sensor_valid = (~sensor_padding).float()
+                if seq_mask is None:
+                    seq_mask = sensor_valid
+                else:
+                    seq_mask = (seq_mask * sensor_valid).clamp(0.0, 1.0)
 
             quality_proj = self.quality_proj(audio_quality) if (self.quality_proj is not None and audio_quality is not None) else None
             s_sum = sensor_feat.mean(dim=1)
@@ -317,7 +365,15 @@ class UnifiedAttentionModel(nn.Module):
 
             sensor_total = torch.clamp(weights4[:, 0] + weights4[:, 3], min=1e-6)
             audio_total = torch.clamp(weights4[:, 1] + weights4[:, 2], min=1e-6)
-            target_sensor = torch.clamp(sensor_total, min=self.min_sensor_weight, max=1.0 - 1e-6)
+            if audio_quality is not None and audio_quality.size(1) > 0:
+                nsr = audio_quality[:, 0:1].clamp(0.0, 1.0)
+                max_floor = torch.full_like(sensor_total.unsqueeze(1), self.max_sensor_weight)
+                min_floor = torch.full_like(sensor_total.unsqueeze(1), self.min_sensor_weight)
+                adaptive_floor = torch.lerp(max_floor, min_floor, nsr).squeeze(1)
+            else:
+                adaptive_floor = torch.full_like(sensor_total, self.min_sensor_weight)
+            target_sensor = torch.maximum(sensor_total, adaptive_floor)
+            target_sensor = torch.clamp(target_sensor, max=1.0 - 1e-6)
             target_audio = 1.0 - target_sensor
 
             new_w0 = target_sensor * (weights4[:, 0] / sensor_total)
@@ -357,15 +413,53 @@ class UnifiedAttentionModel(nn.Module):
                 torch.zeros(audio_feat.size(0), device=audio_feat.device),
                 torch.ones(audio_feat.size(0), device=audio_feat.device),
             ], dim=-1)
+            # When audio-only, carry forward the downsampled audio mask as sequence mask
+            if audio_mask_feat is not None:
+                seq_mask = audio_mask_feat
 
         lstm_out, _ = self.lstm(features)
-        att_scores = self.temporal_attention(lstm_out).squeeze(-1)
-        att_weights = torch.softmax(att_scores, dim=-1)
+        if self.use_temporal_attention and self.temporal_attention is not None:
+            att_scores = self.temporal_attention(lstm_out).squeeze(-1)  # [B, L]
+            if seq_mask is not None:
+                # Exclude invalid/silent timesteps from attention (softmax) by setting -inf
+                invalid = (seq_mask < 0.5)
+                # guard: if all invalid, fall back to uniform
+                if invalid.all(dim=1).any():
+                    # For any batch item with all invalid, ignore masking for that item
+                    # (avoid NaNs); handle per-row by zeroing invalid where not all invalid
+                    row_all_invalid = invalid.all(dim=1)
+                    if (~row_all_invalid).any():
+                        att_scores[~row_all_invalid] = att_scores[~row_all_invalid].masked_fill(
+                            invalid[~row_all_invalid], float('-inf')
+                        )
+                else:
+                    att_scores = att_scores.masked_fill(invalid, float('-inf'))
+            att_weights = torch.softmax(att_scores, dim=-1)
+            if seq_mask is not None:
+                # Extra safety: zero-out and renormalize attention on invalid steps
+                att_weights = att_weights * (seq_mask >= 0.5).float()
+                denom = att_weights.sum(dim=-1, keepdim=True).clamp_min(1e-8)
+                att_weights = att_weights / denom
+        else:
+            seq_len = lstm_out.size(1)
+            att_weights = torch.full(
+                (lstm_out.size(0), seq_len),
+                1.0 / max(seq_len, 1),
+                device=lstm_out.device,
+            )
 
         evidence_scores = self.evidence_layer(lstm_out).squeeze(-1)
+        if seq_mask is not None:
+            # Suppress evidence on invalid/silent timesteps so downstream alignment isn't polluted
+            evidence_scores = evidence_scores * seq_mask
         context = torch.sum(lstm_out * att_weights.unsqueeze(-1), dim=1)
 
         logits = self.classifier(context)
+
+        modality_entropy = None
+        if modality_weights is not None and use_sensor and use_audio:
+            probs = modality_weights.clamp(min=1e-8)
+            modality_entropy = -torch.sum(probs * torch.log(probs), dim=-1)
 
         return {
             'logits': logits,
@@ -373,6 +467,7 @@ class UnifiedAttentionModel(nn.Module):
             'evidence_scores': evidence_scores,
             'modality_weights': modality_weights if (use_sensor and use_audio) else None,
             'modality_used': modality_used,
+            'modality_entropy': modality_entropy if modality_entropy is not None else None,
         }
 
     def get_attention_visualization(self, sensor_data: Optional[torch.Tensor] = None, audio_data: Optional[torch.Tensor] = None) -> dict[str, torch.Tensor]:

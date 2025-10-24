@@ -169,3 +169,82 @@ profy/
 ---
 
 **Profy** - *AIの力でピアノ演奏を向上させる* 🎹✨
+# Profy: Multimodal Piano Performance Analysis and Highlights
+
+This repository contains the Profy system for learning expertise‑dependent differences from synchronized key‑sensor (1 kHz) and audio streams and rendering localized, score‑synchronized highlights that guide practice.
+
+## Model Overview
+
+- Backbone: `UnifiedAttentionModel` (see `src/models/unified_attention_model.py`)
+  - Sensor encoder: 1D CNN with multi‑kernel fusion (3/5/9), max‑pooling, projection to hidden.
+  - Audio encoder: 2D CNN over time–frequency with a frequency‑attention head that learns per‑band weights before temporal pooling (prevents losing informative bands).
+  - Cross‑modal attention: bidirectional multi‑head attention (sensor↔audio) with key‑padding masks; parametric resamplers align streams to a common temporal grid.
+  - Fusion: quality‑aware gating (uses audio quality vector: non‑silence rate, spectral flatness, loudness) and temperature scaling; outputs per‑sample modality weights and entropy.
+  - Temporal modeling: BiLSTM → temporal attention (with masking) and an evidence head (sigmoid per frame) + a global classifier (expert vs amateur).
+  - Masking: audio/sensor masks propagate to attention/evidence to suppress silent/invalid frames.
+
+## Training Losses
+
+- Classification: cross‑entropy on global logits.
+- Evidence learning (weak supervision):
+  - MIL (Noisy‑OR) over frames to match clip‑level label.
+  - Soft Top‑k pooling (mean of top `k = frac * L` frames) blended with Noisy‑OR (`alpha`), stabilizing against spiky single‑frame peaks.
+  - L1 sparsity on evidence to encourage localized peaks.
+- Attention energy regularization (optional): discourages attention aligning purely with frame energy (approx. mean‑abs over 128 audio features).
+
+Defaults (debug/full): `--lambda-mil 0.5`, `--lambda-evidence-l1 1e-3`, `--mil-topk-frac 0.1`, `--mil-blend-alpha 0.5`, `--lambda-attention-energy 0.0` (set to small positive e.g. `0.002` to enable).
+
+## Reproducible Runs
+
+### 1) Environment
+
+- Python 3.10 recommended. Activate venv and install web UI deps as needed:
+  - `python -m venv .venv && source .venv/bin/activate`
+  - `pip install -r webapp/requirements.txt` (only if running the local web app)
+
+### 2) End‑to‑End Experiment (Debug)
+
+Runs a quick pipeline (≈60 samples) to verify everything:
+
+```
+./scripts/run.sh --debug --lambda-attention-energy 0.002
+```
+
+Outputs under `profy/results/experiment_YYYYMMDD_HHMMSS/`:
+- `models/`: checkpoints (`sensor-_fold*.pth`, `audio-_fold*.pth`)
+- `logs/`: training logs
+- `figures/`: summary plots
+
+### 3) Full Experiment (Save Checkpoints)
+
+```
+./scripts/run.sh --save-checkpoints --lambda-attention-energy 0.002
+```
+
+This runs 3‑fold GroupKFold with all 6,476 samples and stores models for alignment analysis.
+
+### 4) Expert‑Alignment Evaluation (Agreement)
+
+Evaluate highlight agreement with expert annotations (Top‑20 set, per annotator and consensus). Use the latest experiment directory and the provided web annotation folder:
+
+```
+./scripts/run_expert_alignment.sh \
+  results/experiment_YYYYMMDD_HHMMSS \
+  ../piano-performance-marker/web_evaluations \
+  ../piano-performance-marker/public/audio \
+  ../piano-performance-marker/public/audio/manifest_top20.json \
+  profy/data \
+  --consensus mean --consensus-thr 0.5 --min-evaluators 3
+```
+
+Outputs under `results/expert_alignment_YYYYMMDD_HHMMSS/`:
+- `summary.json`: per‑annotator aggregate metrics
+- `summary_consensus.json`: consensus metrics (vote proportion ≥ threshold)
+- `per_audio_metrics.csv`, `per_audio_metrics_consensus.csv`
+- `figures/overlay_*`: overlays for individual raters and consensus
+
+## Tips and Notes
+
+- Debug vs Full: debug uses ~60 samples for fast verification; full uses the entire corpus.
+- Gating: model logs mean modality weights and entropy; decision‑level fusion (PoE) is used for robust metrics, while mid‑level attention/evidence feeds the UI and alignment evaluation.
+- Reproducibility: `config_manifest.json` is saved under each experiment directory; alignment scripts read `results/…/models` and tune only lightweight post‑processing (smooth/lag/power).

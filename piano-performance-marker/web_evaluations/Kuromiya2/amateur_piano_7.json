@@ -1,0 +1,38 @@
+{
+  "evaluation_id": "eval_1759724575548",
+  "evaluator": "Kuromiya2",
+  "audio_filename": "amateur_piano_7.wav",
+  "audio_display": "amateur_piano_7.wav",
+  "audio_file": "amateur_piano_7.wav",
+  "audio_index": 7,
+  "duration": 15.3,
+  "total_score": 2,
+  "problem_sections": [
+    {
+      "start": 0.9,
+      "end": 1.3309261748932586
+    },
+    {
+      "start": 3.3464073980383295,
+      "end": 4.165196644941015
+    },
+    {
+      "start": 4.6,
+      "end": 5.02177616477767
+    },
+    {
+      "start": 6.7,
+      "end": 7
+    },
+    {
+      "start": 7.5,
+      "end": 8.044997999495276
+    },
+    {
+      "start": 13.2,
+      "end": 14.5
+    }
+  ],
+  "evaluation_time": 1759724575549,
+  "timestamp": "2025-10-06T04:22:55.549Z"
+}

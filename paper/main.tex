@@ -1,48 +1,3 @@
-%%
-%% This is file `sample-manuscript.tex',
-%% generated with the docstrip utility.
-%%
-%% The original source files were:
-%%
-%% samples.dtx  (with options: `manuscript')
-%% 
-%% IMPORTANT NOTICE:
-%% 
-%% For the copyright see the source file.
-%% 
-%% Any modified versions of this file must be renamed
-%% with new filenames distinct from sample-manuscript.tex.
-%% 
-%% For distribution of the original source see the terms
-%% for copying and modification in the file samples.dtx.
-%% 
-%% This generated file may be distributed as long as the
-%% original source files, as listed above, are part of the
-%% same distribution. (The sources need not necessarily be
-%% in the same archive or directory.)
-%%
-%% Commands for TeXCount
-%TC:macro~\cite [option:text,text]
-%TC:macro~\citep [option:text,text]
-%TC:macro~\citet [option:text,text]
-%TC:envir table 0 1
-%TC:envir table* 0 1
-%TC:envir tabular [ignore] word
-%TC:envir displaymath 0 word
-%TC:envir math 0 word
-%TC:envir comment 0 0
-%%
-%%
-%% The first command in your LaTeX source must be the \documentclass command.
-%%%% Small single column format, used for CIE, CSUR, DTRAP, JACM, JDIQ, JEA, JERIC, JETC, PACMCGIT, TAAS, TACCESS, TACO, TALG, TALLIP (formerly TALIP), TCPS, TDSCI, TEAC, TECS, TELO, THRI, TIIS, TIOT, TISSEC, TIST, TKDD, TMIS, TOCE, TOCHI, TOCL, TOCS, TOCT, TODAES, TODS, TOIS, TOIT, TOMACS, TOMM (formerly TOMCCAP), TOMPECS, TOMS, TOPC, TOPLAS, TOPS, TOS, TOSEM, TOSN, TQC, TRETS, TSAS, TSC, TSLP, TWEB.
-% \documentclass[acmsmall]{acmart}
-
-%%%% Large single column format, used for IMWUT, JOCCH, PACMPL, POMACS, TAP, PACMHCI
-% \documentclass[acmlarge,screen]{acmart}
-
-%%%% Large double column format, used for TOG
-% \documentclass[acmtog, authorversion]{acmart}
-
 %%%% Generic manuscript mode, required for submission
 %%%% and peer review
 % \documentclass[manuscript,review]{acmart}
@@ -95,7 +50,7 @@
 \newcommand{\partialsym}{\ding{109}} % white circle (as partial proxy)
 \newcommand{\absentsym}{\ding{109}} % white circle
 \usepackage{xspace}
-% \usepackage{tabularray}  % Not needed for ProfyNet paper
+% \usepackage{tabularray}  % Not needed for Profy paper
 % Good control of spacing after a period
 \newcommand{\etal}{et al.\@\xspace} % Prints ``et al.'' with proper spacing
 \newcommand{\etc}{etc.\@\xspace} % Prints ``etc.'' with proper spacing
@@ -110,11 +65,20 @@
 
 \newcommand{\commentout}[1]{}
 
+% Tolerate stray "\n" in text blocks (no-op)
+\newcommand{\n}{}
+
 % Custom comments
 \usepackage{color}
 \usepackage{savesym} \savesymbol{spacing} % to avoid conflict with setspace
 \usepackage{setspace}
 \usepackage{amsmath}
+\usepackage{booktabs}
+% Prefer top placement for floats (figures/tables)
+\makeatletter
+\def\fps@figure{t}
+\def\fps@table{t}
+\makeatother
 
 \definecolor{Orange}{rgb}{1,0.5,0}
 \newcommand{\yi}[1]{%
@@ -127,45 +91,14 @@
 \definecolor{Brown}{rgb}{0.7,0.4,0.1}
 
 %%
-%% Submission ID.
-%% Use this when submitting an article to a sponsored event. You'll
-%% receive a unique submission ID from the organizers
-%% of the event, and this ID should be used as the parameter to this command.
-%%\acmSubmissionID{123-A56-BU3}
-
-%%
-%% For managing citations, it is recommended to use bibliography
-%% files in BibTeX format.
-%%
-%% You can then either use BibTeX with the ACM-Reference-Format style,
-%% or BibLaTeX with the acmnumeric or acmauthoryear sytles, that include
-%% support for advanced citation of software artefact from the
-%% biblatex-software package, also separately available on CTAN.
-%%
-%% Look at the sample-*-biblatex.tex files for templates showcasing
-%% the biblatex styles.
-%%
-
-%%
-%% The majority of ACM publications use numbered citations and
-%% references.  The command~\citestyle{authoryear} switches to the
-%% "author year" style.
-%%
-%% If you are preparing content for an event
-%% sponsored by ACM SIGGRAPH, you must use the "author year" style of
-%% citations and references.
-%% Uncommenting
-%% the next command will enable that style.
-%%\citestyle{acmauthoryear}
-
-%%
 %% end of the preamble, start of the body of the document source.
 \begin{document}
 
 %%
 %% The "title" command has an optional parameter,
 %% allowing the author to define a "short title" to be used in page headers.
-\title{ProfyNet: From Diagnostic Assessment to Actionable Prescriptions for Piano Performance via High-Resolution Sensing and Local Attention}
+% 日本語訳: 熟達差に基づく運動スキルの可視化によるピアノ練習支援
+\title{Interpretable Visualization of Expertise-Dependent Motor Skills toward Piano Practice Support}
 
 %%
 %% The "author" command and its associated commands are used to define
@@ -174,6 +107,7 @@
 %% "authornote" and "authornotemark" commands
 %% used to denote shared contribution to the research.
 %% Authors anonymized for review
+% 日本語訳: 著者情報は査読のため匿名化
 \author{Anonymous}
 \affiliation{%
   \institution{Anonymized for Review}
@@ -187,13 +121,17 @@
 %% other information printed in the page headers. This command allows
 %% the author to define a more concise list
 %% of authors' names for this purpose.
+% 日本語訳: 匿名作家
 \renewcommand{\shortauthors}{Anonymous Authors}
 
-%%
-%% The abstract is a short summary of the work to be presented in the
-%% article.
+
+% ピアノ演奏の学習において、熟達度は単純な正誤よりも、微小なタイミングや強弱といった質的なニュアンスによって決定づけられます。しかし、これらの差は文脈に深く依存するため、学習者が改善すべき箇所を自ら正確に特定することは困難です。このことは指導者にとっても同様の課題であり、感覚的なフィードバックを裏付ける客観的なツールが不足しています。本稿では、この質的な差異が生じている箇所を可視化することで、このギャップを埋める手法を提案します。
+% 我々は、この差異を弱教師あり学習のアプローチを用いて特定するシステムProfyを提案します。**Profyは、演奏内の特定箇所のラベルなしに、演奏全体のラベル（プロかアマチュアか）のみで訓練され、そのデュアルアテンション機構がスキルレベルを示す決定的な瞬間を自動的に発見・特定します。**そして、この分析結果を解釈可能なビジュアルフィードバックへと変換します。具体的には、発見された領域を楽譜と同期したヒートマップとしてハイライト表示し、練習における明確な焦点を提供します。この可視化が教育的に妥当であるかを検証するため、我々はプロのピアニストによる専門家評価を実施しました。
+% 結果として、Profyがハイライトした領域は、専門家が指導を必要と判断した箇所と一貫して合致することが示されました。この専門家による実証は、我々のAI分析が信頼に足る視覚的補助情報へと変換可能であることを示しています。演奏における微妙な課題を可視化することで、本アプローチは学習者が単なる反復練習から、演奏の特定の改善可能な側面に焦点を当てた練習へと移行するのを支援します。これは、効果的な練習支援ツールを開発する上での基礎的な一歩となります。
 \begin{abstract}
-Piano education presents a compelling context for exploring human-AI collaboration in skill acquisition: How can AI augment human expertise without undermining the pedagogical relationships and intrinsic motivation essential to creative learning? Through comprehensive computational analysis of 6,476 piano performances from the Profy dataset, we present ProfyNet—a system that transforms AI assessment from diagnosis to actionable prescriptions. Our dual attention mechanism combines traditional Softmax attention with Evidence Learning, a novel approach that independently scores problem areas, achieving F1=0.982 with 98.23\% accuracy on professional/amateur classification. The system demonstrates remarkable precision: correctly identifying 96.66\% of amateur performances and 99.34\% of professional performances. Beyond classification, ProfyNet provides interpretable feedback through Evidence scores that highlight specific problem areas in amateur performances while showing consistently low scores for professionals. We contribute: (1) empirical understanding of how expertise manifests as efficiency (54\% fewer key presses, 51\% higher velocity consistency across 6,476 samples), (2) a novel Evidence Learning approach that overcomes traditional attention uniformity problems through independent sigmoid scoring, (3) comprehensive validation on the complete Profy dataset demonstrating both high accuracy and interpretability, and (4) a reproducible experimental framework with full dataset coverage. Our work demonstrates that effective AI-augmented education requires both accurate assessment and interpretable feedback, achieved through our dual attention architecture that makes expert perception visible while providing actionable guidance.
+In learning piano performance, mastery is determined less by simple correctness than by qualitative nuances such as micro-timing and dynamics. However, these differences are deeply context-dependent, making it difficult for learners to identify precisely where to focus their improvement efforts. This creates a parallel challenge for instructors, who lack objective tools to ground their intuitive feedback. This paper presents a method to bridge this gap by visualizing the locations of these qualitative differences.
+We propose Profy, a system that learns to identify these differences using a weakly supervised approach. Trained only on performance-level labels (expert vs. amateur) without any localized annotations, Profy's dual-attention architecture automatically discovers and pinpoints the moments most indicative of skill level. It then transforms this analysis into interpretable visual feedback: a score-synchronized heatmap that highlights these discovered areas, providing a clear focus for practice. To verify the pedagogical validity of this visualization, we conducted an expert evaluation with expert pianists.
+The results showed that the regions highlighted by Profy consistently aligned with the areas that experts judged to require instruction. This expert validation demonstrates that our AI's analysis can be transformed into a trustworthy visual aid. By making subtle performance issues visible, this approach helps learners move beyond rote repetition toward practice focused on specific, improvable aspects of their playing. This lays a foundational step for developing future tools that effectively support practice.
 \end{abstract}
 
 %%
@@ -220,6 +158,7 @@ Piano education presents a compelling context for exploring human-AI collaborati
 </ccs2012>
 \end{CCSXML}
 
+% 日本語訳: 人間中心コンピュータ 人間コンピュータ相互作用(HCI)
 \ccsdesc[500]{Human-centered computing~Human computer interaction (HCI)}
 % \ccsdesc[300]{Human-centered computing~Haptic devices}
 % \ccsdesc[100]{Human-centered computing~User studies}
@@ -227,6 +166,7 @@ Piano education presents a compelling context for exploring human-AI collaborati
 %%
 %% Keywords. The author(s) should pick words that accurately describe
 %% the work being presented. Separate the keywords with commas.
+% 日本語訳: 人とAIの協力、音楽教育技術、インタラクティブな学習システム、スキルの取得、解釈可能なAI、センサーベースの相互作用、パフォーマンスフィードバック、教育インターフェイス
 \keywords{human-AI collaboration; music education technology; interactive learning systems; skill acquisition; interpretable AI; sensor-based interaction; performance feedback; educational interfaces}
 
 %% A "teaser" image appears between the author and the affiliation
@@ -234,9 +174,9 @@ Piano education presents a compelling context for exploring human-AI collaborati
 %% page.
 \begin{teaserfigure}
 \centering
-  \includegraphics[width=\textwidth]{figures/teaser_v201.png}
-  \caption{ProfyNet: A multimodal deep learning framework for professional piano performance assessment. (a) Statistical analysis of 6,476 performances reveals key differences between professionals and amateurs. (b) Architecture overview combining multi-scale convolutions, bidirectional GRU, and dual attention mechanism (Softmax attention + Evidence scores) achieving both high accuracy and interpretability. (c) Performance comparison showing F1=0.982 on test set (1,296 samples) with 98.23\% accuracy, demonstrating robust performance. (d) Evidence score visualization clearly distinguishing professional (low, stable scores) from amateur (high, variable scores with problem areas highlighted), providing interpretable feedback aligned with music pedagogy. The system establishes new benchmarks for objective performance assessment with applications in education, competition judging, and automated feedback systems.}
-  \Description{A multi-panel figure showing: (a) bar charts comparing professional vs amateur performance metrics including key press efficiency and velocity consistency, (b) system architecture diagram with neural network components and data flow, (c) performance comparison table with F1 scores and confidence intervals, and (d) piano score visualization with colored attention heatmap overlays highlighting musically significant regions.}
+  \includegraphics[width=\textwidth]{figures/teaser.png}
+  \caption{\textbf{Profy: score-aligned highlights that focus practice.}From a single performance, our system produces red overlays on the score and waveform that show where a learner's playing diverges from expert renditions, helping pianists target passages for review instead of practicing everything uniformly. Under the hood, a weakly supervised dual-attention model---trained only with performance-level labels (Expert vs.\ Amateur), not per-note annotations---analyzes key-sensor (1\,kHz) and audio streams to localize these differences.}
+  \Description{Left-to-right pipeline: Hanon score and a pianist photo; a panel labeled “Multimodal Sensing” with a keyboard schematic, piano-roll, and waveform; a “Weakly Supervised Dual-Attention Model” note stating “Training labels: Expert vs Amateur only (no localized labels)”; an “Output” panel where notes and waveform segments are shaded red to indicate stronger expert–amateur differences; and a final photo showing the score with red highlights. The figure communicates that coarse performance-level labels yield localized, score-aligned visualizations of where amateurs differ from experts.}
   \label{fig:teaser}
 \end{teaserfigure}
 
@@ -245,1151 +185,546 @@ Piano education presents a compelling context for exploring human-AI collaborati
 %% information and builds the first part of the formatted document.
 \maketitle
 
+% 日本語訳: 導入
+% ======================================================================
+% Section: Introduction
+% ======================================================================
 \section{Introduction}
 
-A fundamental challenge in human-computer interaction is designing AI systems that enhance rather than replace human expertise, particularly in creative domains where learning involves both technical skill and artistic expression.
-Music education exemplifies this challenge: while AI can provide objective analysis, human teachers excel at contextual, encouraging feedback that nurtures both competence and creativity.
-With over 40 million piano students worldwide and growing demand for accessible music education, there is urgent need for interactive learning systems that democratize expert-quality feedback while preserving the essential human elements of musical instruction.
+Learning a creative skill like piano performance is not merely about avoiding wrong notes. It depends on subtle and context dependent nuances such as micro timing, articulation, and dynamic balance. Although teachers provide the contextual guidance that enables such growth, most practice occurs in isolation. As a result, feedback about nuance during lessons can be subjective and difficult to ground, and during solo practice formative feedback is largely absent. There is a need for methods that capture the subtle differences in nuance between expert and amateur performances and translate them into interpretable, localized feedback to guide practice and support teacher–student dialogue.
 
-Current educational technology approaches create a false dichotomy between automation and human guidance. Commercial systems like SmartMusic provide binary "correct/incorrect" feedback that frustrates learners and stifles artistic development, while sophisticated AI models operate as "black boxes" that offer no insight into their reasoning.
-This gap between diagnostic capability and actionable guidance represents a core HCI challenge: how do we design transparent, interpretable AI systems that empower rather than displace human expertise?
+Existing educational tools and much prior research foreground accuracy metrics such as pitch, onset, and duration, which offers a narrow view of performance. Commercial platforms grade note correctness but provide little guidance on interpretive nuance, and surveys of automatic piano performance assessment report a persistent gap, since many systems output global scores rather than localized and actionable cues that teachers and learners can use~\cite{Kim2022APPA}. Many high performing models also remain opaque, and recent work on explainable AI for music stresses the need for musician centered explanations and interfaces that render model reasoning legible~\cite{BryanKinns2024}.
 
-We address this challenge through ProfyNet, an interactive learning system designed using human-centered principles to create effective human-AI collaborative experiences in music education.
-Rather than replacing piano teachers, ProfyNet provides them and their students with objective, interpretable performance analysis that complements human instruction.
+Our approach leverages sensing that has been underused in learning contexts. Modern digital pianos capture key motion at 1\,kHz, which preserves motor control signatures that audio alone can blur. We address the problem of localizing expertise dependent differences from coarse performance level labels and of presenting those differences as interpretable and score synchronized visualizations.
 
-Recent advances in Music Information Retrieval (MIR) have enabled automated analysis of musical performances, primarily through audio-based approaches.
-State-of-the-art models like MERT achieve impressive results on general music understanding tasks.
-However, when applied to the nuanced task of professional performance assessment, these audio-only approaches show significant limitations, achieving only F1=0.52 in our initial experiments.
-This performance gap highlights a fundamental issue: audio analysis alone cannot capture the complete picture of performance quality, particularly the subtle physical interactions between performer and instrument that distinguish professional from amateur playing.
+We present Profy, a weakly supervised system that discovers where a take departs from expert practice and renders those moments as score synchronized highlights. The model is trained only on performance level labels, namely expert or amateur, and produces time indexed evidence that can be overlaid on notation so that practice can focus on specific spans rather than on entire pieces.
 
-Modern digital pianos equipped with high-resolution sensors offer unprecedented insights into these interactions.
-Capturing keystroke dynamics at 1000Hz sampling rate—millisecond precision for all 88 keys—reveals timing patterns, velocity variations, and articulation nuances invisible in audio recordings.
-Yet existing performance assessment systems have not fully exploited this rich sensor data, either focusing solely on audio features or employing simplistic statistical analysis without considering temporal dependencies and attention patterns.
+We evaluate the approach on a multimodal corpus of short technical studies with synchronized key motion sensors and audio. The model distinguishes expert and amateur performances from these signals without using localized annotations. Analysis by piece shows that some items make the distinction clearer than others, which suggests practical choices when selecting material for practice or placement. An expert study with expert pianists indicates that the highlighted spans coincide with phrase boundaries, finger crossings, and dynamic changes that teachers routinely address.
 
-\begin{figure}[h]
-  \centering
-  \includegraphics[width=\linewidth]{figures/confusion_matrix.pdf}
-  \caption{Statistical analysis of 1,083 piano performances reveals key differences between professionals and amateurs. 
-  Professionals use 54\% fewer key presses while maintaining 51\% higher velocity consistency, suggesting more efficient and controlled playing techniques.}
-  \Description{}
-  \label{fig:performance_comparison}
-\end{figure}
-
-Through comprehensive analysis of 1,083 piano performances, we discovered striking quantitative differences between professional and amateur players.
-Professionals demonstrate remarkable efficiency: using 54\% fewer total key presses (369k vs 797k) while maintaining 51\% higher velocity consistency (0.806 vs 0.532).
-These findings suggest that professional expertise manifests not through complexity but through precision and control—insights that inform our model design.
-
-ProfyNet addresses these challenges through a novel multimodal architecture specifically designed for performance assessment.
-Our approach combines three key innovations:
-First, dilated temporal convolutions capture multi-scale patterns efficiently, from local note transitions to phrase-level structures.
-Second, a statistical feature module extracts global performance metrics that complement temporal features.
-Third, a memory-efficient local attention mechanism (half-window w=50, total window=101) identifies performance-critical regions while reducing computational complexity by 87\% compared to full attention.
-
-The results demonstrate robust performance validated through comprehensive evaluation on all 6,476 samples.
-ProfyNet achieves F1=0.982 on test data (1,296 samples) with exceptional accuracy: 96.66% for amateur classification and 99.34% for professional classification.
-Our attention analysis successfully identifies musically significant regions: phrase boundaries (every 500 timesteps), technical passages requiring sustained focus, and dynamic changes marked by attention peaks. Prescription effectiveness testing shows 34% DTW distance reduction when applying model-generated corrections, with counterfactual analysis confirming 2.3× greater improvement in high-attention regions (p<0.001), validating the pedagogical alignment of attention patterns.
-
-Our contributions to HCI are four-fold:
-\textbf{(1) Empirical Understanding}: Through mixed-methods research, we reveal how expertise manifests as efficiency and how learners appropriate AI feedback in practice.
-\textbf{(2) Design Knowledge}: We establish the prescription paradigm—moving from diagnostic to actionable AI feedback—with principles that generalize across skill domains.
-\textbf{(3) Theoretical Advancement}: We extend distributed cognition and scaffolding theories to AI-augmented skill learning, showing how computational attention can make expert perception visible.
-\textbf{(4) Methodological Innovation}: We present evaluation methods that balance technical performance with stakeholder impact, setting new standards for assessing educational AI systems.
-
-This work makes four key contributions:
-
-\textbf{1. System/Tool}: A real-time, interpretable learning support system combining attention-based score visualization with quantified prescriptions (e.g., "m.17: +12 velocity, +6\% beat delay") that operationalizes pedagogy into actionable guidance.
-
-\textbf{2. Methodology}: Local attention design with computational complexity analysis (half-window w=50, total window=101, O(T·101) vs O(T²)) enabling consumer deployment, plus reproducibility kit (code, synthetic interventions, evaluation protocols) for transparent replication.
-
-\textbf{3. Empirical Insight}: Quantitative evidence that professional expertise manifests as efficiency (54\% fewer key presses, 51\% higher velocity consistency) rather than complexity—with statistical validation (Cohen's d>1.0, 95\% CI) and implications across skill acquisition domains.
-
-\textbf{4. Educational Implication}: Design principles for AI-augmented learning where interpretability drives trust and improvement, demonstrating how objective measurement can complement rather than replace human teaching expertise.
-
-This work advances the paradigm from diagnostic-only assessment to prescription-enabled coaching, addressing the critical gap between error detection and actionable improvement guidance in educational technology.
-
-\section{Design Process}
-
-\subsection{Understanding the Problem Space}
-
-Our research began not with technology but with understanding the human experience of learning piano. Through three months of ethnographic observation in music schools and interviews with stakeholders, we identified fundamental tensions in current music education:
-
-\textbf{The Feedback Gap}: Students receive detailed feedback during weekly lessons but practice alone with uncertainty. One student noted: \textit{"I spend 6 days guessing if I'm doing it right, then 1 day finding out I wasn't."}
-
-\textbf{The Objectivity Paradox}: While music is inherently subjective, technical foundations require objective assessment. A teacher explained: \textit{"I can hear the problems, but proving them objectively to students is challenging."}
-
-\textbf{The Motivation Challenge}: External assessment can undermine intrinsic motivation. As one parent observed: \textit{"My daughter loved piano until it became about grades and competitions."}
-
-\subsection{Co-Design with Stakeholders}
-
-Rather than imposing technological solutions, we engaged stakeholders as co-designers through participatory design workshops:
-
-\textbf{With Teachers (n=15)}: We explored how technology could enhance rather than threaten their role. Through paper prototyping and scenario-based design, teachers helped define the prescription concept—specific, actionable feedback that creates teaching opportunities rather than replacing instruction.
-
-\textbf{With Students (n=40)}: Using experience prototyping, students tested different feedback modalities. They rejected numerical scores as "stressful" and peer comparisons as "discouraging," but embraced specific improvement suggestions that preserved autonomy.
-
-\textbf{With Parents (n=20)}: Journey mapping revealed parents' need for progress visibility without becoming "practice police." This led to our design of progress summaries that celebrate improvement rather than highlighting deficiencies.
-
-\subsection{Iterative Prototyping}
-
-Three major iterations shaped ProfyNet's design:
-
-\textbf{Iteration 1 - Real-time Intervention}: Initial prototypes interrupted playing to correct errors. User testing revealed this destroyed flow states and increased anxiety. Learning: Preserve performance integrity.
-
-\textbf{Iteration 2 - Comprehensive Reports}: We pivoted to detailed post-performance analysis. However, information overload paralyzed learners. Learning: Less is more in feedback design.
-
-\textbf{Iteration 3 - Progressive Prescriptions}: The final design prioritizes 3-5 key improvements with optional detail expansion. This balanced comprehensive analysis with cognitive manageability. Learning: Scaffold complexity based on readiness.
-
-\section{Related Work}
-
-We position ProfyNet at the intersection of human-computer interaction, educational technology, and music computing. We build upon four key HCI research streams: interactive learning systems, human-AI collaborative education, transparent and explainable AI, and sensor-based skill acquisition interfaces. Our work specifically addresses the HCI challenges of designing trustworthy AI systems for creative learning domains.
-
-\subsection{Interactive Music Learning Systems}
-
-The HCI community has long explored technology-mediated music education. Dannenberg's Piano Tutor \cite{dannenberg2013} pioneered computer-assisted piano learning with real-time visual feedback. Andante \cite{andante2020} demonstrated how gamification increases practice engagement by 40\%. MirrorFugue \cite{xiao2014} used projected piano roll notation to teach sight-reading, achieving 2x faster learning than traditional methods.
-
-Recent work explores multimodal feedback: P.I.A.N.O. \cite{oshima2021} combines visual and haptic guidance for hand posture, while Haptic Wave \cite{holland2010} uses vibrotactile feedback for rhythm training. However, these systems focus on mechanical accuracy rather than artistic expression, leaving a gap our work addresses through attention-based interpretability.
-
-\subsection{Human-AI Collaborative Learning Systems}
-
-The HCI community has increasingly focused on designing AI systems that augment rather than replace human capabilities in learning contexts. Intelligent tutoring systems like Cognitive Tutor \cite{anderson1995} demonstrated early success in AI-mediated learning, while more recent work explores the nuanced dynamics of human-AI collaboration in education. 
-
-Crucial to our work is research on \textbf{trust and transparency in educational AI}. Studies by Porayska-Pomsta et al. \cite{porayska2013} show that learner acceptance of AI feedback depends critically on understanding the system's reasoning process. Similarly, Holstein et al. \cite{holstein2019} found that teachers need interpretable AI tools to maintain agency over pedagogical decisions. This literature establishes the importance of explainable AI in educational contexts—a core principle underlying our attention visualization approach.
-
-\textbf{Adaptive learning systems} represent another key HCI research stream. DuoLingo's adaptive algorithms personalize language learning paths, increasing retention by 34\% \cite{duolingo2019}. However, as Koedinger et al. \cite{koedinger2013} argue, effective educational AI must balance automation with human agency, particularly in creative domains where subjective judgment is essential.
-
-In creative skill acquisition, Drawing Apprentice \cite{davis2016} pioneered human-AI collaborative approaches that enhance rather than constrain artistic creativity. Our work extends this paradigm to music education, demonstrating how interpretable AI can provide objective analysis while preserving the essential human elements of musical instruction and artistic development.
-
-\subsection{Performance Assessment Without Prescription}
-Commercial systems like SmartMusic \cite{smartmusic} and Yousician \cite{yousician} achieve F1$\approx$0.85 in error detection but provide only binary feedback ("correct/incorrect") without corrective guidance.
-Academic approaches using CNNs \cite{nakano2006} and RNNs \cite{seshadri2021} classify performance quality with 79-84\% accuracy, while transformer-based models \cite{wang2022} achieve up to 89\% accuracy in performance assessment but similarly lack prescription mechanisms.
-Recent work on automated piano assessment \cite{sigtia2016} focuses on note-level accuracy measurement without translation to corrective actions.
-The Con Espressione system \cite{wu2018} visualizes timing deviations using color-coded feedback, and PianoBART \cite{chou2022} provides phrase-level expression analysis, but neither specifies quantified adjustment amounts.
-These diagnostic-only approaches systematically leave learners knowing something is wrong but lacking specific guidance on corrective measures.
-Our system fundamentally extends diagnosis to prescription, generating specific corrective actions with quantified adjustments that bridge the critical gap between error detection and actionable improvement strategies.
-
-
-\subsection{Score-Performance Alignment Technologies}
-Recent advances in alignment enable precise error localization. Dynamic Time Warping (DTW) achieves 95\% accuracy for classical piano \cite{romani2015}, while neural approaches like MT3 \cite{mt3} and Onsets-and-Frames \cite{hawthorne2021} reach F1$\approx$0.90 in transcription.
-However, these systems stop at identifying where errors occur without specifying what corrections to make.
-Nakamura et al. \cite{nakamura2017} estimate error probabilities but do not generate corrective actions.
-We extend alignment beyond detection to prescription generation: "m.17: substitute G with A", "delay by +6\% beat (23ms)", "increase velocity by 12 points."
-Our approach transforms alignment results into actionable guidance with specific quantities and locations.
-
-\subsection{Expression Modeling Without Actionable Feedback}
-Expression analysis research demonstrates sophisticated pattern extraction from professional performances but systematically fails to translate these insights into concrete learner guidance.
-Widmer's pioneering work \cite{widmer2003} identifies systematic expressive patterns in professional performances through computational curve extraction, while recent deep learning approaches \cite{jeong2019} model complex expression patterns in piano performance.
-The Basis Mixer \cite{giraldo2019} decomposes expression into interpretable components using signal processing techniques, and advanced neural models like VirtuosoNet \cite{jeong2019} generate expressive MIDI performances.
-Performance worm visualizations \cite{goebl2008} elegantly illustrate tempo-dynamics relationships, and recent work on performance analysis \cite{cancino2018} uses statistical modeling to understand expression patterns.
-However, these sophisticated analytical frameworks systematically fail to generate actionable prescriptions from their analyses, leaving a critical gap between musical understanding and pedagogical application.
-We bridge this fundamental limitation by comparing student curves against professional targets and prescribing specific, quantified adjustments: "increase crescendo rate by +0.6 dB/beat in m.20-22 to match target interpretation," transforming analytical insights into actionable coaching guidance.
-
-\subsection{Visual Feedback Without Quantified Corrections}
-Music interfaces excel at highlighting problem areas but lack prescription specificity.
-Piano Tutor \cite{dannenberg2013} colors notes by timing accuracy.
-Attention-based systems like Wav2MusicAnalysis \cite{kawamura2021uist} highlight important passages.
-P.I.A.N.O. \cite{oshima2021} provides real-time visual feedback on hand posture.
-These systems show where to focus but not what to change or by how much.
-Our interface extends visualization with quantified prescriptions displayed directly on scores with confidence indicators.
-
-\subsection{Validation Without User Studies}
-Synthetic data enables objective validation \cite{giraldo2019}.
-Contrastive learning approaches validate through held-out performance matching.
-Three layers validate: synthetic recovery, simulated improvement, external judges.
-
-
-\subsection{Capability Comparison: Identifying the Prescription Gap}
-
-To systematically identify limitations in existing approaches, we compare representative systems across eight critical dimensions for educational music technology:
-
-\begin{table}[h]
-\centering
-\caption{Capability comparison across existing music education systems. \fullsym=Full support, \partialsym=Partial, \absentsym=Absent}
-\label{tab:capability_comparison}
-\begin{tabular}{l|cccccccc}
-\toprule
-\textbf{System} & \rotatebox{45}{Error Detection} & \rotatebox{45}{Score Alignment} & \rotatebox{45}{Expression Analysis} & \rotatebox{45}{Prescription Quantification} & \rotatebox{45}{Real-time (<100ms)} & \rotatebox{45}{Interpretability} & \rotatebox{45}{Educational UI} & \rotatebox{45}{Reproducibility} \\
-\midrule
-SmartMusic \cite{smartmusic} & \fullsym & \fullsym & \absentsym & \absentsym & \fullsym & \absentsym & \partialsym & \absentsym \\
-Yousician \cite{yousician} & \fullsym & \partialsym & \absentsym & \absentsym & \fullsym & \absentsym & \fullsym & \absentsym \\
-Piano Tutor \cite{dannenberg2013} & \partialsym & \fullsym & \absentsym & \absentsym & \fullsym & \partialsym & \fullsym & \absentsym \\
-Con Espressione \cite{wu2018} & \fullsym & \fullsym & \fullsym & \absentsym & \partialsym & \fullsym & \partialsym & \absentsym \\
-PianoBART \cite{chou2022} & \fullsym & \fullsym & \fullsym & \absentsym & \absentsym & \partialsym & \absentsym & \partialsym \\
-MERT \cite{mert2023} & \partialsym & \absentsym & \fullsym & \absentsym & \absentsym & \absentsym & \absentsym & \fullsym \\
-\textbf{ProfyNet (Ours)} & \fullsym & \fullsym & \fullsym & \fullsym & \fullsym & \fullsym & \fullsym & \fullsym \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-\subsection{Gap Analysis: The Missing Prescription Layer}
-Table \ref{tab:capability_comparison} reveals a systematic gap: while existing systems achieve strong performance in error detection and expression analysis, \textbf{none provide quantified prescriptions} that translate diagnostic insights into actionable corrections. Commercial systems like SmartMusic provide binary feedback, academic approaches focus on analysis without guidance generation, and even sophisticated expression models like PianoBART stop at characterization rather than prescription.
-
-This work addresses this fundamental limitation by establishing prescription generation as a new paradigm in automated music coaching, transforming diagnostic capabilities into actionable, quantified guidance that empowers learners to achieve measurable improvement through specific corrective actions.
-
-\section{Human-Centered Design Process}
-
-ProfyNet's design emerged from extensive user research with the piano education community, following established HCI methodologies for understanding user needs in complex, creative domains.
-
-\subsection{User Research and Requirements Gathering}
-
-We conducted structured interviews with 12 professional piano teachers and 24 students (ages 12-45) to understand current pain points in performance assessment and feedback. Teachers consistently identified three key challenges: (1) difficulty providing consistent, objective feedback across lessons, (2) inability to offer continuous guidance during solo practice, and (3) students' frustration with vague correction instructions like "play more musically."
-
-Students reported complementary frustrations: 67\% felt they received insufficient feedback frequency, 83\% wanted more specific guidance on \emph{how} to improve (not just what was wrong), and 75\% expressed interest in objective performance metrics to track their progress.
-
-Through affinity mapping and thematic analysis, we identified core requirements: the system must provide (1) \textbf{interpretable feedback} that users can understand and trust, (2) \textbf{actionable guidance} with specific improvement strategies, and (3) \textbf{pedagogically-aligned analysis} that complements rather than conflicts with human instruction.
-
-\subsection{Participatory Design and Interface Development}
-
-We employed participatory design methods involving four piano teachers as co-designers throughout the interface development process. Initial paper prototypes explored different visualization approaches for highlighting performance issues. Teachers strongly preferred score-based overlays over abstract timeline representations, leading to our attention-based score highlighting approach.
-
-Iterative design sessions revealed the importance of \textbf{confidence indicators} for AI-generated feedback. Teachers needed to assess the reliability of system suggestions before incorporating them into their pedagogy. This insight led to our multi-factor confidence scoring system that combines transcription accuracy, alignment quality, and contextual consistency.
-
-\textbf{Accessibility considerations} emerged as a key design constraint. Working with teachers of visually impaired students, we ensured that attention visualizations include both color and shape coding, with alternative sonification modes for non-visual feedback delivery.
-
-\subsection{Design Principles for AI-Augmented Music Education}
-
-Our user research established five core design principles that guide ProfyNet's development:
-
+The contributions of this paper are as follows.
 \begin{enumerate}
-\item \textbf{Transparency through Interpretability}: Users must understand why the system provides specific feedback. Our attention mechanism makes AI reasoning visible and verifiable against musical knowledge.
-
-\item \textbf{Complementary Intelligence}: The system should augment, not replace, human expertise. ProfyNet provides objective data that teachers interpret within their pedagogical framework.
-
-\item \textbf{Progressive Disclosure}: Feedback complexity should match user expertise. Novice students see simplified guidance, while advanced users access detailed analysis.
-
-\item \textbf{Actionable Specificity}: Every system output must include concrete, implementable suggestions. Vague feedback like "improve timing" is replaced with "delay measures 12-14 by 50ms to match phrase structure."
-
-\item \textbf{Trust through Validation}: The system must provide users with mechanisms to verify and validate AI suggestions against their own knowledge and preferences.
+\item We contribute a multimodal corpus of short technical studies for the analysis of expertise dependent differences, with synchronized 1\,kHz key sensors and audio collected from 80 participants over 2{,}433 sessions and 15 scale and arpeggio tasks.
+\item We present a weakly supervised methodology that learns localized and interpretable evidence from performance level labels and produces score synchronized highlights that can guide practice.
+\item We evaluate the system on our corpus, showing that multimodal signals reliably distinguish expert from amateur performances, localized highlights correspond to coachable passages, and certain pieces are particularly diagnostic for repertoire design.
 \end{enumerate}
 
-These principles inform every aspect of ProfyNet's technical design, from the choice of interpretable attention mechanisms to the specific interface elements used for feedback presentation.
 
-\begin{figure*}[h]
+
+
+
+
+
+% ======================================================================
+% Section: Related Work
+% ======================================================================
+\section{Related Work}
+
+% 日本語訳: 本節では、我々のアプローチを動機づけ位置づける先行研究を三つの系譜に整理する。（§\ref{sec:rw-interactive}）練習を足場づくりするインタラクティブ音楽学習システム、（§\ref{sec:rw-assessment}）自動演奏評価とフィードバック、（§\ref{sec:rw-xai}）音楽教育のための解釈可能AIである。いずれの領域でも、学習者と指導者が行動に移せる「局所的・解釈可能・楽譜同期」フィードバックの必要性を強調する。
+We organize prior work into three strands that jointly motivate and situate our approach: (\S\ref{sec:rw-interactive}) interactive music learning systems that scaffold practice; (\S\ref{sec:rw-assessment}) automatic performance assessment and feedback; and (\S\ref{sec:rw-xai}) interpretable AI for music education. Across these areas, we emphasize the need for localized, interpretable, and score-synchronized feedback that learners and teachers can act on.
+
+% ----------------------------------------------------------------------
+% Subsection: Interactive Music Learning Systems
+% ----------------------------------------------------------------------
+\subsection{Interactive Music Learning Systems}
+\label{sec:rw-interactive}
+
+\subsubsection{Guidance on and around the keyboard.}
+% 日本語訳: 初期研究の \emph{Piano Tutor} は初心者向けにリアルタイムの視覚フィードバックを提供した。投影型インタフェース（例: \emph{P.I.A.N.O.}）は鍵盤上に手がかりを投影して練習を加速し、\emph{OnCall Piano Sensei} や \emph{piARno} のARオーバレイは運指や姿勢の案内を提示して音の正確さや手の位置を改善する。ウェアラブル/ハプティック設計もフィードバックを拡張し、\emph{MusicJacket} は弓使いの触覚キューを提示し、\emph{Mobile Music Touch} 手袋は受動的な触覚練習を支援する。これらのインタラクティブシステムは機械的正確さに有効で、学習初期の習得を促進する。
+Early work such as Piano Tutor provided real-time visual feedback for amateur lessons~\cite{Dannenberg1992}. Projection-based interfaces (e.g., P.I.A.N.O.) accelerate practice by projecting cues onto the keyboard~\cite{Rogers2014}, and AR overlays in OnCall Piano Sensei and piARno present fingering and posture guidance that improves note accuracy and hand position~\cite{Chiang2015,Rigby2020}. Wearable and haptic designs further enrich feedback: MusicJacket delivers vibrotactile cues for bowing technique~\cite{Johnson2010}, and Mobile Music Touch gloves support passive haptic rehearsal\footnote{\url{https://www.freethink.com/series/superhuman/these-gloves-could-offer-rapid-recovery-from-brain-injuries}}. These interactive systems are effective for mechanical correctness and can boost early-stage learning~\cite{Yuksel2016}.
+
+\subsubsection{Beyond note correctness.}
+% 日本語訳: 一方で、多くのAR/VRピアノチュータは依然として音高・タイミングの正誤に重点を置き、テンポ一貫性・ダイナミクス・アーティキュレーションといった他の重要側面へのフィードバックを十分に提供していない。アクセシビリティや協調を志向する \emph{Piano Genie} や \emph{MirrorFugue} も、巧緻な技術分析より入口や共在感を優先する。注視計測で楽譜上の難所を特定・ハイライトする \emph{EyePiano} は、ターゲット化された練習への前進例である。
+Despite their value, many AR/VR piano tutors still emphasize note-level guidance and ``fail to offer feedback on other essential aspects... such as tempo consistency, dynamics, and articulation''~\cite{Wilson2023VRPianoReview}. Accessibility- and collaboration-oriented interfaces like Piano Genie~\cite{Donahue2019} and MirrorFugue~\cite{xiao2011} similarly prioritize entry and co-presence rather than analysis of nuanced technique. A notable step toward targeted practice is EyePiano, which uses eye-tracking to identify and highlight difficult score passages~\cite{Karolus2023}.
+
+% 日本語訳: 我々はこのデータ駆動の流れを継承しつつ、正誤から「熟達度に依存するニュアンス」へ焦点を移す。具体的には、1kHzの高解像度ピアノセンサ時系列から微細な運動技能の特徴を抽出し、練習を誘導する楽譜同期ハイライトとして提示する。これは主に音の正確さを扱ってきた既存のAR/ハプティック系を補完する。
+We follow this data-driven trend while shifting focus from correctness to expertise-dependent nuance. Concretely, we leverage high-resolution piano sensor streams (1\,kHz) to reveal subtle motor-skill signatures and render them as score-aligned highlights that direct practice, complementing prior AR/haptic systems that mostly address note-level accuracy~\cite{Rogers2014,Chiang2015,Rigby2020,Johnson2010,Yuksel2016,Wilson2023VRPianoReview,Donahue2019,xiao2011,Karolus2023,Dannenberg1992}.
+
+% ----------------------------------------------------------------------
+% Subsection: Automatic Performance Assessment and Feedback
+% ----------------------------------------------------------------------
+\subsection{Automatic Performance Assessment and Feedback}
+\label{sec:rw-assessment}
+
+\subsubsection{From alignment to grading.}
+% 日本語訳: 市販プラットフォーム（SmartMusic, Yousician など）は音高/タイミング誤りの検出に強いが、フィードバックを二値判断に還元しがちである。学術研究ではスコア–演奏整合と誤り検出が成熟し、DTWやHMMに基づくスコアフォローにより誤りや反復を含む演奏でも譜面に整合でき、エラーに頑健なリアルタイム伴奏などが可能になっている。整合を超えて、機械学習は全体熟達度の採点も行い、CNN/RNNで約80%精度、Transformer系（例: \emph{PianoBART}）はシンボリック入力上でフレージングや表現を評価する。ただし、網羅的サーベイは、全体スコアや誤り数に留まり「局所的で行動可能」な指針が不足するギャップを指摘する。
+Commercial platforms (e.g., SmartMusic, Yousician) robustly flag pitch and timing errors but largely reduce feedback to binary judgments. Academic work has matured score--performance alignment and error detection: dynamic time warping and HMM-based score following align performances to notation even with mistakes or repeats~\cite{nakamura2016}, enabling applications such as real-time accompaniment that tolerates errors and arbitrary repeats~\cite{nakamura2016}. Beyond alignment, ML models grade overall proficiency: CNN/RNN approaches report around 80\% accuracy, and transformer-based models (e.g., PianoBART) assess phrasing and expression on symbolic inputs~\cite{liang2024}. However, a comprehensive survey highlights a persistent gap: systems often produce global scores or error counts rather than localized, actionable guidance~\cite{Kim2022APPA}.
+
+\subsubsection{Toward richer visual feedback.}
+% 日本語訳: 研究プロトタイプは表現面の見える化の道筋を示す。\emph{Con Espressione} はテンポの微妙な揺れを可視化し、タイミングと音量のリアルタイム抽象可視化は学習者の表現再現能力を高める。テンポや強度の譜面注釈は演奏間比較を助け、アーティキュレーションやダイナミクスの自動評価もピアノ演奏の品質評価に有望である。一方で、多くは簡略化された素材や事前収録に制約され、学習者が表示から処方を推測する余地が大きい。
+Research prototypes illustrate how expressive aspects can be made legible. Con Espressione visualizes timing deviations to expose tempo nuance~\cite{Widmer2017}. Real-time abstract visuals for timing and loudness improve learners’ ability to reproduce expressive detail~\cite{Sadakata2008}. Score annotations with tempo and intensity facilitate cross-performance comparison~\cite{Trevino2014}, and automatic evaluation of articulation and dynamics shows promise for quality assessment in piano playing~\cite{Phanichraksaphong2021}. Yet these systems are frequently constrained to simplified materials or predefined recordings and still leave learners to infer prescriptions from the displays.
+
+% 日本語訳: 本研究はサーベイが指摘する「ラストマイル」に取り組む。すなわち、演奏が品質面で「どこで」乖離しているかを自動的に発見し、その情報を楽譜上に \emph{in situ} で提示して、具体的な練習ターゲットへと落とし込む。
+In this space, we target the ``last mile'' identified by the survey~\cite{Kim2022APPA}: automatically discover where a take diverges in quality and present that information in situ on the score as concrete practice foci, while building on alignment and assessment advances~\cite{nakamura2016,liang2024,Widmer2017,Sadakata2008,Trevino2014,Phanichraksaphong2021,Kim2022APPA}.
+
+% ----------------------------------------------------------------------
+% Subsection: Interpretable AI for Music Education
+% ----------------------------------------------------------------------
+\subsection{Interpretable AI for Music Education}
+\label{sec:rw-xai}
+
+\subsubsection{Transparency and human–AI complementarity.}
+% 日本語訳: 教室での採用は、AIのフィードバックが理解可能で人間の判断を補完するほど高まる。知的チュータリングでは、学習者の自己認識を支えるために意思決定過程の可視化が重視され、教室オーケストレーションでは教師は不透明なスコアより解釈可能な洞察を必要とする。創造領域では、AIは人間の専門性を上書きするのではなく拡張すべきとされる。
+Adoption in classrooms increases when AI feedback is understandable and complements human judgment. Work in intelligent tutoring emphasizes making a system’s decision process visible to support learner self-awareness~\cite{Porayska2016}, and classroom orchestration tools find that teachers need interpretable insights rather than opaque scores~\cite{Holstein2019}. In creative domains, AI ought to augment, not override, human expertise\footnote{\url{https://ojs.aaai.org/aimagazine/index.php/aimagazine/article/view/7399}}.
+
+\subsubsection{Musician-centered explanations and cross-domain cues.}
+% 日本語訳: 音楽における説明可能AIの近年の議論は、演奏家中心の説明ツールの不足と、モデル出力を領域概念へ翻訳するインタフェースの必要性を指摘する。異領域デザインも示唆を与え、言語チュータでは波形上に発音の差異をハイライトする例がある。初心者ピアニストの研究でも、学習者は専門家が確実に検出する微妙な誤りを見落としがちで、その測定と可視化が有益であることが示される。
+Recent work on explainable AI for music calls out the scarcity of musician-centered explanation tools and the need for interfaces that translate model outputs into domain concepts~\cite{BryanKinns2024}. Cross-domain designs show how aligned visualizations can surface subtle differences, as in a language tutor that highlights pronunciation divergences on a waveform display~\cite{Kawamura2021}. An amateur-pianist study similarly indicates that learners often overlook nuanced errors that experts reliably detect and benefit when such aspects are measured and visualized~\cite{Jiang2023}.
+
+% 日本語訳: 以上を踏まえ、本研究は不透明な技能スコアを避け、解釈可能な「楽譜同期ヒートマップ」を採用する。弱教師ありのデュアルアテンションにより、教師の語彙と整合する人間可読の手がかりを生成し、チュータリング/教室の要請と整合させつつ演奏家中心のXAIを前進させる。
+Responding to these threads, we eschew opaque skill scores in favor of an interpretable score-synchronized heatmap. A weakly supervised dual-attention model yields human-inspectable cues that align with teacher vocabulary, advancing musician-centered XAI while staying consistent with tutoring and classroom needs~\cite{Porayska2016,Holstein2019,BryanKinns2024,Kawamura2021,Jiang2023}.
+
+% ----------------------------------------------------------------------
+% NEW: Public corpora and sensing modalities
+% ----------------------------------------------------------------------
+\subsection{Public Piano Corpora and Sensing Modalities (Audio/MIDI vs.\ Motion)}
+Widely used open corpora for piano focus on \emph{audio and/or MIDI} rather than high-rate key-motion sensing. \emph{MAESTRO} pairs aligned performance audio with MIDI from professional competitions and conservatories~\cite{Hawthorne2019MAESTRO}; \emph{MAPS} provides MIDI-aligned audio generated from MIDI or Disklavier recordings for transcription and alignment~\cite{Emiya2010MAPS}; and \emph{ASAP} offers precisely aligned scores and performances aimed at transcription research~\cite{Foscarin2020ASAP}. These resources have catalyzed AMT, alignment, and assessment research, but they do not include synchronized per-key motion at \(\geq 1\,\mathrm{kHz}\) across broad cohorts and standardized technique tasks (e.g., scales/arpeggios). This modality gap limits analyses of motor-skill micro-events (pre-touch latencies, key-travel profiles) that audio alone tends to smear.
+
+% ----------------------------------------------------------------------
+% NEW: High-resolution key-motion sensing in controlled studies
+% ----------------------------------------------------------------------
+\subsection{High-Resolution Key-Motion Sensing in Controlled Studies}
+High-speed key-motion sensing has been leveraged in laboratory studies to probe motor control, often at millisecond resolution. Oku and Furuya built a non-contact deep-learning-based system achieving \(\sim1\,\mathrm{ms}\) temporal resolution on key motion~\cite{Oku2022Sensors}; Yasuhara \etal linked neural oscillations to fine motor timing during piano performance using synchronized EEG and key sensors~\cite{Yasuhara2024iScience}; and recent work argues for the \emph{motor origins of timbre} in piano performance, supported by high-resolution key-motion measurements~\cite{Kuromiya2025PNAS}. To our knowledge, however, such sensing has not materialized as a \emph{public, multi-participant corpus} with standardized technique tasks, consistent capture protocol, and documentation suitable for benchmarking.
+
+% ----------------------------------------------------------------------
+% NEW: Positioning our resource contribution
+% ----------------------------------------------------------------------
+\subsection{Positioning of This Corpus Contribution}
+The approach in this paper addresses the above gap by documenting a corpus of short technical studies with synchronized 1\,kHz per-key motion and 44.1\,kHz audio, adjudicated performance-level labels, and a data-card style schema. Whereas audio/MIDI corpora (\S\ref{sec:rw-assessment}) support alignment and global assessment, the present resource is designed for \emph{expertise-dependent motor-skill analysis} and for \emph{interpretable, score-synchronized feedback}. We therefore complement prior datasets by adding a sensing modality that is essential for localizing practice-relevant micro-events, while remaining compatible with score-based UI overlays grounded in established alignment methods~\cite{nakamura2016}.
+
+
+
+
+
+
+% ----------------------------------------------------------------------
+% Section: Dataset: Corpus and Task Suite
+% ----------------------------------------------------------------------
+\section{Dataset: Corpus and Task Suite}
+\label{sec:dataset}
+
+Compared with widely used audio/MIDI datasets~\cite{Hawthorne2019MAESTRO,Emiya2010MAPS,Foscarin2020ASAP} and surveys of automatic piano performance assessment (APPA)~\cite{Kim2022APPA}, publicly available resources seldom include synchronized \emph{high‑rate} per‑key motion (~$\approx$1\,kHz) for \emph{short technical studies}. Our corpus is designed to address this practical gap by pairing 88‑key motion at 1\,kHz with 44.1\,kHz audio under a standardized protocol, enabling localized and interpretable analyses of expertise‑dependent motor skills. Detailed comparisons to prior corpora are provided in §Related~Work; here we document the resource for reproducible use.
+
+\begin{table*}[t]
   \centering
-  \includegraphics[width=0.8\linewidth]{figures/architecture_overview.pdf}
-  \caption{ProfyNet architecture overview. The system processes 88-key sensor data at 1000Hz through three parallel pathways: (1) Statistical feature extraction capturing global performance metrics, (2) Dilated temporal convolutions for multi-scale pattern recognition, and (3) Local attention mechanism identifying performance-critical regions. Features are fused through learned weighting and classified via a lightweight MLP head, achieving F1=0.982 with dual attention mechanism.}
-  \Description{System architecture diagram showing data flow from 88-key sensor input through three parallel processing pathways: statistical feature extraction branch, dilated temporal convolution branch, and local attention branch. The outputs are combined through feature fusion and fed to an MLP classifier head for professional vs amateur classification.}
+  \caption{\textbf{Corpus at a glance. All values computed from the data directory.}}
+  \label{tab:profy_glance}
+  \begin{tabular}{@{}ll@{}}
+    \toprule
+    Item & Value \\
+    \midrule
+    Participants (unique) & 80 \\
+    Sessions (total / adopted) & 2{,}433 / 1{,}175 (48.3\%) \\
+    Piece tasks (unique) & 15 (9 scales, 6 arpeggios) \\
+    Takes per piece (mean / median / max) & 2.17 / 2 / 10 \\
+    Take length (median [min, max]) & 10.53\,s [1.37, 246.75] \\
+    Modalities & 1\,kHz per‑key motion; 44.1\,kHz stereo audio; optional multi‑view video, posture, pedal \\
+    Labels & \texttt{Expert} / \texttt{Amateur} (performance‑level) \\
+    \bottomrule
+  \end{tabular}
+\end{table*}
+
+\subsection{Scope and Novelty}
+\label{subsec:scope}
+The contribution is a corpus expressly targeted at expertise‑dependent motor‑skill analysis on short, controlled materials, with synchronized high‑rate sensing. Each take contains 88‑channel key‑motion at 1\,kHz and stereo audio at 44.1\,kHz, captured under a consistent protocol. As far as we are aware, public resources commonly used for performance analysis focus on audio and/or MIDI and do not offer high‑rate per‑key motion suitable for localizing micro‑events associated with technique~\cite{Hawthorne2019MAESTRO,Emiya2010MAPS,Foscarin2020ASAP}. Surveys of APPA likewise note that corpora for interpretable, localized feedback are scarce and typically omit sensor streams beyond audio~\cite{Kim2022APPA}. To our knowledge, there is no publicly accessible corpus of short technical studies (scales/arpeggios) with synchronized 1\,kHz key‑motion and 44.1\,kHz audio comparable in scope to ours.
+
+\subsection{Protocol and Task Suite}
+\label{subsec:protocol}
+We recruited eighty pianists spanning a broad proficiency range from amateurs to experienced performers and teachers. Eligibility required the ability to play major and minor scales and triad arpeggios hands together at a comfortable tempo; recent injury and hearing conditions were exclusionary. Personally identifying information was not stored with the recordings.
+
+Performances were captured on a digital piano instrumented for per‑key motion at 1\,kHz across all eighty‑eight keys. Audio was recorded at 44.1\,kHz and 32‑bit float with fixed microphone placement in a quiet room. The sensor and audio streams were hardware‑synchronized to a common timestamp epoch, ensuring sample‑accurate alignment suitable for cross‑modal analysis and later score following~\cite{nakamura2016}.
+
+The task suite consists of fifteen short studies selected to isolate core motor demands while minimizing confounds from long‑form repertoire. Nine tasks are scales and six are arpeggios. The scale tasks use key signatures that create contrasting patterns of white and black keys: B, C, Des, Es, and Ges major together with b, cis, es, and fis minor. A scale here means a stepwise traversal of the notes defined by a key signature over one or more octaves, ascending and descending in a fixed pattern. For non‑specialists, the salient technical challenge in scales is maintaining evenness of timing and loudness while executing \emph{finger crossings}—a coordinated “thumb‑under/finger‑over” maneuver that allows the hand to reposition without audible bumps. Keys dominated by black keys alter hand posture and finger travel: C major largely uses white keys and demands economy in frequent crossings, whereas Ges major uses many black keys and changes the angle and surface contact of the fingers, which affects control of attack and release. Minor keys introduce raised leading tones in harmonic or melodic forms, subtly changing fingerings and local difficulty around scale degrees 6–7.
+
+The arpeggio tasks use As, D, and F major together with b, f, and gis minor. An arpeggio is a chord played as a sequence of its tones rather than simultaneously, typically across multiple positions or octaves. Technically, arpeggios stress controlled hand relocation and span management. The player must rotate and translate the wrist to place the hand over successive chord tones, coordinate forearm movement to bridge larger gaps, and regulate pedal so that changes of position do not smear. Compared with scales, arpeggios create asymmetric motion between hands, more varied inter‑onset intervals, and larger vertical displacements on the keyboard, all of which challenge consistency of tone and timing. These differences yield complementary motor signatures in the key‑motion data and provide a richer testbed for distinguishing expertise.
+
+Session flow was simple and uniform. After brief instructions and an optional warmup, each participant could record multiple takes per task with a cap of ten; across the dataset the median is two takes and the mean is 2.17. Tempo was self‑selected unless otherwise indicated. Participants were asked to aim for steady timing and even dynamics rather than concert speed, emphasizing technique over display. To reduce order effects, task order was randomized across sessions.
+
+The piece names in the metadata follow German pitch notation, where Des, Es, and Ges correspond to D$\flat$, E$\flat$, and G$\flat$; As denotes A$\flat$; cis, fis, and gis correspond to C$\sharp$, F$\sharp$, and G$\sharp$; and the single letter b denotes B$\flat$. Where “dur” and “moll” appear, they indicate major and minor, respectively. We keep these names as recorded to preserve reproducibility.
+
+\subsection{Labels, Curation, Contents, Uses, and Limitations}
+\label{subsec:labels-content}
+Each take carries a performance‑level label, \texttt{Expert} or \texttt{Amateur}, derived from human ratings. Fifty‑three raters provided 6{,}517 ratings over 1{,}083 unique takes, with a median of four ratings and a mean of 6.01 ratings per take. The recorded rater‑side tags map directly to the two labels (\texttt{pro}→\texttt{Expert}, \texttt{amateur}→\texttt{Amateur}), yielding 597 expert‑labeled and 486 amateur‑labeled takes among the rated subset. No localized annotations were used for model training; the piece‑wise analyses in §\ref{sec:technical-eval} rely only on these global labels.
+
+Curation was conservative. A session was adopted only if the capture was intact, the protocol was followed, and the content was valid for the declared task. Of 2{,}433 sessions, 1{,}175 (48.3\%) were retained, which is reflected by an \texttt{isAdopted} flag in the accompanying CSV. For each take we compute basic indicators of acoustic reliability—non‑silence ratio, spectral flatness, and loudness—which are included as metadata so that users can filter analyses by estimated quality or replicate our ablations.
+
+The released structure is straightforward. Each adopted session contains synchronized key‑motion streams at 1\,kHz for all eighty‑eight keys and stereo audio at 44.1\,kHz, alongside per‑take metadata that records identifiers, the task key, and the quality indicators noted above. For many takes we also provide derived per‑note information such as onset and offset times and basic kinematic summaries; additional modalities, including multi‑view video, posture or skeleton traces, and pedal signals, are available for a subset. Key‑motion values are normalized displacements in arbitrary units centered near zero. All time bases are in seconds, and the frame rates are explicitly recorded with each take.
+
+The corpus supports three benchmark families that we use in §\ref{sec:technical-eval}: expert‑versus‑amateur classification from sensors, from audio, or from both; weakly supervised localization of amateur weaknesses using performance‑level labels; and analysis of diagnosability at the piece level. When a score transcript and reliable score following are available~\cite{nakamura2016}, evidence learned from weak supervision can be aggregated to notes or beats and rendered on the staff; otherwise, we use timeline overlays that align by absolute time.
+
+The scope is intentionally focused, which brings both strengths and limitations. Short, controlled studies and a consistent capture setup make it feasible to detect sub‑second motor events that are often blurred in audio alone and to compare takes fairly across players. At the same time, ecological validity is narrower than in long‑form repertoire recorded across diverse environments, and some optional modalities are incomplete across sessions. Access, licensing, and release logistics are omitted here due to anonymized review. Within those bounds, the corpus foregrounds synchronized, high‑rate sensing for interpretable feedback research and, to our knowledge, fills a gap left by audio/MIDI‑centric corpora~\cite{Hawthorne2019MAESTRO,Emiya2010MAPS,Foscarin2020ASAP} and resources catalogued in APPA surveys~\cite{Kim2022APPA}.
+
+
+
+
+
+\begin{figure*}[t]
+  \centering
+  \includegraphics[width=0.9\linewidth]{figures/architecture_overview.png}
+  \caption{\textbf{Profy architecture.} Two modality-specific encoders transform (top) 88-key, 1\,kHz sensor streams and (bottom) 128‑dim audio features into $d{=}256$ sequences. A 4‑head bidirectional multi‑head attention block with a learnable resampler exchanges information across modalities~\cite{Vaswani2017,Lu2019ViLBERT}. A quality‑aware gating network, conditioned on acoustic quality indicators (NSR, spectral flatness, loudness), mixes four candidates into a fused representation. A 2‑layer BiLSTM with temporal attention produces per‑frame evidence and an attention‑pooled clip representation for expert/amateur classification; an auxiliary MIL objective guides evidence localization~\cite{Ilse2018,Pinheiro2015}.}
+  \Description{Architecture diagram of the Profy model showing six stages: input processing, dual encoding, cross-modal attention, quality-aware fusion, temporal aggregation, and dual-head output with visualization.}
   \label{fig:architecture_overview}
 \end{figure*}
 
-\section{ProfyNet: Methodology and Architecture}
 
-\subsection{Problem Formulation}
 
-Given a piano performance with sensor data $\mathbf{S} \in \mathbb{R}^{T \times 88}$ where $T$ is the sequence length (sampled at 1000Hz) and 88 represents piano keys, our goal is to classify the performance as professional ($y=1$) or amateur ($y=0$). Additionally, we aim to produce attention weights $\mathbf{A} \in \mathbb{R}^{T}$ indicating the importance of each time step for interpretability.
 
-The challenge lies in efficiently processing long sequences (typical performances contain 30-60 seconds = 30,000-60,000 timesteps) while capturing both local patterns (individual note articulations) and global characteristics (phrasing, dynamics).
+% ======================================================================
+% Section: Profy: Methodology and Architecture
+% ======================================================================
+\section{Profy: Methodology and Architecture}
 
-\subsection{Statistical Feature Extraction}
+\subsection{System Overview}
+\label{subsec:overview}
+Profy processes two synchronized streams per performance and converts them into interpretable guidance. The system ingests an 88–channel key-motion sensor time series $\mathbf{S}\in\mathbb{R}^{T\times 88}$, uniformly resampled from 1\,kHz to a fixed $T$ frames, together with a stacked audio feature map $\mathbf{A}\in\mathbb{R}^{T\times 128}$ computed from 22.05\,kHz mono audio. An audio quality vector $\mathbf{q}=[\mathrm{NSR},\mathrm{SFlat},\mathrm{Loud}]$ and a non-silence mask $\mathbf{m}$ accompany the audio stream. Modality-specific encoders transform the inputs; bidirectional cross-modal attention aligns and exchanges information~\cite{Vaswani2017,Lu2019ViLBERT}; and a quality-aware gate fuses four candidate sequences into a single representation. A BiLSTM with two heads then produces per-frame evidence and a clip-level classification from an attention-pooled context. The UI receives a global expert probability, a time-localized evidence curve, a timeline severity profile used to draw overlays, and reliability flags that suppress overlays when inputs are untrustworthy. Figure~\ref{fig:architecture_overview} provides a graphical summary of this pipeline. For localization without frame labels we use an auxiliary MIL objective~\cite{Pinheiro2015,Ilse2018}.
 
-Based on our empirical analysis of 6,476 performances, we identified six key discriminative features that capture global performance characteristics. These features complement temporal modeling by providing aggregate statistics:
+\subsection{Inputs and Outputs}
+\label{subsec:io}
+The task is to predict a binary expertise label $y\in\{0,1\}$ (expert/amateur) for an entire performance while learning time-localized signals from performance-level labels only. The input consists of a sensor stream $\mathbf{S}\in\mathbb{R}^{T\times 88}$ (per-key positions resampled/padded to length $T$), an audio feature stream $\mathbf{A}\in\mathbb{R}^{T\times 128}$ comprising Mel, MFCC, reduced chroma, tonnetz, spectral contrast, and frame statistics, and two auxiliary quantities---a non-silence mask $\mathbf{m}\in\{0,1\}^T$ and the quality vector $\mathbf{q}\in\mathbb{R}^{3}$. When available, a frame-to-score mapping $\phi:t\mapsto n$ from score following can be used at rendering time; by default the UI draws timeline overlays. The system returns four outputs that the UI consumes directly: a global expert probability $\hat{y}\in(0,1)$, a per-frame evidence sequence $e_{1:T}\in[0,1]^T$ that localizes decisive moments, a timeline severity profile $s_{1:T}$ used to control overlay opacity, and a compact set of reliability flags indicating low audio SNR, uncertain alignment, insufficient clip length, or missing sensor channels.
 
-\begin{equation}
-\mathbf{f}_{stat} = [\sigma_v, \rho, \bar{v}, k_{sim}, n_{total}, r_v]
-\end{equation}
-
-where $\sigma_v$ represents velocity standard deviation as a measure of consistency, $\rho$ denotes press density in keys per second, $\bar{v}$ captures the average velocity indicating dynamic level, $k_{sim}$ measures simultaneous key presses reflecting chord complexity, $n_{total}$ represents normalized total presses as an efficiency metric, and $r_v$ indicates velocity range capturing dynamic contrast.
-
-These features are extracted efficiently in a single pass through the data:
-\begin{equation}
-\mathbf{f}_{stat} = \text{StatExtract}(\mathbf{S}) \in \mathbb{R}^6
-\end{equation}
-
-\subsection{Temporal Feature Extraction via Dilated Convolutions}
-
-To capture temporal patterns at multiple scales, we employ a stack of dilated convolutional layers:
-
-\begin{equation}
-\mathbf{H}^{(l)} = \text{ReLU}(\text{BN}(\mathbf{W}^{(l)} *_d \mathbf{H}^{(l-1)} + \mathbf{b}^{(l)}))
-\end{equation}
-
-where $*_d$ denotes dilated convolution with dilation rate $d_l = 2^l$ for layer $l \in \{1,2,3\}$. This exponential dilation schedule enables receptive field growth from local (2ms) to phrasal (8ms) timescales while maintaining linear parameter growth.
-
-The multi-scale design progressively captures temporal patterns at different resolutions. The first layer with dilation rate $d=1$ focuses on note onsets and micro-timing variations at the millisecond scale. The second layer ($d=2$) expands the receptive field to capture local articulation patterns and note transitions. The third layer ($d=4$) further extends the temporal context to model phrase-level structures and longer musical gestures.
-
-\subsection{Local Attention Mechanism}
-
-Full self-attention on sequences of length $T$ requires $O(T^2)$ memory and computation, making it infeasible for our 30,000+ timestep sequences. We introduce a local attention mechanism that maintains interpretability while drastically reducing complexity:
-
-\begin{equation}
-\text{LocalAttn}(\mathbf{Q}, \mathbf{K}, \mathbf{V})_i = \text{softmax}\left(\frac{\mathbf{Q}_i \mathbf{K}_{[i-w:i+w]}^T}{\sqrt{d_k}}\right)\mathbf{V}_{[i-w:i+w]}
-\end{equation}
-
-where $w=50$ is the half-window size, creating a total attention window of 101 timesteps (101ms at 1000Hz). This reduces complexity from $O(T^2)$ to $O(T \cdot 101)$, achieving 99.66\% reduction for typical sequences (T=30,000: $9 \times 10^8$ vs $3.03 \times 10^6$ operations).
-
-The half-window size $w=50$ was carefully selected based on musical and computational considerations. The resulting 101ms total window effectively covers typical note durations (50-200ms) and captures local ornamentations, grace notes, and articulation patterns crucial for performance assessment, while maintaining computational efficiency for real-time processing.
-
-\subsection{Dual Attention Mechanism with Evidence Learning}
-
-A critical challenge in attention-based models is the uniformity problem: traditional softmax attention often converges to uniform distributions (standard deviation approaching 0), providing no interpretable signal. We introduce a novel dual attention mechanism that combines traditional attention with Evidence Learning:
-
-\begin{equation}
-\text{Evidence}(\mathbf{H})_i = \sigma(\mathbf{W}_e \mathbf{H}_i + b_e)
-\end{equation}
-
-where $\sigma$ is the sigmoid function producing independent scores in [0,1]. Unlike softmax which enforces $\sum_i \alpha_i = 1$, Evidence Learning allows each timestep to be scored independently:
-
-\begin{equation}
-\text{DualAttn}(\mathbf{H}) = \{\text{Attention}(\mathbf{H}), \text{Evidence}(\mathbf{H})\}
-\end{equation}
-
-The Evidence scores directly indicate problem areas: high scores (approaching 1) identify technical issues in amateur performances, while low scores (approaching 0) indicate professional-quality execution. This approach overcomes the uniformity problem by removing the normalization constraint, achieving attention diversity (std = 0.49) compared to traditional softmax (std < 0.001).
-
-\subsection{Feature Fusion and Classification}
-
-Temporal and statistical features are combined through learned fusion:
-
-\begin{equation}
-\mathbf{z}_{temporal} = [\text{AvgPool}(\mathbf{H}^{(L)}); \text{MaxPool}(\mathbf{H}^{(L)})]
-\end{equation}
-
-\begin{equation}
-\mathbf{z}_{fused} = \text{Concat}[\alpha \cdot \mathbf{z}_{temporal}, \beta \cdot \mathbf{f}_{stat}]
-\end{equation}
-
-where $\alpha, \beta$ are learned weighting parameters initialized to 1.0.
-
-Classification is performed via a lightweight 3-layer MLP:
-\begin{equation}
-\hat{y} = \text{softmax}(\text{MLP}(\mathbf{z}_{fused}))
-\end{equation}
-
-with hidden dimensions [256, 128, 2] and dropout rate 0.3 for regularization.
-
-\subsection{Prescription Generation Module}
-
-Beyond binary classification, ProfyNet generates quantified, actionable prescriptions that translate attention patterns into specific corrective guidance. This module operationalizes the critical transition from diagnostic assessment to actionable improvement.
-
-\textbf{Input Processing}: The prescription generator takes score-aligned note sequences (via MT3/Onsets-and-Frames transcription), performance timing/velocity/dynamics series, and attention weights $\mathbf{A} \in \mathbb{R}^{T}$ to identify performance-critical regions.
-
-\textbf{Target Curve Derivation}: We establish target performance curves through two complementary approaches:
-\begin{enumerate}
-\item \textbf{Statistical targets}: Professional performance distributions per piece/section, computing quantile ranges for velocity, inter-onset intervals (IOI), and simultaneous key usage patterns
-\item \textbf{Pedagogical rules}: Music theory constraints including beat emphasis patterns ($\pm$10\% velocity on downbeats), phrase-boundary deceleration (3-8\% ritardando), and dynamic curve smoothness (L2 regularization on velocity derivatives)
-\end{enumerate}
-
-\textbf{Deviation-to-Prescription Mapping}: Given observed performance parameters $\mathbf{p}_{obs}$ and targets $\mathbf{p}_{target}$, we compute minimal corrections:
-\begin{equation}
-\mathbf{\Delta p} = \arg\min_{\mathbf{\delta}} \|\mathbf{p}_{obs} + \mathbf{\delta} - \mathbf{p}_{target}\|_2^2 + \lambda_1 \|\mathbf{\delta}\|_1 + \lambda_2 \|\mathbf{D\delta}\|_2^2
-\end{equation}
-where $\mathbf{D}$ is a difference operator ensuring temporal smoothness, $\lambda_1=0.1$ promotes sparsity, and $\lambda_2=0.05$ prevents over-correction.
-
-\textbf{Quantified Output}: Prescriptions are generated in standardized form: "[measure:beat] [parameter] [direction] [amount] (confidence)". Examples include:
-\begin{itemize}
-\item "m.17, beat 2: Timing +6\% beat (C=0.78)"
-\item "m.20-22: Crescendo gradient +0.6 dB/beat (C=0.82)"
-\item "m.8: Reduce simultaneous keys by 1.2 avg (C=0.71)"
-\end{itemize}
-
-\textbf{Confidence Scoring}: Each prescription includes uncertainty quantification:
-\begin{equation}
-C_{prescription} = P_{transcription} \times Q_{alignment} \times S_{context} \times H_{harmony}
-\end{equation}
-where confidence factors reflect transcription accuracy, score-performance alignment quality, musical context consistency, and harmonic plausibility. UI visualization uses opacity encoding to help users prioritize reliable prescriptions.
-
-\subsection{Training Strategy}
-
-\subsubsection{Loss Function}
-We employ a composite loss addressing class imbalance and prediction diversity:
-
-\begin{equation}
-\mathcal{L} = \mathcal{L}_{CE} + \lambda \cdot e^{-H(\bar{p})}
-\end{equation}
-
-where $\mathcal{L}_{CE}$ is weighted cross-entropy, $H(\bar{p})$ is the entropy of average predictions across the batch, and $\lambda=0.1$ prevents mode collapse to single-class predictions.
-
-\subsubsection{Data Balancing}
-To address the 56\% professional class imbalance in our dataset, we employ a multi-faceted balancing strategy. We implement weighted random sampling with weights proportional to $1/\sqrt{n_c}$ where $n_c$ is the class count, ensuring balanced representation during training. Additionally, we utilize class-weighted focal loss with parameters $\alpha=[0.56, 0.44]$ and $\gamma=2.0$ to focus learning on hard-to-classify examples. Data augmentation further enhances robustness through tempo variations of $\pm$10\% and velocity scaling of $\pm$15\%, simulating natural performance variations while preserving musical structure.
-
-\subsubsection{Optimization Details}
-The model is optimized using AdamW with a learning rate of $5 \times 10^{-4}$ and momentum parameters $\beta=(0.9, 0.999)$. We apply weight decay of 0.01 to all parameters except bias terms and BatchNorm layers to prevent overfitting. Gradient clipping with maximum norm of 1.0 ensures stable training dynamics. Learning rate scheduling via ReduceLROnPlateau with patience of 5 epochs and reduction factor of 0.5 adapts to training progress. Training terminates early if validation performance does not improve for 10 consecutive epochs, preventing overfitting while ensuring convergence.
-
-\subsection{Implementation Efficiency}
-
-Several key optimizations enable practical deployment of ProfyNet in real-world settings. The system exploits the natural sparsity in sensor data, where typically only 3-5 keys are active simultaneously, to reduce computational overhead. Processing is performed on 3-second windows with 1-second overlap, balancing temporal context with memory constraints. Mixed precision training using FP16 with dynamic loss scaling accelerates computation while maintaining numerical stability. A custom CUDA kernel implementation for local attention further reduces latency. These optimizations collectively enable real-time inference with sub-100ms latency on consumer GPUs, making the system practical for interactive music education applications.
-
-\section{Evaluation}
-
-We evaluate ProfyNet through a multi-faceted approach that addresses both technical performance and human-centered effectiveness. Our evaluation methodology includes: (1) \textbf{technical assessment} measuring classification accuracy and attention interpretability, (2) \textbf{user studies} evaluating learning effectiveness and system usability, and (3) \textbf{expert validation} assessing pedagogical alignment and trust. This comprehensive evaluation framework reflects HCI best practices for evaluating AI-augmented educational systems. All experiments are fully reproducible with code and data available at \url{https://github.com/anonymous/profynet}.
-
-\subsection{Dataset and Experimental Setup}
-
-\subsubsection{Dataset}
-We evaluate on 6,476 piano performances from the complete Profy dataset, comprising 3,782 professional and 2,694 amateur recordings. Each performance includes both 24kHz audio recordings and 1000Hz sampling of all 88 piano keys' sensor data. To prevent data leakage, we perform player-level splitting: training set contains 4,144 performances (60%), validation set contains 1,036 performances (16%), and test set contains 1,296 performances (20%). The dataset exhibits a balanced distribution with 58.4\% professional performances. Player-level stratification ensures that performances from the same player never appear in both training and test sets, providing a rigorous evaluation of generalization to unseen performers. The synchronized multimodal data—combining high-quality audio with millisecond-precision keystroke dynamics—enables analysis of subtle performance characteristics.
-
-\subsubsection{Implementation Details}
-ProfyNet is implemented in PyTorch 1.13 and trained on NVIDIA RTX 3090 GPUs. Input sequences are chunked to 3000 timesteps (3 seconds at 1kHz sampling rate) to balance temporal context with memory constraints. The architecture employs a hidden dimension of 128 and local attention half-window of 50 timesteps (total window=101). Training uses batch size 32 with AdamW optimizer at learning rate $5 \times 10^{-4}$. Regularization strategies include dropout rate of 0.3, weight decay of 0.01, and gradient clipping at maximum norm 1.0. The model converged at epoch 34 with early stopping patience of 10 epochs, demonstrating efficient training dynamics.
-
-\subsection{Baselines and Comprehensive Comparison}
-
-We evaluate ProfyNet against diverse architectures spanning different modalities and modeling paradigms:
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/baseline_comparison.png}
-\caption{Comprehensive baseline comparison. (a) F1 scores showing 95.6\% improvement over audio-only approaches (F1=0.502) and 113\% improvement over sensor-only CNN (F1=0.461). (b) Parameter efficiency with 750× reduction vs MERT. (c) Latency comparison confirming real-time capability. (d) Dual attention mechanism achieving both high accuracy and interpretability.}
-\Description{Four bar charts comparing ProfyNet against baselines on F1 score, parameters, latency, and calibration metrics.}
-\label{fig:baseline_comparison}
-\end{figure}
-
-\textbf{Audio-Only (MERT):} State-of-the-art music understanding model with 330M parameters achieves F1=0.502, limited by audio-only modality and 2.5s latency.
-
-\textbf{Sensor-Only (1D-CNN):} Lightweight 156K parameter model processing keystroke data achieves F1=0.461 with 45ms latency but lacks multimodal integration.
-
-\textbf{Early Fusion:} Concatenates audio and sensor features before processing (512K parameters, F1=0.578) but suffers from modality interference (ECE=0.124).
-
-\textbf{Late Fusion:} Processes modalities separately before combination (486K parameters, F1=0.592) with improved calibration (ECE=0.098) but no prescription capability.
-
-\textbf{ProfyNet:} Our approach achieves F1=0.982 with dual attention (440K parameters), 95ms latency, best-in-class calibration (ECE=0.047), and uniquely provides actionable prescriptions.
-
-\subsection{Main Results}
-
-\subsubsection{Performance Comparison}
-
-\begin{table}[h]
-\centering
-\caption{Performance comparison on complete Profy dataset with 6,476 performances.}
-\label{tab:main_results}
-\begin{tabular}{lcccc}
-\toprule
-\textbf{Method} & \textbf{F1↑} & \textbf{Precision↑} & \textbf{Recall↑} & \textbf{Accuracy↑} \\
-\midrule
-Random Baseline & 0.502 & 0.502 & 0.498 & 0.503 \\
-Logistic Regression & 0.586 & 0.580 & 0.592 & 0.525 \\
-SVM & 0.604 & 0.595 & 0.613 & 0.547 \\
-Random Forest & 0.618 & 0.609 & 0.627 & 0.561 \\
-\textbf{ProfyNet (Test)} & \textbf{0.982} & \textbf{0.967} & \textbf{0.993} & \textbf{0.982} \\
-\textbf{ProfyNet (Dual Attention)} & \textbf{0.982} & \textbf{0.967} & \textbf{0.993} & \textbf{0.982} \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-ProfyNet demonstrates exceptional performance on the complete Profy dataset with F1=0.982 on the held-out test set (1,296 samples) with 98.23% accuracy. The model was trained on 4,144 performances, validated on 1,036 performances, and tested on 1,296 performances from the full dataset of 6,476 samples, with rigorous player-level splitting to prevent data leakage. Cross-validation results show stable performance across folds with 95\% confidence intervals [0.624, 0.662], indicating reliable generalization to unseen performers.
-
-\subsubsection{Ablation Study}
-
-To understand component contributions, we systematically ablate key elements:
-
-\begin{table}[h]
-\centering
-\caption{Ablation study revealing the importance of each component. Statistical features contribute most significantly to performance.}
-\label{tab:ablation}
-\begin{tabular}{lcc}
-\toprule
-\textbf{Configuration} & \textbf{F1 Score} & \textbf{Drop (\%)} \\
-\midrule
-ProfyNet (Full) & 0.629 & - \\
-\quad w/o Statistical Features & 0.541 & -13.4 \\
-\quad w/o Local Attention & 0.519 & -17.0 \\
-\quad w/o Dilated Convolution & 0.504 & -19.4 \\
-\quad w/o Entropy Regularization & 0.487 & -22.1 \\
-\quad w/o Data Balancing & 0.456 & -27.0 \\
-\bottomrule
-\end{tabular}
-\end{table}
-
-Each component contributes meaningfully, with statistical features providing the largest individual contribution (13.4\% drop when removed). The cumulative effect demonstrates careful architectural design where components work synergistically.
-
-\subsection{Model Calibration and Reliability}
-
-Beyond accuracy metrics, we evaluate ProfyNet's calibration to assess the reliability of its confidence estimates—critical for educational deployment where teachers need to assess system trustworthiness.
-
-\textbf{Calibration Metrics}: We compute Expected Calibration Error (ECE) across 10 bins, achieving ECE=0.047, indicating well-calibrated confidence estimates. The Brier score of 0.231 demonstrates good probabilistic accuracy. Reliability diagrams show that when ProfyNet predicts 80\% confidence, actual accuracy is 78\%±3\%, demonstrating appropriate calibration for educational use.
-
-\textbf{Operating Point Analysis}: We analyze precision-recall trade-offs across confidence thresholds to enable teachers to select appropriate operating points. At confidence threshold 0.7, precision increases to 0.74 while maintaining recall of 0.52, reducing false positive prescriptions by 28\%. This calibration enables teachers to prioritize high-confidence prescriptions during lessons.
-
-\subsection{Prescription Effectiveness Validation}
-
-We validate prescription quality through offline analysis using synthetic interventions and counterfactual evaluation—demonstrating educational value without requiring new user studies.
-
-\subsubsection{Simulated Improvement Test}
-We apply ProfyNet's prescriptions to original MIDI/sensor data and measure objective improvement toward target curves:
-
-\textbf{Methodology}: For 120 amateur performances, we extract prescriptions, apply them to original sensor data (adjusting velocity/timing/articulation), and measure distance reduction to professional target curves using Dynamic Time Warping (DTW).
-
-\textbf{Results}: Prescription application reduces DTW distance by 34\%±8\% (p<0.001, Cohen's d=1.2). Velocity-based prescriptions show strongest improvements (42\% reduction), followed by timing corrections (31\%) and articulation adjustments (28\%). Per-prescription improvement averages 0.15 standardized units, indicating meaningful educational impact.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/synthetic_interventions.png}
-\caption{Synthetic intervention validation. (a-b) Dose-response curves showing 45\% average improvement with monotonic relationship between prescription strength and effectiveness. (c) Combined interventions reveal synergistic effects. (d) Learning curves demonstrate accelerated skill acquisition with stronger prescriptions.}
-\Description{Four plots validating prescription effectiveness through synthetic interventions with dose-response curves and learning trajectories.}
-\label{fig:interventions}
-\end{figure}
-
-\subsubsection{Synthetic Recovery Validation}
-We test prescription accuracy by degrading professional performances with controlled noise, then measuring recovery effectiveness:
-
-\textbf{Protocol}: Professional performances receive synthetic degradation (±15ms timing jitter, ±20 MIDI velocity noise, excessive simultaneous key presses). ProfyNet generates prescriptions to restore original quality.
-
-\textbf{Recovery Performance}: Prescriptions recover 78\%±12\% of original professional characteristics across noise levels. Strong performance persists up to moderate degradation (SNR>15dB), with graceful degradation beyond. Recovery correlates strongly with attention peak regions (r=0.84), validating attention-prescription alignment.
-
-\subsubsection{Counterfactual Attention Analysis}
-We validate attention interpretability by comparing prescription effectiveness in high-attention vs. low-attention regions:
-
-\textbf{Experimental Design}: We selectively apply prescriptions only to top-25\% attention regions vs. bottom-25\% regions, measuring relative improvement in professional-similarity metrics.
-
-\textbf{Results}: High-attention region prescriptions yield 2.3× greater improvement than low-attention regions (p<0.001), confirming that attention successfully identifies performance-critical areas where corrections provide maximum educational value.
-
-\subsection{Analysis and Insights}
-
-\subsubsection{Statistical Analysis of Performance Characteristics}
-
-Our analysis of 1,083 performances reveals quantitative differences between professionals and amateurs:
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/experiment_1_statistical_analysis.pdf}
-\caption{Statistical comparison of performance characteristics. Professionals demonstrate remarkable efficiency with fewer key presses and higher consistency across all metrics (p < 0.001, Cohen's d > 1.0).}
-\Description{Bar chart comparison showing professionals vs amateurs across multiple performance metrics: total key presses, velocity consistency, press density, timing regularity, simultaneous key usage, and dynamic range. Professional performances consistently show higher efficiency and control with statistical significance markers and effect size annotations.}
-\label{fig:statistical_analysis}
-\end{figure}
-
-Our statistical analysis reveals striking differences between professional and amateur performances with substantial effect sizes. Professionals demonstrate remarkable efficiency by using 54\% fewer total key presses than amateurs (Cohen's d=1.63, p<0.001), suggesting more deliberate and purposeful playing. Velocity consistency is 51\% higher among professionals (d=1.39, p<0.001), indicating superior dynamic control. Press density is 44\% lower in professional performances (d=1.42, p<0.001), reflecting more efficient finger movements and better planning. Timing regularity shows significant improvement in professionals (d=1.49, p<0.001), demonstrating superior rhythmic precision. These findings challenge conventional assumptions about expertise, revealing that professional performance is characterized not by increased complexity but by efficiency, control, and precision in motor execution.
-
-\subsubsection{Attention Pattern Analysis}
-
-Local attention mechanisms reveal interpretable patterns aligned with music pedagogy:
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/attention_analysis_improved.png}
-\caption{Attention analysis showing (a) temporal distribution focusing on phrase boundaries and technical passages, (b) average weights by musical element, and (c) performance-efficiency trade-off validating our window size selection.}
-\label{fig:attention}
-\end{figure}
-
-The attention mechanism consistently identifies musically significant regions that align with established pedagogical principles. Analysis reveals pronounced attention peaks at phrase boundaries, indicating the model's sensitivity to musical structure and form. During technical passages requiring rapid scale execution, the model maintains sustained attention, recognizing these as performance-critical sections where professional technique becomes most apparent. Sudden dynamic changes trigger attention spikes, reflecting the importance of expressive control in distinguishing professional performances. Our window size analysis validates half-window w=50 (total=101) as the optimal configuration, achieving 99.66\% reduction in computational complexity while maintaining classification performance within 1\% of full attention models.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/perfect_attention_visualization.png}
-\caption{Attention patterns reveal musical structure understanding across skill levels. Comparative analysis shows professionals exhibit sharper, more focused attention at phrase boundaries (blue triangles) and dynamic changes (red squares), while amateurs show diffuse attention with less structural awareness.}
-\Description{Six paired attention visualizations comparing amateur (red) and professional (teal) performances, showing distinct attention patterns aligned with musical events.}
-\label{fig:perfect_attention}
-\end{figure}
-
-\subsubsection{Computational Efficiency}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/experiment_5_efficiency_analysis.pdf}
-\caption{Computational complexity comparison. Local attention enables processing of full performances (30-60s) with 99.66\% reduction in time and memory requirements.}
-\label{fig:efficiency}
-\end{figure}
-
-Analysis of computational requirements for typical 30-second performances (30,000 timesteps) demonstrates the practical benefits of our local attention design. Time complexity reduces from O(900M) operations for full attention to O(6M) with our approach, representing a 150-fold improvement. Memory requirements decrease from 3.6GB to just 24MB, enabling deployment on resource-constrained devices. Inference completes in 32ms, well below the 100ms threshold for real-time interaction. These efficiency gains make ProfyNet practical for deployment on consumer hardware and enable interactive educational applications that require immediate feedback.
-
-\subsection{Attention Faithfulness and Interpretability}
-
-To verify that our local attention mechanism provides meaningful explanations, we conduct comprehensive faithfulness experiments following established evaluation protocols~\cite{atanasova2020diagnostic}.
-
-\subsubsection{Deletion and Insertion Curves}
-
-We systematically remove (deletion) or retain only (insertion) the highest-attention regions to measure their impact on model predictions:
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/attention_faithfulness.png}
-\caption{Attention faithfulness evaluation. (a) Deletion curve showing performance degradation when removing high-attention regions (AOPC=0.35). (b) Insertion curve demonstrating sufficiency of top 30\% features for 25.5\% accuracy.}
-\Description{Two line plots showing deletion and insertion curves for attention evaluation, with shaded areas under curves indicating faithfulness metrics.}
-\label{fig:attention_faithfulness}
-\end{figure}
-
-The Area Over Perturbation Curve (AOPC=0.35) confirms that high-attention regions contain performance-critical information. Sufficiency analysis shows that the top 30\% of attended features achieve 25.5\% of full model performance, while comprehensiveness (21\% drop when removing top features) validates attention importance.
-
-\subsection{Prescription Calibration and Monotonicity}
-
-Beyond classification confidence, we evaluate calibration of prescription confidence scores to ensure reliable educational guidance:
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/prescription_calibration.png}
-\caption{Prescription calibration analysis. (a) Calibration plot showing ECE=0.077 for prescription confidence. (b) Dose-response curve demonstrating strong monotonic relationship ($\rho$=0.928, p<0.001) between confidence and actual improvement.}
-\Description{Two plots: calibration curve comparing expected vs actual improvement, and scatter plot with fitted curve showing dose-response relationship.}
-\label{fig:prescription_calibration}
-\end{figure}
-
-The prescription-specific ECE of 0.077 confirms well-calibrated confidence estimates, while the strong monotonic correlation ($\rho$=0.928) ensures that higher-confidence prescriptions yield proportionally better improvements.
-
-\subsection{Domain Robustness and Musical Style Adaptation}
-
-We evaluate ProfyNet's performance across diverse musical domains to assess generalization beyond classical repertoire:
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/domain_robustness.png}
-\caption{Domain robustness analysis. (a) Performance across musical styles showing graceful degradation from Classical (F1=0.648) to Popular (F1=0.516). (b) Cross-domain transfer matrix revealing strong within-style performance and reasonable cross-style generalization.}
-\Description{Bar chart showing F1 scores across musical domains and heatmap showing transfer learning performance between domain pairs.}
-\label{fig:domain_robustness}
-\end{figure}
-
-While optimized for classical piano (F1=0.648), the model maintains reasonable performance on romantic (F1=0.622) and modern classical (F1=0.571) repertoire. Performance degrades gracefully for jazz (F1=0.569) and popular music (F1=0.516), suggesting domain-specific fine-tuning opportunities.
-
-\subsection{Architectural Design Validation}
-
-\subsubsection{Window Size Pareto Analysis}
-
-We systematically evaluate the trade-off between computational efficiency and model performance across window sizes:
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/window_size_analysis.png}
-\caption{Window size Pareto analysis. (a) Performance-efficiency frontier identifying w=50 as optimal, balancing F1=0.643 with real-time capability. (b) Latency scaling showing real-time threshold at w<60.}
-\Description{Scatter plot showing Pareto frontier of window sizes with performance vs computational cost, and line plot of latency vs window size with real-time threshold marked.}
-\label{fig:window_analysis}
-\end{figure}
-
-The Pareto frontier analysis confirms w=50 (total window=101) as optimal, achieving 99.66\% computational reduction while maintaining F1 within 1\% of larger windows. This configuration enables sub-100ms latency critical for interactive applications.
-
-\subsection{Generalization and Robustness}
-
-\subsubsection{Cross-Validation}
-
-Five-fold cross-validation confirms robust generalization:
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/cross_validation_results.pdf}
-\caption{Cross-validation results showing consistent performance across folds. Mean F1: 0.643 ± 0.022 (95\% CI: [0.624, 0.662]).}
-\Description{Line plot showing F1 scores across 5 cross-validation folds with error bars, displaying consistent performance between 0.59-0.68 with mean and confidence interval annotations.}
-\label{fig:crossval}
-\end{figure}
-
-Low standard deviation ($\sigma$=0.011) indicates stable performance across data splits, suggesting the model learns generalizable patterns rather than overfitting to specific performances.
-
-\subsubsection{Error Analysis}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/confusion_matrix.pdf}
-\caption{Error analysis revealing (a) balanced confusion matrix, (b) error type distribution, (c) performance degradation with piece difficulty, and (d) feature space of misclassified samples near decision boundary.}
-\label{fig:error_analysis}
-\end{figure}
-
-Detailed analysis of 77 misclassified performances provides insights into model limitations and failure modes. The largest category (35\%) comprises borderline cases where performances exhibit characteristics of both professional and amateur playing, suggesting these represent genuine ambiguity rather than model failure. Technical mismatches account for 28\% of errors, typically involving amateurs with exceptionally strong technique or professionals performing below their usual standard. Style confusion represents 20\% of errors, primarily occurring with non-classical repertoire where our training data has limited coverage. The remaining 17\% stem from data quality issues including recording artifacts or sensor calibration problems. Notably, the model demonstrates graceful degradation with increasing piece difficulty, maintaining over 50\% accuracy even on expert-level repertoire, suggesting robust generalization to challenging musical content.
-
-
-\section{Extended Technical Evaluation}
-
-We also evaluate ProfyNet through multiple technical approaches, demonstrating its effectiveness for professional performance assessment, interpretability for educational feedback, and practical applicability in real-world scenarios.
-
-\subsection{Cross-Validation and Generalization}
-
-\subsubsection{K-Fold Cross-Validation}
-We perform 5-fold stratified cross-validation to assess model stability and generalization. The dataset is split maintaining the professional/amateur ratio in each fold.
-
-\begin{table}[h!]
-  \caption{Performance Results on Complete Dataset (6,476 samples)}
-  \begin{tabular}{l|ccccc|c}
+\begin{table}[t]
+  \centering
+  \caption{Notation used in the method.}
+  \label{tab:notation}
+  \begin{tabular}{@{}ll@{}}
     \toprule
-    Metric & Fold 1 & Fold 2 & Fold 3 & Fold 4 & Fold 5 & Mean ± Std\\
+    Symbol & Meaning \\
     \midrule
-    Accuracy & 0.982 & 0.983 & 0.981 & 0.982 & 0.983 & 0.982 ± 0.001\\
-    Precision & 0.967 & 0.968 & 0.966 & 0.967 & 0.968 & 0.967 ± 0.001\\
-    Recall & 0.993 & 0.994 & 0.993 & 0.993 & 0.994 & 0.993 ± 0.001\\
-    F1 Score & 0.982 & 0.983 & 0.981 & 0.982 & 0.983 & \textbf{0.982 ± 0.001}\\
+    $T$ & Frames per take (default $T{=}1000$) \\
+    $\mathbf{S}\in\mathbb{R}^{T\times 88}$ & Sensor time series (key position) \\
+    $\mathbf{A}\in\mathbb{R}^{T\times 128}$ & Audio feature time series \\
+    $\mathbf{m}\in\{0,1\}^{T}$ & Non-silence mask (audio) \\
+    $\mathbf{q}=[\mathrm{NSR},\mathrm{SFlat},\mathrm{Loud}]$ & Audio quality vector \\
+    $e_t\in[0,1]$ & Per-frame evidence (visualization) \\
+    $\alpha_t\in(0,1)$ & Attention weight ($\sum_t \alpha_t{=}1$) \\
+    $\hat{y}\in(0,1)$ & Global expert probability (clip-level) \\
+    $s_t$ & Severity (timeline) \\
     \bottomrule
   \end{tabular}
-  \label{tab:cross_validation}
 \end{table}
 
-The results demonstrate exceptional and stable performance across the complete dataset. All evaluations achieve F1 > 0.98, with 95\% confidence intervals [0.981, 0.983] for F1 score, demonstrating near-perfect discrimination between professional and amateur performances on the full 6,476 samples.
+\subsection{Preprocessing and Leakage Controls}
+\label{subsec:preproc}
+All sequences are uniformly resampled (or zero-padded) to a fixed temporal length $T{=}1000$ without sliding windows so that each take produces one example. For sensors, we read the 88 key channels and resample/pad to $T$; no additional per-fold normalization is applied. Audio is downmixed to mono at 22.05\,kHz and converted into an 80-dimensional Mel filterbank, 20 MFCCs, 9 chroma coefficients (obtained by variance-based reduction from 12), 6 tonnetz features, 5 spectral-contrast values with $n_{\text{bands}}{=}4$, and eight frame-level statistics (spectral centroid, bandwidth, rolloff, flatness, spectral flux, ZCR, RMS, and $\Delta$RMS), stacked to 128 dims using standard implementations in \texttt{librosa}~\cite{mcfee2015librosa}, with tonnetz and spectral-contrast following~\cite{HarteSandler2006,Jiang2002}. The non-silence mask $m_t$ uses short-term RMS with a hop chosen to yield $T$ frames:
+\[
+m_t=\mathbb{1}\![\mathrm{RMS}_t>0.3\,\overline{\mathrm{RMS}}],\qquad
+\mathrm{NSR}=\frac{1}{T}\sum_{t=1}^T \mathbb{1}\![\mathrm{RMS}_t>0.5\,\overline{\mathrm{RMS}}].
+\]
+Spectral flatness and loudness (dB) are averaged over $\{t\mid m_t{=}1\}$. To avoid any train–test leakage, audio features are standardized \emph{per fold} using statistics computed on the \emph{training split only} (non‑silent frames). The per-fold mean and standard deviation are persisted and applied to the corresponding validation/test data within that fold.
 
-\subsubsection{Temporal Generalization}
-We assessed the model's temporal stability through systematic evaluation across different time periods and conditions. When trained on 2022 data and tested on 2023 recordings, the model achieved F1 = 0.623, representing only 0.9\% degradation from baseline performance, demonstrating robust temporal generalization. Similarly, training on early repertoire pieces and testing on late-period compositions yielded F1 = 0.626 with minimal 0.5\% performance drop, indicating style-agnostic feature learning. Cross-piano validation, where models trained on one instrument were tested on different piano brands, achieved F1 = 0.612 with 2.7\% degradation, confirming that learned features capture fundamental performance characteristics rather than instrument-specific artifacts.
+\subsection{Model Architecture}
+\label{subsec:arch}
+\subsubsection{Encoders}
+The sensor encoder applies three temporal one-dimensional convolutions with kernel sizes $3$, $5$, and $9$ and 128 channels each to $[B,T,88]$; the three outputs are concatenated, compressed by a $1{\times}1$ convolution followed by batch normalization, ReLU, and max pooling with stride $2$, and then projected to a hidden dimensionality $d{=}256$. The audio encoder treats $[B,T,128]$ as a spectro-temporal map $[B,1,128,T]$, processes it with a 2D CNN of widths $1\!\to\!32\!\to\!64\!\to\!128$, averages over the frequency axis, linearly projects to $d$, and finishes with two temporal convolutional blocks of dilations $1$ and $2$~\cite{Bai2018TCN}. A downsampled version of the non-silence mask gates the activations so that silent regions do not dominate the representation.
 
+\subsubsection{Cross-modal Attention}
+Bidirectional cross-attention allows either modality to query the other and resolve ambiguities between motor control and acoustic outcome. We use four attention heads in each direction and a learnable resampler to reconcile small residual length mismatches. The result is a pair of length-$T$ sequences in the shared hidden space whose elements have been exposed to the complementary stream~\cite{Vaswani2017,Lu2019ViLBERT}.
+
+\subsubsection{Quality-aware Gating (D2)}
+\label{subsec:gating}
+After cross-attention, the model forms four candidate sequences: the plain sensor encoding, the audio-to-sensor attended sequence, the resampled audio encoding, and the sensor-to-audio attended sequence. Time-averaged summaries of the sensor and audio streams are concatenated with a projection of the quality vector $\mathbf{q}$ and passed through a small MLP that outputs four raw mixture logits. A temperature softmax converts logits to weights with temperature $1+\gamma(1{-}\mathrm{NSR})$ (with $\gamma{=}2.0$). The combined sensor share (plain+attended) is then floored adaptively based on NSR within $[0.35,0.6]$ before renormalization, preventing noisy audio from overwhelming cleaner sensor evidence. This gating behaves as a mixture-of-experts controller~\cite{Jacobs1991MoE,Shazeer2017MoE}.
+
+\subsubsection{Temporal Modeling and Dual Heads}
+A two-layer BiLSTM with hidden size $256$ and dropout $0.2$ models temporal context over the fused sequence and feeds two parallel heads. The evidence head produces per-frame scores $e_t\in[0,1]$ used for visualization and auxiliary MIL training. The classifier head pools the BiLSTM outputs with learned temporal attention $\alpha_t$ and maps the pooled context to a clip-level expert/amateur decision. The total number of trainable parameters is approximately $4.16\,\mathrm{M}$ for the final architecture. Latency is reported under a consistent condition ($T{=}1000$, batch size $1$): about $\sim$38\,ms on an RTX\,3090 (p95 52\,ms), $\sim$78\,ms on an RTX\,2060 (p95 105\,ms), and $\sim$260\,ms on an i7‑1185G7 CPU (p95 360\,ms), supporting in-the-loop feedback.
+
+
+\subsection{Weak Supervision and Objective}
+\label{subsec:weak}
+The final objective uses only the regularization terms actually employed in the released code. The primary loss is cross-entropy on the clip-level logits. To encourage faithful localization without frame labels, we add two auxiliary terms on the evidence $e_t$: (i) a multiple‑instance learning (MIL) objective that treats $1-\prod_t(1{-}e_t)$ as the clip‑level positive probability and applies BCE to the expert label (weight $\lambda_{\mathrm{mil}}{=}0.5$), and (ii) an $\ell_1$ sparsity term on $e_t$ (weight $\lambda_{\mathrm{evi}}{=}0.001$). For multimodal training, we regularize the modality gate by encouraging diverse (high‑entropy) mixtures via an entropy term on the modality weights (weight $\lambda_{\mathrm{ent}}{=}0.1$). We \emph{do not} use total‑variation on $e_t$, KL alignment, or log‑sum‑exp pooling in the final experiments.
+
+\subsection{From Inference to UI: Evidence$\rightarrow$Overlays}
+\label{subsec:viz}
+We compute a timeline severity as the product of attention and evidence, optionally smoothed and normalized for display. In our overlay tool, severity is scaled by a small power (e.g., $\rho\approx1.5$) and a short moving-average window (e.g., 9) to improve readability. By default, overlays are drawn on a timeline; when a score transcript and successful score following are available~\cite{nakamura2016}, the same severity can be aggregated to notes or beats and rendered on the staff.
+
+\subsection{Design Decisions (D1–D6) and Alternatives}
+\label{subsec:design}
+The choice of weak supervision (D1) rests on the practical constraint that only performance-level labels are available; we supervise the clip decision directly and use MIL on evidence as an auxiliary to encourage localized cues. The quality-aware gating (D2) incorporates audio reliability via NSR-dependent temperature and an adaptive sensor-share floor. Decoupling evidence and decision heads (D3) proved important: a single head with post-hoc saliency produced less stable highlights. Separating mid-level gated fusion—which drives evidence—from decision-level fusion used for headline metrics (D4) prevents small accuracy gains from compromising readability. Normalizing time to $T{=}1000$ (D5) keeps model capacity in check; overlays are drawn on a timeline by default, with optional mapping to score when transcripts are available. Finally, the system is designed to fail gracefully (D6): when inputs are unreliable, it suppresses overlays and explains why, rather than drawing potentially misleading highlights.
+
+\subsection{Splits and Reproducibility}
+All results are produced with a three‑fold \texttt{GroupKFold} using a \emph{single} group vector at the \emph{performer} level (the same performer never appears across folds). Within each training split, fifteen percent of the data is reserved for validation. Random seeds are fixed at $42$ for PyTorch, NumPy, and data‑loader workers, and deterministic flags are set where available. Audio parameters include a sampling rate of 22.05\,kHz, FFT size $n_{\text{fft}}{=}2048$, a hop chosen to yield $T$ frames, 80 Mel bands, 20 MFCCs, 6 tonnetz dimensions, four spectral‑contrast bands, and nine chroma dimensions after reduction. No positional encodings are used; temporal structure is modeled entirely by the BiLSTM. Configuration files in YAML format specify data paths, feature extraction, architecture, and training hyperparameters; code, configs, and a deterministic inference script are archived with commit hashes and an exported environment file so that results can be reproduced exactly. For reproducibility, we fix the software stack to Python~3.10, PyTorch~2.3, CUDA~12.1, cuDNN~8.9, librosa~0.10, and numpy~1.26 (versions indicative). Grouped cross‑validation uses \texttt{GroupKFold} from scikit‑learn~\cite{Pedregosa2011Scikit}. Optimization employs AdamW~\cite{LoshchilovHutter2019AdamW}. In supplementary experiments, we also report held‑out piece evaluations (LOPO/LOK) to assess generalization to unseen keys/pieces.
+
+
+
+
+
+% 日本語訳: 拡張技術評価
+% ======================================================================
+% Section: Technical Evaluation
+% ======================================================================
+\section{Technical Evaluation}\label{sec:technical-eval}
+
+% 日本語訳: 冒頭で図2の全体アーキテクチャに触れ、本節での評価の文脈を示す。
+As overviewed in Figure~\ref{fig:architecture_overview}, Profy processes sensor and audio streams with dual encoders, couples them via bidirectional cross-modal attention, and fuses features with a quality-aware gate before temporal modeling and dual heads (evidence and classifier). This architecture yields both a global decision (expert/amateur) and time-localised evidence curves that underpin our visualisations.
+
+\noindent\textit{What is new compared to prior work.}
+Without overselling, our approach differs in three practical ways relevant to evaluation:
+\begin{itemize}
+  \item \textbf{Weak-supervision with localized signals}: Trained only on performance-level labels, the model still produces time-indexed evidence usable for score-synchronised highlights; many prior APPA systems report global scores without localized cues. Our visual outputs are qualitatively cross-checked with expert judgment (\S\ref{sec:technical-eval}).
+  \item \textbf{Multimodal, quality-aware fusion}: We combine high-resolution key-sensor data with audio, using bidirectional cross-modal attention and a gate informed by acoustic quality (e.g., NSR, spectral flatness, loudness) to stabilise fusion.
+  \item \textbf{Separation of accuracy and interpretability paths}: Reported metrics use decision-level fusion for robustness, while mid-level attention/evidence is preserved for UI-facing explanations—preventing one objective from compromising the other.
+\end{itemize}
+\noindent\textbf{Results at a glance.}
+Within this section, we provide results that correspond to the above points: (R1) On \emph{expert vs. amateur} classification, sensor-only and multimodal models achieve Macro-F1 $\sim$0.69 and $\sim$0.67 respectively (Table~\ref{tab:main_results}). (R2) By \emph{modality and piece}, sensor-only exceeds audio-only and scales tend to be easier than arpeggios (piece-wise analysis and figures in \S\ref{sec:technical-eval}). (R3) For \emph{localized highlights}, qualitative cross-checks against expert-marked segments and correlations with dataset proxies support that severity hotspots coincide with pedagogically salient weaknesses (\S\,Highlight Validity).
+We now evaluate these outputs quantitatively using 3-fold cross-validated results, reporting only model-generated metrics and visualisations.
+
+
+% 日本語訳: ・Cross Validation and Generalization
+% ----------------------------------------------------------------------
+% Subsection: Cross-Validation and Generalization
+% ----------------------------------------------------------------------
+\subsection{Evaluation Goals and Protocol}
+
+\textbf{Goals.}
+We evaluate three core questions: (G1) Can the model reliably classify \emph{expert vs. amateur} performances under group splits? (G2) Which \emph{inputs and pieces/keys} are easier or harder to separate (via modality ablations and piece-wise analysis)? (G3) Do the \emph{highlights} localise \emph{amateur weaknesses} in a way that is pedagogically meaningful (expert cross-check and data proxies)?
+
+\textbf{Protocol.}
+We use 3-fold GroupKFold grouped \emph{by performer} to prevent leakage across subjects. Metrics are Macro-F1 and accuracy averaged over folds. Reported metrics use decision-level fusion; mid-level attention/evidence is retained for visualisation but not used in the loss.
+
+\textbf{Main results.}
+Table~\ref{tab:main_results} summarises the cross-validated results. Sensor-only achieves Macro-F1 $0.687\,\pm\,0.092$ (accuracy $0.708\,\pm\,0.070$), audio-only reaches Macro-F1 $0.603\,\pm\,0.022$ (accuracy $0.611\,\pm\,0.019$), and multimodal fusion attains Macro-F1 $0.672\,\pm\,0.075$ (accuracy $0.698\,\pm\,0.043$). Fold-level Macro-F1 ranges are: sensor $0.583$--$0.807$, audio $0.574$--$0.629$, multimodal $0.567$--$0.733$.
+
+% 日本語訳: 特徴の重要性と解釈性
+% ----------------------------------------------------------------------
+% Subsection: Feature Importance and Interpretability
+% ----------------------------------------------------------------------
 \subsection{Feature Importance and Interpretability}
 
-\subsubsection{Feature Contribution Analysis}
-We quantify each feature category's contribution through systematic ablation:
+% 日本語訳: 特性貢献分析
+\textbf{Feature Contribution Analysis.}
+% 日本語訳: 本稿ではモダリティ単体と融合の性能から寄与を概観する。
+We characterise modality contributions via modality-specific and fused models. As summarised in Table~\ref{tab:main_results}, the sensor stream performs strongest on its own, the audio stream trails slightly, and decision-level fusion approaches the sensor baseline while improving over audio-only across folds.
 
-\begin{figure}[h!]
+% (Removed modality bar figure per reviewer preference; table suffices.)
+
+% 日本語訳: 注意解釈
+\textbf{Attention Interpretability.}
+% 日本語訳: 本節では図示を行わず、定量評価の結果のみを提示する。
+We focus this section on quantitative metrics; visual case studies are omitted here.
+
+\begin{table}[t]
   \centering
-  \includegraphics[width=0.9\linewidth]{figures/feature_importance.pdf}
-  \caption{Feature importance analysis showing (a) SHAP values for top 10 features with velocity consistency and timing regularity as most discriminative, (b) Ablation impact showing 22.1\% F1 drop without class balancing, (c) Feature interactions revealing synergistic effects between sensor and audio features}
-  \label{fig:feature_importance}
-\end{figure}
-
-\begin{table}[h!]
-  \caption{Feature Category Contributions (\% F1 decrease when removed)}
-  \begin{tabular}{l|cc}
-    \toprule
-    Feature Category & Individual Impact & Cumulative Impact\\
-    \midrule
-    Statistical Features & 13.3\% & --\\
-    Temporal (Dilated Conv) & 8.3\% & 19.2\%\\
-    Local Attention & 5.4\% & 23.5\%\\
-    Audio Features & 31.5\% & 46.2\%\\
-    Sensor Features & 36.6\% & 52.8\%\\
-    \bottomrule
+\caption{Cross-validated performance on expert vs. amateur classification (3-fold GroupKFold). Values are mean $\pm$ SD over folds.}
+  \label{tab:main_results}
+  \begin{tabular}{lcc}
+    \hline
+    Mode & Macro-F1 & Accuracy \\
+    \hline
+    Sensor-only & 0.687 $\pm$ 0.092 & 0.708 $\pm$ 0.070 \\
+    Audio-only  & 0.603 $\pm$ 0.022 & 0.611 $\pm$ 0.019 \\
+    Multimodal  & 0.672 $\pm$ 0.075 & 0.698 $\pm$ 0.043 \\
+    \hline
   \end{tabular}
-  \label{tab:feature_ablation}
 \end{table}
 
-Feature importance analysis reveals the critical role of specific performance characteristics in professional assessment. Velocity consistency emerges as the most discriminative feature with SHAP value of 0.42, followed closely by timing regularity at 0.38, confirming that control and precision are hallmarks of professional performance. The importance of multimodal fusion becomes evident when comparing single-modality performance: audio-only processing achieves F1 = 0.502 while sensor-only reaches F1 = 0.461, both substantially below the combined model's 0.982. Statistical features derived from domain expertise contribute a 13.4\% performance gain, validating the value of incorporating musical knowledge into the model architecture rather than relying solely on end-to-end learning.
-
-\subsubsection{Attention Interpretability}
-Local attention weights provide interpretable feedback aligned with musical structure:
-
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\linewidth]{figures/attention_analysis_improved.png}
-  \caption{Attention visualization on Chopin Etude Op.10 No.1 showing (a) High attention at phrase boundaries (measures 4, 8, 12), (b) Focus on technical passages requiring precise finger control, (c) Correlation with dynamic changes (crescendo/diminuendo), (d) Alignment with harmonic progression points}
-  \label{fig:attention_visualization}
-\end{figure}
-
-Quantitative analysis of attention patterns demonstrates strong alignment with musical structure and pedagogical principles. The attention mechanism shows 89\% correlation with musical phrase boundaries (Pearson r = 0.89, p < 0.001), indicating the model's implicit understanding of musical form. Technical passages marked as difficile in musical scores show 76\% overlap with high-attention regions, validating the model's ability to identify performance-critical sections. Expressive moments indicated by dynamic and tempo markings in the score align with attention peaks in 82\% of cases, suggesting the model recognizes the importance of musical expression in distinguishing professional performances.
-
+% 日本語訳: エラー分析と失敗モード
 \subsection{Error Analysis and Failure Modes}
 
-\subsubsection{Confusion Analysis}
-We analyze 126 misclassified performances to understand failure patterns:
+% 日本語訳: 混乱分析
+\textbf{Confusion Analysis.}
+Across all held‑out folds (6{,}476 test items; total test support aggregated over 3 folds), the multimodal model misclassifies 1{,}957 performances (30.2\%). Aggregated over folds, class‑wise recall is $0.537$ for class~0 (amateur) and $0.813$ for class~1 (expert), consistent with the Macro‑F1 in Table~\ref{tab:main_results}.
 
-\begin{figure}[h!]
+\subsection{Piece-wise Accuracy and Piece Set}
+\textbf{Why piece-wise analysis.}
+Scales and arpeggios impose different motor demands (evenness, crossing, stretch), and keys differ in black/white-key patterns. We therefore analyse accuracy by \emph{piece} to reveal technique-specific strengths and weaknesses.
+
+\textbf{Piece set overview.}
+The evaluation covers 15 study pieces: 9 \emph{scales} (B, C, Des, Es, Ges majors; b, cis, es, fis minors) and 6 \emph{arpeggios} (As, D, F majors; b, f, gis minors). Aggregated over folds, this yields 6{,}476 test predictions (total support), with piece-averaged accuracy $0.696$. By category, scales achieve mean piece-averaged accuracy $0.712$ (9 pieces, total $N{=}3{,}878$), while arpeggios reach $0.672$ (6 pieces, total $N{=}2{,}598$).
+
+We further analyse accuracy by piece for the multimodal model by averaging per-piece accuracies across folds (supports summed across folds). Table~\ref{tab:piece_accuracy} reports the top- and bottom-5 pieces by mean accuracy.
+
+\textbf{Descriptor correlations.}
+To explain why certain pieces are easier or harder, we correlate piece‑wise F1 with aggregate, human‑readable descriptors computed from session logs and note‑level summaries. Stronger positive associations appear for overall support (sample size; $r\!\approx\!+0.56$), for how tightly the two hands keep time together (inter‑hand rhythm synchrony; $r\!\approx\!+0.51$), and for the smoothness/consistency of key motion during strokes (fewer back‑and‑forth reversals; $r\!\approx\!+0.27$). Among structural descriptors, the absolute number of accidentals in the key (heuristic from piece name) shows a moderate \emph{negative} association with F1 ($r\!\approx\!-0.37$), suggesting pieces with more accidentals are harder to separate. By contrast, mean duration and mean note count show weak relationships (|$r$|$<\!0.15$). Measures of timing and duration variability (relative variability of inter‑onset intervals and of note lengths) are mildly negative (\mbox{$r\!\approx\!-0.11$} to $-0.19$). A simple note‑density proxy (notes per second) is weakly positive ($r\!\approx\!+0.23$). Figure~\ref{fig:piece_f1_corr} plots F1 against the top correlated descriptor and colours points by the second, revealing that scales with steadier inter‑hand rhythm tend to yield higher F1, whereas certain arpeggios with irregular motion profiles depress separability.
+
+\begin{figure}[t]
   \centering
-  \includegraphics[width=0.85\linewidth]{figures/confusion_matrix.pdf}
-  \caption{Error analysis revealing (a) Confusion matrix showing most errors at skill boundaries, (b) Error distribution by piece difficulty, (c) Feature values for misclassified samples showing overlap regions}
-  \label{fig:error_analysis_detailed}
+  \includegraphics[width=0.95\linewidth]{figures/piece_f1_correlation.png}
+  \caption{Piece-wise F1 versus the most positively correlated descriptor (colour indicates the second descriptor). Labels abbreviate pieces (S.=Scale, A.=Arpeggio).}
+  \Description{Scatter of piece-wise F1 against top descriptor with colour as the second descriptor; points annotated with piece labels.}
+  \label{fig:piece_f1_corr}
 \end{figure}
 
-\begin{table}[h!]
-  \caption{Error Analysis by Performance Characteristics}
-  \begin{tabular}{l|ccc}
-    \toprule
-    Characteristic & Total Cases & Errors & Error Rate\\
-    \midrule
-    Advanced amateurs & 142 & 31 & 21.8\%\\
-    Early-career professionals & 89 & 18 & 20.2\%\\
-    Contemporary pieces & 67 & 19 & 28.4\%\\
-    Heavy pedal use & 104 & 24 & 23.1\%\\
-    Rubato sections & 78 & 21 & 26.9\%\\
-    \bottomrule
-  \end{tabular}
-  \label{tab:error_characteristics}
-\end{table}
-
-Key failure modes:
-\begin{itemize}
-\item \textbf{Boundary cases}: 71\% of errors occur with advanced amateurs or early professionals
-\item \textbf{Contemporary repertoire}: 28.4\% error rate due to non-traditional techniques
-\item \textbf{Heavy pedaling}: Sensor signals obscured, reducing discrimination ability
-\item \textbf{Extreme rubato}: Timing features less reliable with >30\% tempo variation
-\end{itemize}
-
-\subsection{Efficiency and Scalability}
-
-\subsubsection{Computational Performance}
-We benchmark ProfyNet across different hardware configurations:
-
-\begin{table}[h!]
-  \caption{Inference Performance Across Hardware Platforms}
-  \begin{tabular}{l|cccc}
-    \toprule
-    Platform & Inference Time & Memory & Power & Throughput\\
-    \midrule
-    NVIDIA V100 & 8ms & 12MB & 45W & 125 samples/s\\
-    NVIDIA 2080Ti & 12ms & 12MB & 35W & 83 samples/s\\
-    Intel i7-9750H (CPU) & 32ms & 15MB & 25W & 31 samples/s\\
-    Raspberry Pi 4 & 187ms & 18MB & 8W & 5 samples/s\\
-    \bottomrule
-  \end{tabular}
-  \label{tab:hardware_performance}
-\end{table}
-
-\begin{figure}[h!]
+\begin{figure}[t]
   \centering
-  \includegraphics[width=0.9\linewidth]{figures/experiment_5_efficiency_analysis.pdf}
-  \caption{Efficiency analysis showing (a) 99.66\% computation reduction with local attention (O(n·w) vs O(n²)), (b) Linear memory scaling with sequence length, (c) Real-time capability maintained up to 10-second segments}
-  \label{fig:efficiency}
+  \includegraphics[width=0.95\linewidth]{figures/piece_f1_correlation_bar.png}
+  \caption{Partial correlations (controlling for support) between piece-wise F1 and descriptors. Bars show the top descriptors excluding support-like variables; values annotated.}
+  \Description{Horizontal bar chart listing descriptors on the y-axis and partial correlations with F1 on the x-axis, with numeric values on each bar.}
+  \label{fig:piece_f1_corr_bar}
 \end{figure}
 
-Key efficiency gains:
-\begin{itemize}
-\item \textbf{Real-time capable}: 32ms inference on CPU (31Hz processing rate)
-\item \textbf{Memory efficient}: 12MB footprint enables edge deployment
-\item \textbf{Scalable}: Linear complexity O(n·101) with local attention half-window w=50
-\item \textbf{Energy efficient}: 8W on Raspberry Pi suitable for practice room deployment
-\end{itemize}
+\subsection{Highlight Validity (Amateur Weakness)}
+% 日本語訳: ハイライトの妥当性（アマチュアの弱点の可視化）
+We quantify whether severity hotspots focus \emph{where amateurs struggle} by measuring agreement with expert-marked spans on a curated Top‑20 set per annotator. For each recording we derive a frame‑level \emph{severity} from the model's time series (attention, evidence, or their product) and sweep light post‑processing (power $\gamma\in\{1.0,1.5,2.0\}$, smoothing window $w\in\{1,5,9\}$, global lag $\in\{-0.2,0.0,+0.2\}$~s). We report ROC‑AUC, AUPRC (AP), best F1/IoU across thresholds, and a point‑biserial correlation proxy.
 
-\subsubsection{Training Efficiency}
-Training converges rapidly with our balanced sampling strategy:
+\textbf{Agreement with individual annotators.} Averaged across eight annotators (320 rater–audio pairs), the \emph{audio} stream achieves ROC‑AUC $0.753$, AP $0.662$, best‑F1 $0.733$, best‑IoU $0.607$, and Pearson $0.385$. The \emph{sensor} stream is weaker but non‑trivial (ROC‑AUC $0.548$, AP $0.500$, best‑F1 $0.597$, best‑IoU $0.454$, Pearson $0.038$). In both cases, the \emph{attention} series with $w{=}9$ and a small lag performs best (audio: $+0.2$~s; sensor: $-0.2$~s), reflecting minor timing offsets.
 
-\begin{itemize}
-\item \textbf{Convergence}: 15 epochs (2.3 hours on single GPU)
-\item \textbf{Data efficiency}: Full performance with 50\% data (F1 = 0.598)
-\item \textbf{Few-shot learning}: F1 = 0.542 with only 100 training samples
-\end{itemize}
+\textbf{Consensus (group) ground truth.} Because coaching is subjective, we also aggregate annotators by frame‑wise vote proportion and threshold at $\geq0.5$ (minimum three annotators present). Against this consensus target, \emph{audio} agreement strengthens: ROC‑AUC $0.817$, AP $0.753$, best‑F1 $0.799$, best‑IoU $0.683$, Pearson $0.490$. \emph{Sensor} consensus metrics remain modest but usable (ROC‑AUC $0.529$, AP $0.517$, best‑F1 $0.625$, best‑IoU $0.475$). These results indicate that highlights concentrate on passages experts collectively deem coachable, supporting the paper's claim that localized highlights correspond to pedagogically salient spans.
 
-\subsection{Robustness Analysis}
+\paragraph{Rater cohort.}
+We recruited eight pianists to mark amateur-weak sections: three expert pianists (all with teaching experience), four conservatory students, and one student with conservatory-comparable piano skills. Since our focus here is not on comparing rater skill groups but on validating whether model highlights correspond to perceived weaknesses, we collectively refer to all raters as “pianists” unless an analysis explicitly distinguishes groups.
 
-\subsubsection{Noise Robustness}
-We evaluate performance under various noise conditions:
+\paragraph{Annotation app and procedure.}
+Raters used a local web application (Piano Performance Marker; see Figure~\ref{fig:annotation_ui}, source under \verb|/home/kazuki/Projects/Profy/piano-performance-marker|) to review predefined evaluation sets and mark weak sections by start/end time on a waveform. After login with a username, the app presents a fixed list of amateur recordings (Top‑20 set selected \emph{a priori} by the model’s amateur posterior under an SNR threshold and balanced across piece types); a size‑ and distribution‑matched random control set was also used. Raters can play/seek, adjust playback rate, and zoom; weak spans are added by dragging on the waveform, then edited or deleted in a sidebar list that shows per‑span duration and total time/percentage. A slider records an overall take‑level score. Keyboard shortcuts include Space (play/pause) and Enter (save+next); progress resumes from the last item on re‑login.
 
-\begin{table}[h!]
-  \caption{Performance Under Different Noise Conditions}
-  \begin{tabular}{l|ccc}
-    \toprule
-    Noise Type & SNR (dB) & F1 Score & Degradation\\
-    \midrule
-    Clean & $\infty$ & 0.629 & --\\
-    Gaussian & 40 & 0.625 & 0.6\%\\
-    Gaussian & 30 & 0.618 & 1.7\%\\
-    Gaussian & 20 & 0.602 & 4.3\%\\
-    Room acoustics & -- & 0.619 & 1.0\%\\
-    Sensor dropout & 5\% & 0.617 & 1.3\%\\
-    Sensor dropout & 10\% & 0.602 & 3.7\%\\
-    \bottomrule
+For each username/audio pair the app writes one JSON file with canonical fields: \verb|evaluation_id|, \verb|evaluator| (username), \verb|audio_filename|/\verb|audio_display| (name shown), \verb|audio_file| (compatibility alias), \verb|audio_index| (1‑based order), \verb|duration| (s), \verb|total_score| (0–10), and \verb|problem_sections| as a list of objects \verb|{start, end}| in seconds, plus \verb|evaluation_time| (epoch ms) and ISO \verb|timestamp|. Files are persisted under \verb|piano-performance-marker/evaluations/<username>/<base>.json| and synchronized into \verb|piano-performance-marker/web_evaluations| prior to analysis.
+
+\begin{table}[t]
+  \centering
+  \caption{Top/bottom pieces by mean accuracy (multimodal; averaged over 3 folds). Values: mean accuracy and mean F1; $N$ indicates total support across folds.}
+  \label{tab:piece_accuracy}
+  \begin{tabular}{lccc}
+    \hline
+    Piece & Accuracy & F1 & $N$ \\
+    \hline
+    \multicolumn{4}{l}{Top 5} \\
+    Scale b-moll & 0.819 & 0.801 & 437 \\
+    Scale Des-dur & 0.791 & 0.729 & 440 \\
+    Scale B-dur & 0.773 & 0.718 & 431 \\
+    Arpeggio F-dur & 0.724 & 0.703 & 430 \\
+    Scale cis-moll & 0.712 & 0.644 & 431 \\
+    \hline
+    \multicolumn{4}{l}{Bottom 5} \\
+    Arpeggio f-moll & 0.646 & 0.620 & 431 \\
+    Scale Ges-dur & 0.643 & 0.594 & 430 \\
+    Arpeggio As-dur & 0.642 & 0.590 & 431 \\
+    Arpeggio D-dur & 0.618 & 0.568 & 430 \\
+    Scale es-moll & 0.599 & 0.573 & 427 \\
+    \hline
   \end{tabular}
-  \label{tab:noise_robustness}
 \end{table}
 
-\subsubsection{Domain Shift Robustness}
-Testing on out-of-distribution data:
-\begin{itemize}
-\item \textbf{Different pianos}: F1 = 0.607 (Yamaha → Steinway)
-\item \textbf{Different recording conditions}: F1 = 0.614 (studio → practice room)
-\item \textbf{Different repertoire}: F1 = 0.596 (classical → romantic)
-\end{itemize}
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=1.0\linewidth]{figures/piece_f1_heatmap.png}
+  \caption{Piece-level performance heatmap (averaged over 3 folds; values annotated).}
+  \Description{Heatmap showing per-piece performance across folds.}
+  \label{fig:piece_heatmap}
+\end{figure}
 
-\subsection{Comparison with Human Experts}
 
-We compare ProfyNet's assessments with three professional piano teachers' evaluations on 50 test performances:
-
-\begin{table}[h!]
-  \caption{Agreement with Human Expert Assessments}
-  \begin{tabular}{l|ccc|c}
-    \toprule
-    Metric & Expert 1 & Expert 2 & Expert 3 & Inter-rater\\
-    \midrule
-    Agreement (\%) & 78.0 & 82.0 & 76.0 & 74.7\\
-    Cohen's $\kappa$ & 0.56 & 0.64 & 0.52 & 0.49\\
-    Correlation & 0.71 & 0.76 & 0.69 & 0.67\\
-    \bottomrule
-  \end{tabular}
-  \label{tab:expert_agreement}
-\end{table}
-
-ProfyNet achieves comparable or better agreement than inter-rater reliability (78.7\% vs 74.7\%), validating its assessment quality. The model shows highest agreement with Expert 2 ($\kappa$ = 0.64), who emphasizes technical precision---aligned with our sensor-based approach.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.95\linewidth]{figures/piano_marker.png}
+  \caption{Expert annotation tool (Piano Performance Marker): raters listen and mark weak sections (start/end) on Top-20 amateur clips; JSON is persisted per rater/audio. We use these annotations to evaluate agreement between the model's highlighted spans and expert judgments.}
+  \Description{Screenshot of the web UI used to collect expert attention/annotations, showing playback controls and segment selection.}
+  \label{fig:annotation_ui}
+\end{figure}
 
 \subsection{Summary of Evaluation Results}
-
-Our comprehensive evaluation demonstrates:
-
 \begin{itemize}
-\item \textbf{Strong performance}: F1 = 0.629 with consistent cross-validation (std = 0.022)
-\item \textbf{Interpretability}: Attention weights align with musical structure (r = 0.89)
-\item \textbf{Efficiency}: Real-time inference (32ms) with minimal memory (12MB)
-\item \textbf{Robustness}: Maintains performance under noise (F1 > 0.60 at 20dB SNR)
-\item \textbf{Expert validity}: 78.7\% agreement with professional assessments
-\item \textbf{Educational value}: Clear identification of improvement areas through attention
+\item \textbf{Performance snapshot}: Multimodal Macro-F1 $0.672\,\pm\,0.075$ (accuracy $0.698\,\pm\,0.043$); sensor-only $0.687\,\pm\,0.092$; audio-only $0.603\,\pm\,0.022$.
+\item \textbf{Piece-wise analysis}: Piece-averaged accuracy $0.696$ with high accuracy on major/minor scales (e.g., Scale b-moll $0.819$) and lower accuracy on certain arpeggios (e.g., Arpeggio D-dur $0.618$).
 \end{itemize}
 
-These results establish ProfyNet as a practical and effective system for professional piano performance assessment, suitable for deployment in educational settings and competition evaluation.
+% 日本語訳: これらの結果は、プロフィネットをプロのピアノのパフォーマンス評価のための実用的かつ効果的なシステムとして確立し、教育の設定や競争評価に適しています。
+These results establish Profy as a practical and effective system for expert piano performance assessment, suitable for deployment in educational settings and competition evaluation.
 
+\commentout{
+
+% 日本語訳: 分析の視覚的説明は、注意深いパフォーマンスを強調することによって
 \subsection{Visual Description of the Analysis by Highlighting Performance with Attention} \label{visualization_audio}
+% 日本語訳: 上記の結果は、私たちの方法は、ピアノのパフォーマンスにおける一般的な音楽スキルよりも明るさの音楽表現をより正確に評価することができることを示していますので、私たちは明るさの表現の観点で視覚的なフィードバックに焦点を当てているので、音楽コーチングのための私たちの方法を適用することを目指しています音楽パフォーマンスを正確に分析する能力に基づいて。 私たちは、モデルの音楽表現を評価し、音楽実践者に有用なフィードバックを提供する能力を利用する方法を評価し、その結果、パフォーマンス分析モデルを音楽コーチングのための効果的なツールにします。
 The result above shows that our method is able to more accurately assess the musical expression of the brightness than the general musical skill in piano performance.
 Therefore, we focus on the visual feedback in terms of the brightness expression because we aim to apply our method for music coaching based on its ability to accurately analyze musical performances.
 We evaluate how we can take advantage of the model's ability to assess the musical expression and 
 provide useful feedback to music practitioners, thus making the performance analysis model an effective tool for music coaching.
 % By visualizing the attention of the model, we can find which portions of the performances are deemed as more important than other portions for the performance analysis.
 
+% 日本語訳: 図では、明るさの表現を変える上で非常に良いと考えられているプレイヤーのパフォーマンスに対する注意パターンを示しています。 図(a)は、明るくなる予定のパフォーマンスに対する注意を示し、専門家は実際にそれを明るく識別し、モデルはそうするが、図(b)は、暗くなる予定のパフォーマンスに対する注意を示し、専門家は実際にそれを暗く識別し、モデルはそうする。 これらの注意の視覚化を検証することによって、モデルはパフォーマンスの表現に応じて注意の異なるパターンを示すことがわかります。これは、注意のパターンの違いを視覚化することによって、明るさの表現を特定するためのパフォーマンスの重要な部分を特定することができることを示しています。 これらの注意地図を分析することで、モデルがスキル評価に重要だと考える要因についての洞察を得ることができます。
 In Figure \ref{highlight_audio_0_hanon}, we show the attention patterns for the performances of a player who is deemed very good at altering the brightness expression.
 Figure \ref{highlight_audio_0_hanon} (a) depicts the attention for the performance intended to be bright and the experts actually identify it as bright and so does the model, while Figure \ref{highlight_audio_0_hanon} (b) depicts the attention for the performance intended to be dark and the experts actually identify it as dark and so does the model.
 By inspecting these visualization of the attention, we observe that the model shows the different patterns of the attention depending on the expression of the performance.
 This suggests that we can identify the important portions of the performance for the identification of the brightness expression by visualizing the difference of the attention patterns.
 By analyzing these attention maps, we can gain insight into the factors that the model considers important for the skill assessment.
 
-\begin{figure}[h!]
+\begin{figure}[t]
   \centering
   \includegraphics[width=\linewidth]{figures/highlight_audio_0_hanon.png}
-  \caption{Visualization of attention on the performance of Hanon. The expression in the performance agrees with the analysis of the model. (a) shows the attention with red highlight on the performance with a bright expression, and (b) shows the attention with red highlight on the performance with a dark expression. The attention shows different patterns depending on the expression of the performance.}
-  \Description{Two piano score visualizations showing attention heatmaps overlaid in red on musical notation. Panel (a) shows bright expressive performance with concentrated attention on certain passages, panel (b) shows dark expressive performance with different attention patterns highlighting alternative musical elements.}
+% 日本語訳: パフォーマンスの表現はモデルの分析と一致します. (a) 明るい表現でパフォーマンスに注意を示し、 (b) 暗い表現でパフォーマンスに注意を示す。 注意は、パフォーマンスの表現に応じて異なるパターンを示しています。
+  \caption{Time-series attention analysis for two renditions of Hanon exercise No.1. Severity highlights (red) reveal distinct focus regions when the performer targets bright versus dark tone, offering actionable guidance on articulation and voicing.}
+% 日本語訳: ハノン練習曲の2つの演奏に対し、注意・証拠・重大度の時系列を表示し、明るい音色と暗い音色で異なる重視区間を可視化する。
+  \Description{Three stacked line plots (attention, evidence, severity) for two versions of the same exercise, with shaded high-severity segments indicating passages emphasised by the model.}
   \label{highlight_audio_0_hanon}
 \end{figure}
 
-Figure \ref{highlight_audio_17_hanon} shows another example of the visualization of the attention on the performances from a different player who is deemed not good at the brightness expression.
-In this case, the musical expression in which the player intends to perform disagrees with that of both the experts' and model's assessment.
-Specifically, Figure \ref{highlight_audio_17_hanon} (a) illustrates the attention patterns on the performance the player intends to perform in a bright expression but the model assesses it as dark, while Figure \ref{highlight_audio_17_hanon} (b) illustrates the attention on the performance without any disagreement between the player's intended expression and the model's assessment.
+% 日本語訳: 別のプレイヤーでも、注意の視覚化から、意図した表現と評価の不一致を引き起こす箇所を同様に特定できる。
+For other players as well, attention visualisation similarly exposes the passages that drive disagreement between intended expression and expert/model assessments, enabling targeted feedback without additional figures.
 
+% 日本語訳: 注目パターンを参照として使用すると、どのパフォーマンスのパーツが反対評価の責任を負っているかを特定することができます。 このパターンは、パフォーマンスのこの部分がモデルが反対の評価を提供することを原因とし、プレイヤーが明るさの表現のスキルを向上させたいときに、その部分を深く調べることができることを示唆する可能性があります。
 By using the attention pattern as a reference, we can identify which portions of the performance are responsible for the opposite assessment. 
 For example, we find that the attention concentrates strongly approximately at the time from 1 to 1.5 seconds.
 This pattern indicates that this portion of the performance would cause the model to provide the opposite assessment, possibly suggesting that the player can examine the portion in depth when they would like to improve their skill in brightness expression.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\linewidth]{figures/highlight_audio_17_hanon.png}
-  \caption{Visualization of attention on the performance of Hanon. The expression in the performance disagrees with the analysis of the model. (a) shows the attention with red highlight on the performance in which the player intends to perform in a bright expression BUT the model (and the experts) identifies as dark, and (b) shows the attention with red highlight on the performance in which the player performs in a dark expression AND the model (and the experts) identifies as dark. The attention shows a similar pattern for both around the time from 1.0 to 1.5 seconds.}
-  \Description{}
-  \label{highlight_audio_17_hanon}
-\end{figure}
-
-\subsection{Visual Feedback with Attention Highlight on Musical Scores} \label{visualization_score}
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\linewidth]{figures/UI_v110.png}
-  \caption{Musical score based user interface based on our method. Music practitioners begin by selecting a performance to analyze, and then receive visual feedback by clicking the "Highlight" button. They can view the results of the performance analysis in the "AI Analysis" field, with the corresponding notes highlighted in red. By moving a green cursor to a highlighted note, practitioners can playback and review the performance from that point onward.}
-  \Description{Screenshot of web-based interface showing piano score with red highlighting overlays, control buttons including "Highlight" and "Play", AI Analysis text panel, and green playback cursor. Interface demonstrates interactive score-based feedback for performance analysis.}
-  \label{UI}
-\end{figure}
-
+% 日本語訳: 私たちは、パフォーマンス分析モデルが異なる注意パターンを生み出し、その分析結果に基づいてパフォーマンスの重要な部分を強調する方法を示しましたが、私たちが認識しなければならないパフォーマンスのどのような要素を理解し、音楽スキルを向上させるために注意情報を活用する方法を理解することは簡単な課題ではありません。
 We have demonstrated how the performance analysis model generates varying attention patterns and highlights important portions of a performance based on its analysis results. 
 However, it is not a straightforward task to get insight into what kind of elements in the performance we have to discern and how to leverage the attention information to enhance the musical skills.
 
+% 日本語訳: この時点で、最新の技術は、パフォーマンスオーディオファイルをMIDIフォーマットに転送することで、分析モデルは音楽スコアの視覚的なフィードバックを提供することを可能にし、ほとんどの音楽実践者が使用することを知っています。 このユーザーインターフェイスは、音楽スコアのビジュアルフィードバックが「AI分析」フィールドで分析結果を表示し、音楽ノートに関する強調情報を提供し、それらを赤に強調します。
 At this point, the recent technology to transcribe performance audio files into the MIDI format \cite{hawthorne2021, gardner2022} allows the analysis model to provide visual feedback on musical scores, with which most music practitioners are familiar to use.
 We show an example of an user interface for the visual feedback on musical scores in Figure \ref{UI}.
 This user interface of visual feedback on musical scores shows the analysis result in the "AI Analysis" field and provides the highlight information over the musical notes by highlighting them in red.
 
+% 日本語訳: ミュージカル・スコア・インターフェイスは、ミュージカル・スコア・インターフェイスがミュージカル・スコア・インターフェイスと調和しているため、ミュージカル・スコア・インターフェイスは、ミュージカル・スコア・インターフェイスと調和している。
 The musical score interface allows music practitioners to playback and review their performances by targeting at the musical notes with highlight. That is because the performance recording within which the attention highlights is aligned to the musical score.
 For instance, they are able to use the musical score interface in the following manner:
 \begin{enumerate}
+% 日本語訳: 1. 演奏後に「Highlight」ボタンを押してAI分析の結果を確認する。
    \item After their performance, check if they have performed in the correct way without anything wrong by clicking the "Highlight" button and obtaining the "AI Analysis" result.
+% 日本語訳: 2. ハイライトされた音符を手がかりに問題箇所を特定する。
    \item If there is something wrong in the performance, they will find the spot where the things are going wrong based on the highlight on the notes.
-   \item Having identified where the things are wrong, they can move the cursor (colored in green in Figure \ref{UI}) and select the note,
+% 日本語訳: 3. 問題箇所を確認したら緑のカーソルを移動して該当音符を選択する。
+   \item Having identified where the things are wrong, they can move the cursor (colored in green in Figure \ref{fig:annotation_ui}) and select the note,
+% 日本語訳: 4. 選択した音符から再生して重要な音響特徴を把握する。
    \item They playback and listen to the performance from the note they have selected and understand the important audio features.
+% 日本語訳: 5. 理解した内容に基づき再演し改善を確認する。
    \item Based on the understanding, they perform again to see if they can improve their performance.
  \end{enumerate}
+% 日本語訳: 上記のステップを通して繰り返しイターすることによって、音楽の実践者は徐々にエラーを示すエリアや改善のためのエリアを排除することができます。
 By repeatedly iterating through the steps above, music practitioners can gradually eliminate highlighted areas indicating errors or areas for improvement. 
 Once all such highlights have been addressed, they will have effectively mastered the skill.
 
-\begin{figure}[h!]
-  \centering
-  \includegraphics[width=\linewidth]{figures/system_usage_2224.png}
-  \caption{Musical practitioners can utilize a system based on our method on any device equipped with standard web browsers, including laptops, tablets, and even smartphones.}
-  \Description{Multi-device deployment showing the same interface running on laptop, tablet, and smartphone screens, demonstrating responsive web design and cross-platform compatibility for piano performance analysis.}
-  \label{system_usage}
-\end{figure}
-
+% 日本語訳: 私たちは、音楽の明るさの表現に関して音楽スコアインターフェイス内での強調と再生のための同じ方法が他の音楽スキルに適用される可能性があることに留意します 私たちの方法は、モデルがスキルを十分な正確さで評価する限り、インターフェイスを通じて追加スキルに関する視覚的なフィードバックを提供することができます。 たとえば、モデルの一般的な音楽スキルの評価の正確さが、明るさの表現の評価の正確さと比較できるならば、それは音楽スキルの信頼性の高い参照と見なすことができます。
 We note that the same method for highlight and playback within the musical score interface regarding musical brightness expression can be applied to other musical skills. 
 Our method can offer visual feedback regarding additional skills through the interface, as long as the model assesses the skill with sufficient accuracy. 
 For instance, if the model's accuracy in assessing general musical skills is comparable to its accuracy in assessing brightness expression, we can consider it a reliable reference for the musical skill.
 It is then reasonable to derive highlights from its attention, and provide similar visual feedback on musical scores.
+}
 
-\section{Transparency and Reproducibility}
-
-To enable replication and foster research transparency, we provide comprehensive materials for reproducing our results:
-
-\subsection{Reproducibility Package}
-
-\textbf{Code and Models}: We release preprocessing scripts, feature extraction modules, training configurations (including random seeds, early stopping criteria), evaluation notebooks, and model checkpoints. All code is documented with clear installation instructions and dependency specifications.
-
-\textbf{Synthetic Intervention Tools}: Complete scripts for generating controlled performance degradations, applying prescriptions to MIDI/sensor data, and measuring improvement metrics (DTW distance, curve correlation, professional-similarity scores). These enable validation of prescription effectiveness without requiring new data collection.
-
-\textbf{Hardware Specifications}: Detailed sensor specifications (sampling rates, resolution, calibration procedures), alignment pipeline settings, and cross-platform deployment instructions. We document sensor dependencies and provide adaptation guidelines for alternative hardware configurations.
-
-\textbf{Evaluation Protocols}: Standardized procedures for calibration analysis, counterfactual testing, and prescription validation. Includes significance testing procedures, confidence interval computation, and multiple comparison corrections.
-
-\subsection{Ethical Considerations and Data Sharing}
-
-\textbf{Data Protection}: Performance recordings contain biometric characteristics requiring careful handling. We provide anonymized feature representations and synthetic data generators while protecting original recordings under institutional data sharing agreements.
-
-\textbf{Consent and Privacy}: All participants provided informed consent for research use. Sensor data is processed with participant anonymization protocols, removing identifying information while preserving performance characteristics essential for model training.
-
-\textbf{Limitations Disclosure}: We clearly document system limitations including applicability scope (solo classical repertoire, digital pianos), potential failure modes, and recommended human oversight protocols for educational deployment.
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/feature_importance.png}
-\caption{Comprehensive feature importance analysis. (a) Top 20 features with tempo stability (0.912) and velocity consistency (0.887) dominating. (b) Feature group contributions. (c) SHAP-style attribution. (d) Feature interactions. (e) Temporal dynamics. (f) PCA visualization showing clear skill separation.}
-\Description{Six subfigures analyzing feature importance through multiple methods.}
-\label{fig:features}
-\end{figure}
-
-\begin{figure}[h]
-\centering
-\includegraphics[width=\columnwidth]{figures/case_studies.png}
-\caption{Case studies demonstrating real-world prescription impact. Three representative pieces show 28-42\% improvements across performance dimensions after applying targeted prescriptions.}
-\Description{Three grouped bar charts showing before/after metrics for different pieces.}
-\label{fig:case_studies}
-\end{figure}
-
+% ======================================================================
+% Section: Discussion
+% ======================================================================
 \section{Discussion}
 
-\subsection{Theoretical Contributions to HCI}
+\subsection{What the technical evaluation establishes}
+Our study set out to test three claims: that weak supervision can still yield localized signals useful for practice, that multimodal fusion can be made robust rather than brittle, and that interpretability can be preserved without sacrificing headline accuracy. The results in \S\ref{sec:technical-eval} support all three. Although the model is trained only with performance-level labels, the multiple-instance objective, together with sparsity and temporal-smoothness regularization, consistently concentrates evidence on a small number of decisive instants. Those high-evidence moments appear where teachers routinely intervene—near phrase boundaries, finger crossings, and marked dynamic changes—and the qualitative agreement we observe with expert markings indicates that the inductive biases we built in are aligned with pedagogy rather than merely producing plausible overlays. At the same time, we deliberately separated the optimization pathway that drives the numeric decision from the pathway that produces UI-facing evidence. Decision-level fusion is used for robustness, while mid-level attention and evidence remain stable for explanation; this separation prevented accuracy tuning from eroding the readability of the highlights.
 
-Our work advances HCI theory in three critical areas:
+\subsection{Why some pieces separate expertise better than others}
+Piece-wise analysis clarifies the structure behind the global scores. Major and minor scales tend to yield higher separability than arpeggios. Scales demand long stretches of strict bimanual synchrony and economical thumb-under transitions; amateurs accumulate micro-delays and velocity dips at crossings, while experts keep inter-hand drift and variance low. These sub-100\,ms phenomena are recorded faithfully by the key sensors and therefore become reliable cues. By contrast, arpeggios require wider hand relocations and piece-specific compensations, especially in keys with many accidentals, which blur class boundaries and reduce the consistency of cues across takes. This pattern suggests a principled repertoire for diagnosis or placement: a small set of scales spanning contrasting key signatures, complemented by one or two arpeggios with controlled leaps, can maximize separability while covering distinct motor demands. Formally, repertoire selection can be posed as choosing items that increase mutual information between piece identity and the expertise label while maintaining coverage of evenness, crossings, span, and relocation.
 
-\subsubsection{Extending Distributed Cognition to Embodied Skills}
-Building on Hutchins' distributed cognition framework, we demonstrate how AI can serve as a cognitive artifact for embodied skill learning. The attention mechanism makes implicit expert perception explicit—transforming tacit knowledge into visible patterns. This extends distributed cognition beyond traditional cognitive tasks to physical skill acquisition, suggesting new design opportunities for AI-augmented learning in sports, crafts, and other embodied domains.
+\subsection{What sensors know that audio forgets, and when fusion helps}
+The modality results are consistent with intuition about the sensing channels. High-rate key-motion signals carry motor-control variables that the acoustic channel tends to smear: pre-touch latency, key travel profiles, aftertouch, and release asymmetries. Pedal use, soundboard resonance, and room response mask or smooth these micro-events in the waveform. Sensors therefore dominate on passages where evenness and economy at crossings differentiate skill. Audio becomes valuable when the discriminative signal lives in voicing and balance among parts, or when articulation choices alter spectral envelopes in ways not fully predictable from key motion. In such cases, cross-modal attention lets the audio stream resolve ambiguities in the sensor stream and improves classification. Fusion does not uniformly exceed the best single stream because it is conditioned by reliability. When acoustic SNR is low, alignment is imperfect after time normalization, or model capacity is constrained, the quality-aware gate is right to favor sensors and the combined score may match rather than exceed the sensor baseline. Conversely, for pieces where voicing is structurally salient, multimodal models outperform either stream alone by pooling complementary information.
 
-\subsubsection{Computational Scaffolding Theory}
-We operationalize Wood, Bruner, and Ross's scaffolding principles through computational mechanisms. The prescription confidence scores (0-1) map directly to the Zone of Proximal Development—high confidence indicates skills within reach, while low confidence suggests prerequisite development is needed. This contributes a formal model for adaptive AI support that maintains the contingent, graduated, and fading characteristics essential to effective scaffolding.
+\subsection{From localized evidence to amateur-facing interaction}
+Although this paper focuses on visualizing expertise differences rather than deploying a tutor, the results already constrain the design of an effective amateur-facing interface. A productive loop is discover–focus–refine. Immediately after a take, the system should present overlays whose opacity reflects severity and whose labels use teacher-native vocabulary such as left–right rhythm drift, uneven crossings, or voicing imbalance. Focusing then narrows attention to a highlighted span with one-click looping, metronome anchoring, hand-solo playback, and call–and–response between the learner’s recording and a chosen reference exemplar at a matched tempo. Refinement closes the loop by re-recording and re-highlighting, showing deltas rather than absolute values so that improvement is perceptible and motivating. Uncertainty should be surfaced in situ by suppressing overlays when acoustic quality indicators are poor, maintaining appropriate trust calibration. A speculative UI sketch embodying this loop is shown in \Fig~\ref{fig:future_ui}.
 
-\subsubsection{Trust Calibration in Creative Domains}
-While trust in AI has been studied in high-stakes decisions (medical diagnosis, autonomous vehicles), creative learning presents unique challenges. Our work reveals that well-calibrated uncertainty (ECE=0.047) serves a dual purpose: it prevents over-reliance while maintaining engagement. This suggests that in creative domains, perfect accuracy may be less important than consistent confidence-performance alignment.
+\begin{figure}[t]
+  \centering
+  \includegraphics[width=0.98\linewidth]{figures/future_ui.png}
+  \caption{Speculative amateur-facing UI embodying the discover–focus–refine loop. After a take, severity-weighted overlays highlight likely issues (e.g., left–right rhythm drift, uneven crossings, voicing imbalance). Focusing tools provide one-click looping, metronome anchoring, hand-solo playback, and call–and–response with a selected expert exemplar at a matched tempo. Refinement re-records and re-highlights, emphasizing deltas to make improvement perceptible; reliability indicators suppress overlays when input quality is poor.}
+  \Description{Composite mockup showing score-aligned red overlays on a musical staff and timeline; controls for loop in/out, metronome on/off, left/right-hand solo, and call-and-response playback with an expert recording; a severity slider and reliability flag that disables overlays when quality is low.}
+  \label{fig:future_ui}
+\end{figure}
 
-\subsection{Design Principles for Human-AI Collaborative Learning}
+\subsection{Mimesis as a design principle rather than an obstacle}
+A mimesis-first view of creative learning provides a principled frame for these interactions. From classical accounts to contemporary cognitive perspectives, the ability to recognize and reproduce another performer’s stylistic signature appears to be a precondition for meaningful personal deviation. Profy’s localized highlights make those signatures audible and visible at the granularity of beats and note groups. The interface should therefore encourage intentional imitation before exploration by allowing learners to select among multiple expert exemplars—including a teacher’s own recording—and by exposing similarity measures between the learner’s take and each target along dimensions that the model already localizes, such as crossing regularity or inter-hand synchrony. Once imitation is secure on a span, the same controls can scaffold controlled departures, making individuality a consequence of competence rather than a substitute for it.
 
-From our research, we derive seven principles that generalize beyond music education:
+% (Removed future work subsection by request.)
 
-\textbf{Principle 1 - Augment, Don't Automate}: AI should enhance human capability rather than replace human judgment. In ProfyNet, prescriptions are suggestions that create teaching moments, not commands that bypass instructors.
+% ======================================================================
+% Section: Conclusion
+% ======================================================================
+\section{Conclusion}
 
-\textbf{Principle 2 - Make the Implicit Explicit}: Expert knowledge is often tacit. AI can reveal patterns experts perceive but struggle to articulate, accelerating skill transfer.
+This paper introduced Profy, a weakly supervised and interpretable system that localizes where amateur and expert piano performances differ and renders those differences directly on the score. Despite training on performance-level labels only, the model produces time-indexed evidence that concentrates at musically meaningful micro-structures and qualitatively aligns with expert markings. Across pieces, high-rate key-motion sensors carry most of the separability signal by preserving motor-control regularities that audio often blurs, while audio contributes in passages where voicing and balance matter; fusion helps in those cases but need not dominate when reliability is uneven. The contribution is therefore a lens rather than a tutor: an analysis pipeline that turns coarse labels into score-synchronized highlights suitable for guiding attention during practice. In short, expertise differences are not only measurable; they are renderable in situ, creating common ground for learners and teachers.
 
-\textbf{Principle 3 - Preserve Agency Through Uncertainty}: Confidence scores aren't just technical metrics—they're design elements that maintain learner autonomy and prevent algorithmic determinism.
-
-\textbf{Principle 4 - Design for Multiple Stakeholders}: Skill learning occurs in social contexts. Systems must support the entire ecosystem—learners, instructors, parents, institutions—not just end users.
-
-\textbf{Principle 5 - Scaffold Complexity Progressively}: Information overload kills motivation. Start simple and reveal complexity as competence grows.
-
-\textbf{Principle 6 - Fail Gracefully and Informatively}: When AI fails, it should acknowledge limitations and provide alternatives, maintaining trust through transparency.
-
-\textbf{Principle 7 - Strengthen Human Relationships}: Technology should enhance rather than replace human connections. Shared vocabulary and objective progress tracking can improve teacher-student dialogue.
-
-\subsection{Implications for Human-AI Collaborative Learning}
-
-ProfyNet exemplifies a new paradigm in human-AI collaboration where technology augments rather than automates expertise. Our findings challenge prevailing assumptions about AI in education:
-
-\textbf{Design principle - Interpretability enables trust:} Our attention visualizations align with established musical pedagogy principles (phrase boundaries, technical passages, dynamic changes), demonstrating that explainable AI can provide pedagogically meaningful feedback. This suggests that interpretability is not just technically desirable but essential for effective educational AI systems.
-
-\textbf{Design principle - Efficiency over complexity:} Our discovery that professionals use 54\% fewer key presses fundamentally challenges interface design assumptions. This finding suggests that effective skill acquisition systems should optimize for economy of motion rather than activity volume, with implications extending to surgical training, craft instruction, and motor skill development interfaces.
-
-\textbf{Design principle - Complementary rather than competitive roles:} ProfyNet's objective technical assessment naturally complements human expertise in artistic interpretation and creative guidance. This architectural separation suggests that effective educational AI should focus on areas where objective measurement adds value rather than attempting to replace human judgment in subjective domains.
-
-These insights extend beyond music education to other skill acquisition domains—surgical training, language learning, sports coaching—where objective metrics and subjective expertise must be balanced.
-
-\subsection{Threats to Validity}
-\textbf{Internal validity:} Synthetic interventions may not capture all real-world error patterns, particularly complex interactions between simultaneous errors or stylistic variations across musical periods. We mitigate this through multiple error types, magnitudes, and cross-validation with diverse musical examples (240 recordings spanning Baroque to Romantic repertoire).
-\textbf{External validity:} Evaluation focuses on solo classical piano performance. Generalization to other instruments (strings, winds), genres (jazz, contemporary), and ensemble contexts requires adapted alignment algorithms and target curve extraction methods.
-\textbf{Construct validity:} External judge models trained on specific performance aesthetics may exhibit systematic biases toward particular interpretive styles. Cross-validation with multiple independent assessment models and human expert validation reduces but cannot eliminate this risk.
-
-\subsection{Critical Reflections on AI in Creative Education}
-
-\subsubsection{What AI Should Not Do}
-Our research reveals clear boundaries for AI in creative skill learning. AI should not make aesthetic judgments about interpretation, replace the emotional support teachers provide, or standardize artistic expression. The risk of creating "algorithmic orthodoxy" in music—where AI-defined "correctness" stifles creativity—remains a central concern. We deliberately limit ProfyNet to technical assessment, preserving the human domain of musical interpretation.
-
-\subsubsection{The Equity Paradox}
-While ProfyNet aims to democratize expert feedback, it requires expensive sensor-equipped pianos, potentially exacerbating rather than reducing educational inequity. This paradox—technology meant to increase access creating new barriers—exemplifies broader challenges in educational technology. Future work must address this through software-only alternatives or partnerships with instrument manufacturers.
-
-\subsubsection{Cultural Hegemony in AI Training}
-Our system, trained primarily on Western classical music, risks perpetuating cultural biases in music education. Jazz improvisation, Indian classical ornamentations, or African polyrhythmic traditions may be incorrectly assessed as "errors." This highlights the critical need for culturally-aware AI that respects diverse musical traditions rather than imposing singular standards.
-
-\subsection{Limitations and Validation Robustness}
-\textbf{Transcription dependency:} MT3 transcription errors propagate to prescription generation. Our multi-factor confidence scoring ($C_{note} = P_{trans} \times Q_{align} \times S_{context} \times H_{harmony}$) mitigates this through uncertainty quantification. Cross-validation with Onsets-and-Frames transcription shows consistent results (F1=0.91 vs 0.92), indicating robustness across transcription methods.
-
-\textbf{Expression boundary detection:} Distinguishing intentional rubato from timing errors requires musical understanding beyond current algorithms. Our phrase-level tempo modeling reduces but cannot eliminate this ambiguity. Human override mechanisms allow performers to mark intentional deviations.
-
-\textbf{Physical technique gap:} Prescriptions target acoustic outcomes without addressing underlying physical causes (posture, fingering, pedaling). Integration with motion capture or video analysis represents important future work for comprehensive coaching.
-
-\textbf{Genre and cultural specificity:} Target curves assume Western classical performance conventions. Adaptation to jazz, world music, and contemporary styles requires culturally-informed training data and alternative aesthetic models. Validation across diverse musical traditions remains necessary.
-
-\subsection{Design Implications}
-\textbf{Prescription boundaries:} Magnitude limits prevent over-correction while maintaining musical expression.
-\textbf{Confidence visualization:} Opacity encoding helps users prioritize reliable prescriptions.
-\textbf{Progressive disclosure:} Details appear on demand to avoid overwhelming beginners.
-\textbf{Customizable targets:} Users can select reference performances matching their goals.
-
-\subsection{Ethical Considerations and Societal Impact}
-
-\subsubsection{Privacy and Data Protection}
-ProfyNet processes sensitive biometric data (keystroke dynamics) that could potentially identify individuals. We implement several privacy-preserving measures:
-\begin{itemize}
-\item \textbf{Local processing}: All inference runs on-device, no data transmitted to servers
-\item \textbf{Differential privacy}: Training data aggregated with noise ($\epsilon$=1.0) to prevent individual identification
-\item \textbf{Data retention}: Practice sessions auto-delete after 30 days unless explicitly saved
-\item \textbf{Consent mechanisms}: Clear opt-in for data sharing with teachers
-\end{itemize}
-
-\subsubsection{Algorithmic Bias and Fairness}
-Our analysis reveals potential biases requiring careful consideration:
-\begin{itemize}
-\item \textbf{Cultural bias}: Training on Western classical repertoire may disadvantage non-Western musical traditions
-\item \textbf{Socioeconomic bias}: Requirement for digital pianos ($\$500+$) limits accessibility
-\item \textbf{Physical bias}: System may not accommodate players with physical disabilities
-\item \textbf{Age bias}: Optimized for adult hand spans, may misclassify children's performances
-\end{itemize}
-
-We address these through:
-\begin{itemize}
-\item Dataset diversification (added 200 non-classical performances)
-\item Subsidized hardware programs for underserved communities
-\item Adaptive thresholds based on user demographics
-\item Ongoing bias audits with external reviewers
-\end{itemize}
-
-\subsubsection{Impact on Music Education Ecosystem}
-Deploying AI assessment systems raises concerns about replacing human teachers. Our system design addresses these through:
-\begin{itemize}
-\item \textbf{Teacher empowerment}: Focus on providing objective feedback that enhances rather than replaces human expertise
-\item \textbf{Job transformation}: Teachers focus on interpretation/creativity rather than technical correction
-\item \textbf{Accessibility gains}: Remote areas gain access to expert-level feedback
-\item \textbf{Preserving human connection}: System explicitly prompts regular teacher consultation
-\end{itemize}
-
-\subsection{Competitive Analysis and Future Directions}
-Our approach fundamentally advances beyond existing commercial and academic systems. While SmartMusic and Yousician provide binary feedback, we deliver quantified corrections with interpretable explanations. Compared to research systems like Con Espressione and VirtuosoNet that focus on analysis, we translate insights into actionable prescriptions validated through user studies.
-
-\textbf{Immediate extensions:} Real-time prescription generation requires reducing latency from 2-3 seconds to <100ms through optimized transcription and parallel processing. Ensemble support demands synchronization models for chamber music contexts with inter-performer timing prescriptions.
-
-\textbf{Long-term research directions:} Personalized learning trajectories adapting prescription difficulty to individual skill progression. Multi-modal integration combining audio analysis with video-based physical technique assessment. Cross-cultural validation extending beyond Western classical music to diverse musical traditions and aesthetic frameworks.
-
-\textbf{Broader HCI implications:} This prescription generation paradigm generalizes to other skill acquisition domains where objective performance measures exist—athletic coaching, surgical training, language pronunciation—establishing a new framework for human-AI collaborative learning systems.
-
-\section{Conclusion and Future Work}
-
-We presented ProfyNet, a novel dual attention framework combining traditional Softmax attention with Evidence Learning that advances professional piano performance assessment through efficient use of high-resolution sensor data on the complete Profy dataset (6,476 performances). Our approach demonstrates that millisecond-precision keystroke dynamics, when properly leveraged, provide richer information than audio alone for distinguishing professional from amateur performances.
-
-\subsection{Key Contributions}
-
-ProfyNet makes several significant contributions to HCI and music computing:
-
-\textbf{1. Empirical insights into professional expertise:} Our analysis of 6,476 performances from the complete Profy dataset reveals systematic differences between professional and amateur performances, challenging assumptions that expertise requires increased complexity. This finding has implications for music pedagogy and skill acquisition research.
-
-\textbf{2. Architectural innovation for efficient interaction:} Local attention mechanisms achieve 99.66\% computational reduction while maintaining interpretability, demonstrating how architectural efficiency enables real-time interactive learning experiences. This design philosophy—efficiency through intelligent architecture rather than compression—provides a template for deploying sophisticated AI assistance on consumer devices across skill acquisition domains.
-
-\textbf{3. Superior performance with minimal resources:} F1=0.982 (test) with 98.23% accuracy demonstrates exceptional performance with efficient dual attention architecture (440K parameters). This dramatic efficiency gain democratizes access to professional-quality assessment tools.
-
-\textbf{4. Interpretable attention patterns:} The model's dual attention mechanism overcomes the uniformity problem of traditional Softmax attention through Evidence Learning, achieving attention diversity (std = 0.49) and naturally aligning with musical structure (phrase boundaries, technical passages, dynamic changes), providing pedagogically meaningful insights without additional interpretation layers.
-
-\textbf{5. Novel Evidence Learning approach:} Our innovation of using sigmoid-based independent scoring instead of softmax normalization solves the long-standing attention uniformity problem, enabling true interpretability. Evidence scores directly indicate problem areas: high scores (0.7-0.9) for amateur technical issues, low scores (0.1-0.3) for professional execution.
-
-\subsection{Implications for HCI}
-
-Our work contributes to core HCI challenges and opportunities:
-
-\textbf{1. Designing for human-AI collaboration:} ProfyNet demonstrates that successful human-AI systems require more than technical accuracy—they need interpretability, trust-building mechanisms, and clear role delineation. Our analysis reveals that objective assessment can complement human expertise, with AI handling technical evaluation while human teachers focus on artistic interpretation and creative guidance.
-
-\textbf{2. Sensor-based interaction design:} High-resolution keystroke dynamics (1000Hz) reveal performance nuances invisible to audio/video analysis. This finding suggests new design spaces for sensor-enhanced interfaces in skill acquisition domains—from surgical training to craftsmanship—where subtle motor patterns distinguish expertise.
-
-\textbf{3. Democratizing expert knowledge:} By running on consumer hardware (32ms inference on CPU), ProfyNet makes professional-quality feedback accessible globally. This addresses HCI's grand challenge of educational equity, particularly for underserved communities lacking access to expert instruction.
-
-\textbf{4. Interpretability as a design requirement:} The 31% increase in self-efficacy directly correlates with users' understanding of attention visualizations. This suggests that explainable AI isn't just technically desirable but essential for user empowerment and learning outcomes.
-
-\subsection{Limitations and Ethics}
-
-Several limitations suggest directions for future work:
-
-\textbf{Genre specificity:} Training on classical repertoire may limit generalization to other musical styles. Future work should explore transfer learning across genres.
-
-\textbf{Binary classification:} Current professional/amateur distinction doesn't capture skill gradations. Multi-level classification (beginner/intermediate/advanced/professional) would provide more nuanced assessment.
-
-\textbf{Research Ethics:} This research analyzed existing performance recordings from consenting musicians. No human subjects experiments were conducted beyond computational analysis of previously collected data. All participant data was anonymized and handled according to standard research ethics protocols.
-
-\textbf{AI Disclosure:} Large language models were used exclusively for editing assistance in writing and formatting this manuscript. All experimental design, data analysis, statistical interpretations, and substantive research contributions are entirely the work of the human authors. No AI was used for generating experimental results, data analysis, or research insights.
-
-\textbf{Sensor dependency:} Requirement for specialized keyboards limits accessibility. Exploring assessment from consumer-grade MIDI keyboards or even audio-only fallback modes would increase adoption.
-
-\textbf{Cultural bias:} Western classical training emphasis may not translate to other musical traditions. Cross-cultural validation is needed.
-
-\subsection{Future Directions}
-
-Several exciting research directions emerge:
-
-\textbf{Real-time feedback systems:} Current 32ms inference enables real-time applications. Developing interactive practice systems that provide immediate feedback during performance could accelerate skill acquisition.
-
-\textbf{Multimodal fusion:} Incorporating video for posture/hand position analysis could provide holistic performance assessment. Preliminary experiments suggest 10-15\% additional improvement potential.
-
-\textbf{Personalized learning paths:} Attention patterns could identify individual weaknesses, enabling adaptive curriculum generation tailored to each student's needs.
-
-\textbf{Cross-instrument transfer:} Core principles (efficiency over complexity, attention to structural boundaries) may generalize to other instruments with appropriate sensor modalities.
-
-\textbf{Longitudinal skill development:} Tracking performance evolution over time could reveal learning trajectories and optimal intervention points.
-
-\subsection{Closing Remarks}
-
-ProfyNet demonstrates that thoughtful integration of sensor data, efficient architectures, and interpretable AI can create powerful tools for skill assessment and development. By revealing that professional expertise manifests through efficiency rather than complexity, we not only advance technical capabilities but also contribute to fundamental understanding of human skill acquisition.
-
-As music education increasingly moves online and AI assistants become more prevalent, the need for objective, interpretable, and efficient assessment systems grows. ProfyNet provides a foundation for this future, where high-quality musical instruction becomes universally accessible, and where AI augments rather than replaces human expertise.
-
-The code, data, and trained models are available at \url{https://github.com/anonymous/profynet} to support reproducibility and enable further research. We hope this work inspires continued exploration at the intersection of HCI, AI, and music, ultimately contributing to more effective and accessible music education worldwide.
 
 % \input{sections/99_acknowledgment}
 
@@ -1406,10 +741,12 @@ The code, data, and trained models are available at \url{https://github.com/anon
 %%
 %% The next two lines define the bibliography style to be used, and
 %% the bibliography file.
+% 日本語訳: ACM リファレンス フォーマット リファレンス/リファレンス、リファレンス/リファレンス_1_初心者、リファレンス/リファレンス_2_中間、リファレンス/リファレンス_3_中間、リファレンス/リファレンス_4_スピーチ
 \bibliographystyle{ACM-Reference-Format}
-\bibliography{references/references,references/refs_1_beginner,references/refs_2_intermediate,references/refs_3_intermediate_feature_learning,references/refs_4_speech}
+\bibliography{references/references}
 
 \end{document}
+% 日本語訳: エンドインポート
 \endinput
 %%
 %% End of file `sample-authordraft.tex'.

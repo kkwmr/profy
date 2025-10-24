@@ -1,0 +1,2 @@
+# Ablation: disable class-balanced sampling.
+use_balanced_sampler: false

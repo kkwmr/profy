@@ -1,200 +1,455 @@
-@conference{mpasurvey,
-  author    = {Alexander Lerch and Claire Arthur and Kumar Ashis Pati and Siddharth Gururani},
-  title     = {Music Performance Analysis: {A} Survey},
-  booktitle = {20th International Society for Music Information Retrieval Conference},
-  month     = {Dec},
+% This file is organized by sections in main.tex.
+% If a reference is cited in multiple sections, it appears once under
+% the section where it is most discussed.
+
+% ========== Section: Introduction ==========
+@inproceedings{Kim2022APPA,
+  author    = {Hyon Kim and Pedro Ramoneda and Marius Miron and Xavier Serra},
+  title     = {An Overview of Automatic Piano Performance Assessment within the Music Education Context},
+  booktitle = {Proceedings of the 14th International Conference on Computer Supported Education (CSEDU 2022), Volume 1},
+  editor    = {Mutlu Cukurova and Nikol Rummel and Denis Gillet and Bruce M. McLaren and James Uhomoibhi},
+  pages     = {465--474},
+  year      = {2022},
+  publisher = {SCITEPRESS},
+  doi       = {10.5220/0011137600003182},
+  url       = {https://doi.org/10.5220/0011137600003182}
+}
+
+@incollection{BryanKinns2024,
+  author    = {Nick Bryan{-}Kinns and Berker Banar and Corey Ford and Courtney N. Reed and Yixiao Zhang and Jack Armitage},
+  title     = {Explainable AI and Music},
+  booktitle = {Artificial Intelligence for Art Creation and Understanding},
+  editor    = {L. Mou},
+  publisher = {CRC Press},
+  year      = {2024},
+  pages     = {1--29},
+  doi       = {10.1201/9781003406273-1},
+  url       = {https://doi.org/10.1201/9781003406273-1}
+}
+
+
+% ========== Section: Related Work ==========
+% Subsections covered:
+%   - Interactive Music Learning Systems
+%   - Automatic Performance Assessment and Feedback
+%   - Interpretable AI for Music Education
+@incollection{Dannenberg1992,
+  author    = {Roger B. Dannenberg and Robert L. Joseph},
+  title     = {Human-Computer Interaction in the Piano Tutor},
+  booktitle = {Multimedia Interface Design},
+  editor    = {M. M. Blattner and R. B. Dannenberg},
+  publisher = {ACM Press},
+  year      = {1992},
+  pages     = {65--78}
+}
+
+@inproceedings{Rogers2014,
+  author    = {Katja Rogers and Amrei R{\"o}hlig and Matthias Weing and Jan Gugenheimer and Bastian K{\"o}nings and Melina Klepsch and Florian Schaub and Enrico Rukzio and Tina Seufert and Michael Weber},
+  title     = {{P.I.A.N.O.}: Faster Piano Learning with Interactive Projection},
+  booktitle = {Proceedings of the 2014 ACM International Conference on Interactive Tabletops and Surfaces (ITS '14)},
+  year      = {2014},
+  pages     = {149--158},
+  doi       = {10.1145/2669485.2669514}
+}
+
+@inproceedings{Chiang2015,
+  author    = {Pei-Ying Chiang and Chung-Hsuan Sun},
+  title     = {OnCall Piano Sensei: Portable {AR} Piano Training System},
+  booktitle = {Proceedings of the 3rd ACM Symposium on Spatial User Interaction (SUI '15)},
+  year      = {2015},
+  pages     = {134},
+  doi       = {10.1145/2788940.2794353}
+}
+
+@inproceedings{Rigby2020,
+  author    = {Liam Rigby and Burkhard C. W{\"u}nsche and Alex Shaw},
+  title     = {piARno -- An Augmented Reality Piano Tutor},
+  booktitle = {Proceedings of the 32nd Australian Conference on Human-Computer Interaction (OzCHI '20)},
+  year      = {2020},
+  pages     = {481--491},
+  doi       = {10.1145/3441000.3441039}
+}
+
+@inproceedings{Johnson2010,
+  author    = {Rose M. G. Johnson and Janet van der Linden and Yvonne Rogers},
+  title     = {MusicJacket: The Efficacy of Real-Time Vibrotactile Feedback for Learning to Play the Violin},
+  booktitle = {Extended Abstracts of the 28th International Conference on Human Factors in Computing Systems (CHI EA '10)},
+  year      = {2010},
+  pages     = {3475--3480},
+  doi       = {10.1145/1753846.1754004}
+}
+
+@inproceedings{Yuksel2016,
+  author    = {Beste F. Yuksel and Kurt B. Oleson and Lane Harrison and Evan M. Peck and Daniel Afergan and Remco Chang and Robert J.K. Jacob},
+  title     = {{Learn Piano with BACh}: An Adaptive Learning Interface that Adjusts Task Difficulty Based on Brain State},
+  booktitle = {Proceedings of the 2016 CHI Conference on Human Factors in Computing Systems (CHI '16)},
+  year      = {2016},
+  pages     = {5372--5384},
+  doi       = {10.1145/2858036.2858388}
+}
+
+@inproceedings{Karolus2023,
+  author    = {Jakob Karolus and Johannes Sylupp and Albrecht Schmidt and Pawe{\l} W. Wo{\'z}niak},
+  title     = {{EyePiano}: Leveraging Gaze for Reflective Piano Learning},
+  booktitle = {Proceedings of the Designing Interactive Systems Conference (DIS '23)},
+  year      = {2023},
+  pages     = {1209--1223},
+  doi       = {10.1145/3563657.3596065}
+}
+
+@inproceedings{Donahue2019,
+  author    = {Chris Donahue and Ian Simon and Sander Dieleman and Erich Elsen and Karen Simonyan and Douglas Eck},
+  title     = {Piano Genie},
+  booktitle = {Proceedings of the 24th International Conference on Intelligent User Interfaces (IUI '19)},
   year      = {2019},
-  address   = {Delft, The Netherlands}
+  pages     = {160--164},
+  doi       = {10.1145/3301275.3302288}
 }
 
-% misc.
-@article{purwins2019,
-  author  = {Purwins, Hendrik and Li, Bo and Virtanen, Tuomas and Schlüter, Jan and Chang, Shuo-Yiin and Sainath, Tara},
-  journal = {IEEE Journal of Selected Topics in Signal Processing},
-  title   = {Deep Learning for Audio Signal Processing},
-  year    = {2019},
-  volume  = {13},
+@inproceedings{xiao2011,
+  author    = {Xiao Xiao and Hiroshi Ishii},
+  title     = {MirrorFugue: Communicating Hand Gesture in Remote Piano Collaboration},
+  booktitle = {Proceedings of the Fifth International Conference on Tangible, Embedded, and Embodied Interaction},
+  series    = {TEI '11},
+  year      = {2011},
+  pages     = {13--20},
+  doi       = {10.1145/1935701.1935705}
+}
+
+@article{Wilson2023VRPianoReview,
+  author  = {Katie Wilson and Phillip E. Pfeiffer},
+  title   = {Feedback in augmented and virtual reality piano tutoring systems: a mini review},
+  journal = {Frontiers in Virtual Reality},
+  volume  = {4},
+  pages   = {1207397},
+  year    = {2023},
+  doi     = {10.3389/frvir.2023.1207397}
+}
+
+@article{nakamura2016,
+  author  = {Tomohiko Nakamura and Eita Nakamura and Shigeki Sagayama},
+  title   = {Real-Time Audio-to-Score Alignment of Music Performances Containing Errors and Arbitrary Repeats and Skips},
+  journal = {IEEE/ACM Transactions on Audio, Speech, and Language Processing},
+  volume  = {24},
   number  = {2},
-  pages   = {206-219},
-  doi     = {10.1109/JSTSP.2019.2908700}
+  pages   = {329--339},
+  year    = {2016},
+  doi     = {10.1109/TASLP.2015.2507862}
 }
 
-% method
-@inproceedings{transformer,
-  author    = {Vaswani, Ashish and Shazeer, Noam and Parmar, Niki and Uszkoreit, Jakob and Jones, Llion and Gomez, Aidan N and Kaiser, \L ukasz and Polosukhin, Illia},
+@inproceedings{liang2024,
+  author  = {Xiao Liang and Zijian Zhao and Weichao Zeng and Yutong He and Fupeng He and Yiyi Wang and Chengying Gao},
+  title   = {PianoBART: Symbolic Piano Music Generation and Understanding with Large-Scale Pre-Training},
+  booktitle = {Proceedings of the 2024 {IEEE} International Conference on Multimedia and Expo},
+  pages     = {1--6},
+  year      = {2024},
+  doi       = {10.1109/ICME57554.2024.10688332}
+}
+
+@article{Widmer2017,
+  author    = {Gerhard Widmer},
+  title     = {Getting Closer to the Essence of Music: The Con Espressione Manifesto},
+  journal   = {ACM Transactions on Intelligent Systems and Technology},
+  volume    = {8},
+  number    = {2},
+  pages     = {19:1--19:13},
+  year      = {2017},
+  doi       = {10.1145/3047275}
+}
+
+@article{Sadakata2008,
+  author    = {Makiko Sadakata and David Hoppe and Alex Brandmeyer and Ren{\'e}e Timmers and Peter Desain},
+  title     = {Real-Time Visual Feedback for Learning to Perform Short Rhythms with Expressive Variations in Timing and Loudness},
+  journal   = {Journal of New Music Research},
+  volume    = {37},
+  number    = {3},
+  pages     = {207--220},
+  year      = {2008},
+  doi       = {10.1080/09298210802322401}
+}
+
+@article{Trevino2014,
+  author    = {Jeffrey Trevi{\~n}o and Craig Stuart Sapp},
+  title     = {Automated Notation of Piano Recordings for Historic Performance Analysis},
+  journal   = {ACM Journal on Computing and Cultural Heritage},
+  volume    = {7},
+  number    = {3},
+  pages     = {17:1--17:19},
+  year      = {2014},
+  doi       = {10.1145/2597179}
+}
+
+@article{Phanichraksaphong2021,
+  author    = {Varinya Phanichraksaphong and Wei-Ho Tsai},
+  title     = {Automatic Evaluation of Piano Performances for STEAM Education},
+  journal   = {Applied Sciences},
+  year      = {2021},
+  volume    = {11},
+  number    = {24},
+  pages     = {11783},
+  doi       = {10.3390/app112411783}
+}
+
+@article{Porayska2016,
+  author    = {Kaska Porayska-Pomsta},
+  title     = {AI as a Methodology for Supporting Educational Praxis and Teacher Metacognition},
+  journal   = {International Journal of Artificial Intelligence in Education},
+  year      = {2016},
+  volume    = {26},
+  number    = {2},
+  pages     = {679--700},
+  doi       = {10.1007/s40593-016-0101-4}
+}
+
+@article{Holstein2019,
+  author    = {Holstein, Kenneth and McLaren, Bruce M. and Aleven, Vincent},
+  title     = {Co-Designing a Real-Time Classroom Orchestration Tool to Support Teacher-AI Complementarity},
+  journal   = {Journal of Learning Analytics},
+  year      = {2019},
+  volume    = {6},
+  number    = {2},
+  pages     = {27--52},
+  url       = {http://files.eric.ed.gov/fulltext/EJ1224130.pdf}
+}
+
+@inproceedings{Kawamura2021,
+  author    = {Kazuki Kawamura and Jun Rekimoto},
+  title     = {A Language Acquisition Support System that Presents Differences and Distances from Model Speech},
+  booktitle = {UIST '21 Adjunct: Proceedings of the 34th Annual ACM Symposium on User Interface Software and Technology},
+  year      = {2021},
+  pages     = {44--46},
+  doi       = {10.1145/3474349.3480225}
+}
+
+@inproceedings{Jiang2023,
+  author    = {Yucong Jiang},
+  title     = {Expert and Novice Evaluations of Piano Performances: Criteria for Computer-Aided Feedback},
+  booktitle = {Proceedings of the 24th International Society for Music Information Retrieval Conference (ISMIR 2023)},
+  year      = {2023},
+  pages     = {367--374}
+}
+
+
+% Additions for Related Work
+@inproceedings{Hawthorne2019MAESTRO,
+  title     = {Enabling Factorized Piano Music Modeling and Generation with the MAESTRO Dataset},
+  author    = {Curtis Hawthorne and Andriy Stasyuk and Adam Roberts and Ian Simon and Cheng-Zhi Anna Huang and Sander Dieleman and Erich Elsen and Jesse Engel and Douglas Eck},
+  booktitle = {International Conference on Learning Representations (ICLR)},
+  year      = {2019},
+  note      = {arXiv:1810.12247}
+}
+
+@article{Emiya2010MAPS,
+  author  = {Emiya, Valentin and Badeau, Roland and David, Bertrand},
+  title   = {Multipitch Estimation of Piano Sounds Using a New Probabilistic Spectral Smoothness Principle},
+  journal = {IEEE Transactions on Audio, Speech, and Language Processing},
+  year    = {2010},
+  volume  = {18},
+  number  = {6},
+  pages   = {1643--1654},
+  doi     = {10.1109/TASL.2010.2042119}
+}
+
+@inproceedings{Foscarin2020ASAP,
+  author    = {Foscarin, Francesco and McLeod, Andrew and Rigaux, Pierre and Jacquemard, Florent and Sakai, Masatoshi},
+  title     = {ASAP: A Dataset of Aligned Scores and Performances for Piano Transcription},
+  booktitle = {Proc. of the International Society for Music Information Retrieval Conference (ISMIR)},
+  year      = {2020},
+  pages     = {534--541}
+}
+
+@article{Oku2022Sensors,
+  author  = {Ryota Oku and Shinichi Furuya},
+  title   = {A non-contact and high-speed piano key motion measurement system using deep learning},
+  journal = {Sensors},
+  year    = {2022},
+  volume  = {22},
+  number  = {21},
+  pages   = {8793},
+  doi     = {10.3390/s22218793}
+}
+
+@article{Yasuhara2024iScience,
+  author  = {Yasuhara, Naoya and Hachiya, Hitoshi and Takeda, Yusuke and Furuya, Shinichi},
+  title   = {Coupling of neural oscillations and motor timing in piano performance revealed by synchronized EEG and key-motion sensing},
+  journal = {iScience},
+  year    = {2024},
+  volume  = {27},
+  number  = {7},
+  pages   = {109218},
+  doi     = {10.1016/j.isci.2024.109218}
+}
+
+@article{Kuromiya2025PNAS,
+  author  = {Kuromiya, Kaori and Kobayashi, Yuya and Hirano, Masato and Furuya, Shinichi},
+  title   = {Motor origins of timbre in piano performance},
+  journal = {Proceedings of the National Academy of Sciences},
+  year    = {2025},
+  volume  = {122},
+  number  = {39},
+  pages   = {e2425073122},
+  doi     = {10.1073/pnas.2425073122}
+}
+
+@article{Nakamura2017ScoreFollow,
+  author  = {Nakamura, Eita and Yoshii, Kazuyoshi and Katayose, Haruhiro},
+  title   = {Handling Errors, Repeats, and Skips in Score Following by Explicit Modeling of Performers’ Improvisations},
+  journal = {arXiv preprint},
+  year    = {2017},
+  volume  = {1712.04332}
+}
+
+
+% ========== Section: Extended Technical Evaluation ==========
+@inproceedings{hawthorne2021,
+  author    = {Curtis Hawthorne and Ian Simon and Rigel Swavely and Ethan Manilow and Jesse H. Engel},
+  title     = {Sequence-to-Sequence Piano Transcription with Transformers},
+  booktitle = {Proceedings of the 22nd International Society for Music Information Retrieval Conference (ISMIR 2021)},
+  year      = {2021},
+  pages     = {246--253},
+  url       = {https://archives.ismir.net/ismir2021/paper/000030.pdf}
+}
+
+@inproceedings{gardner2022,
+  author    = {Joshua P. Gardner and Ian Simon and Ethan Manilow and Curtis Hawthorne and Jesse Engel},
+  title     = {MT3: Multi-Task Multitrack Music Transcription},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2022},
+  url       = {https://openreview.net/forum?id=iMSjopcOn0p}
+}
+% ========== Section: Method (Profy: Methodology and Architecture) ==========
+
+@inproceedings{Vaswani2017,
+  author    = {Ashish Vaswani and Noam Shazeer and Niki Parmar and Jakob Uszkoreit and Llion Jones and Aidan N. Gomez and {\L}ukasz Kaiser and Illia Polosukhin},
+  title     = {Attention Is All You Need},
   booktitle = {Advances in Neural Information Processing Systems},
-  editor    = {I. Guyon and U. Von Luxburg and S. Bengio and H. Wallach and R. Fergus and S. Vishwanathan and R. Garnett},
-  pages     = {},
-  publisher = {Curran Associates, Inc.},
-  title     = {Attention is All you Need},
-  url       = {https://proceedings.neurips.cc/paper/2017/file/3f5ee243547dee91fbd053c1c4a845aa-Paper.pdf},
-  volume    = {30},
+  year      = {2017},
+  pages     = {5998--6008}
+}
+
+@inproceedings{Lu2019ViLBERT,
+  author    = {Jiasen Lu and Dhruv Batra and Devi Parikh and Stefan Lee},
+  title     = {ViLBERT: Pretraining Task-Agnostic Visiolinguistic Representations for Vision-and-Language Tasks},
+  booktitle = {Advances in Neural Information Processing Systems},
+  year      = {2019}
+}
+
+@inproceedings{Pinheiro2015,
+  author    = {Pedro O. Pinheiro and Ronan Collobert},
+  title     = {From Image-Level to Pixel-Level Labeling with Convolutional Networks},
+  booktitle = {IEEE Conference on Computer Vision and Pattern Recognition},
+  year      = {2015}
+}
+
+@inproceedings{Ilse2018,
+  author    = {Maximilian Ilse and Jakub Tomczak and Max Welling},
+  title     = {Attention-based Deep Multiple Instance Learning},
+  booktitle = {International Conference on Machine Learning},
+  year      = {2018},
+  note      = {Proceedings of Machine Learning Research (PMLR), Vol. 80, pp. 2127--2136}
+}
+
+@inproceedings{mcfee2015librosa,
+  author    = {Brian McFee and Colin Raffel and Dawen Liang and Daniel P. W. Ellis and Matt McVicar and Eric Battenberg and Oriol Nieto},
+  title     = {librosa: Audio and Music Signal Analysis in Python},
+  booktitle = {Proceedings of the 14th Python in Science Conference},
+  year      = {2015},
+  pages     = {18--24},
+  doi       = {10.25080/Majora-7b98e3ed-003}
+}
+
+@inproceedings{HarteSandler2006,
+  author    = {Christopher Harte and Mark Sandler and Martin Gasser},
+  title     = {Detecting Harmonic Change in Musical Audio},
+  booktitle = {Proceedings of the 1st ACM Workshop on Audio and Music Computing for Multimedia},
+  year      = {2006},
+  pages     = {21--26},
+  doi       = {10.1145/1178723.1178727}
+}
+
+@inproceedings{Jiang2002,
+  author    = {Dan-Ning Jiang and Lie Lu and Hong-Jiang Zhang and Jian-Hua Tao and Lian-Hong Cai},
+  title     = {Music Type Classification by Spectral Contrast Feature},
+  booktitle = {IEEE International Conference on Multimedia and Expo},
+  year      = {2002}
+}
+
+@article{Bai2018TCN,
+  author    = {Shaojie Bai and J. Zico Kolter and Vladlen Koltun},
+  title     = {An Empirical Evaluation of Generic Convolutional and Recurrent Networks for Sequence Modeling},
+  journal   = {arXiv preprint arXiv:1803.01271},
+  year      = {2018}
+}
+
+@article{Graves2005,
+  author  = {Alex Graves and J{\"u}rgen Schmidhuber},
+  title   = {Framewise Phoneme Classification with Bidirectional LSTM and Other Neural Network Architectures},
+  journal = {Neural Networks},
+  year    = {2005},
+  volume  = {18},
+  number  = {5--6},
+  pages   = {602--610},
+  doi     = {10.1016/j.neunet.2005.06.042}
+}
+
+@inproceedings{Platt1999,
+  author    = {John Platt},
+  title     = {Probabilistic Outputs for Support Vector Machines and Comparisons to Regularized Likelihood Methods},
+  booktitle = {Advances in Large Margin Classifiers},
+  year      = {1999},
+  pages     = {61--74},
+  publisher = {MIT Press}
+}
+
+@article{Otsu1979,
+  author  = {Nobuyuki Otsu},
+  title   = {A Threshold Selection Method from Gray-Level Histograms},
+  journal = {IEEE Transactions on Systems, Man, and Cybernetics},
+  year    = {1979},
+  volume  = {9},
+  number  = {1},
+  pages   = {62--66},
+  doi     = {10.1109/TSMC.1979.4310076}
+}
+
+@book{Muller2015,
+  author    = {Meinard M{\"u}ller},
+  title     = {Fundamentals of Music Processing},
+  publisher = {Springer},
+  year      = {2015}
+}
+
+@inproceedings{LoshchilovHutter2019AdamW,
+  author    = {Ilya Loshchilov and Frank Hutter},
+  title     = {Decoupled Weight Decay Regularization},
+  booktitle = {International Conference on Learning Representations},
+  year      = {2019}
+}
+
+@article{Jacobs1991MoE,
+  author    = {Robert A. Jacobs and Michael I. Jordan and Steven J. Nowlan and Geoffrey E. Hinton},
+  title     = {Adaptive Mixtures of Local Experts},
+  journal   = {Neural Computation},
+  year      = {1991},
+  volume    = {3},
+  number    = {1},
+  pages     = {79--87},
+  doi       = {10.1162/neco.1991.3.1.79}
+}
+
+@article{Shazeer2017MoE,
+  author    = {Noam Shazeer and Azalia Mirhoseini and Krzysztof Maziarz and Andy Davis and Quoc V. Le and Geoffrey E. Hinton and Jeff Dean},
+  title     = {Outrageously Large Neural Networks: The Sparsely-Gated Mixture-of-Experts Layer},
+  journal   = {arXiv preprint arXiv:1701.06538},
   year      = {2017}
 }
-@inproceedings{wav2vec,
-  author    = {Steffen Schneider and Alexei Baevski and Ronan Collobert and Michael Auli},
-  title     = {wav2vec: Unsupervised Pre-Training for Speech Recognition},
-  year      = {2019},
-  booktitle = {Proc. Interspeech 2019},
-  pages     = {3465-3469},
-  doi       = {10.21437/Interspeech.2019-1873}
+
+@article{Pedregosa2011Scikit,
+  author    = {Fabian Pedregosa and Ga{\"e}l Varoquaux and Alexandre Gramfort and Vincent Michel and Bertrand Thirion and Olivier Grisel and Mathieu Blondel and Peter Prettenhofer and Ron Weiss and Vincent Dubourg and others},
+  title     = {Scikit-learn: Machine Learning in Python},
+  journal   = {Journal of Machine Learning Research},
+  year      = {2011},
+  volume    = {12},
+  pages     = {2825--2830}
 }
-@inproceedings{wav2vec2,
-  author    = {Baevski, Alexei and Zhou, Henry and Mohamed, Abdelrahman and Auli, Michael},
-  title     = {Wav2vec 2.0: A Framework for Self-Supervised Learning of Speech Representations},
-  year      = {2020},
-  isbn      = {9781713829546},
-  publisher = {Curran Associates Inc.},
-  address   = {Red Hook, NY, USA},
-  booktitle = {Proceedings of the 34th International Conference on Neural Information Processing Systems},
-  articleno = {1044},
-  numpages  = {12},
-  location  = {Vancouver, BC, Canada},
-  series    = {NIPS'20}
-}
-@article{hubert,
-  author  = {Hsu, Wei-Ning and Bolte, Benjamin and Tsai, Yao-Hung Hubert and Lakhotia, Kushal and Salakhutdinov, Ruslan and Mohamed, Abdelrahman},
-  journal = {IEEE/ACM Transactions on Audio, Speech, and Language Processing},
-  title   = {HuBERT: Self-Supervised Speech Representation Learning by Masked Prediction of Hidden Units},
-  year    = {2021},
-  volume  = {29},
-  number  = {},
-  pages   = {3451-3460},
-  doi     = {10.1109/TASLP.2021.3122291}
-}
-@inproceedings{librispeech,
-  author    = {Panayotov, Vassil and Chen, Guoguo and Povey, Daniel and Khudanpur, Sanjeev},
-  booktitle = {2015 IEEE International Conference on Acoustics, Speech and Signal Processing (ICASSP)},
-  title     = {Librispeech: An ASR corpus based on public domain audio books},
-  year      = {2015},
-  volume    = {},
-  number    = {},
-  pages     = {5206-5210},
-  doi       = {10.1109/ICASSP.2015.7178964}
-}
-@inproceedings{hawthorne2021,
-  author    = {Curtis Hawthorne and
-               Ian Simon and
-               Rigel Swavely and
-               Ethan Manilow and
-               Jesse H. Engel},
-  editor    = {Jin Ha Lee and
-               Alexander Lerch and
-               Zhiyao Duan and
-               Juhan Nam and
-               Preeti Rao and
-               Peter van Kranenburg and
-               Ajay Srinivasamurthy},
-  title     = {Sequence-to-Sequence Piano Transcription with Transformers},
-  booktitle = {Proceedings of the 22nd International Society for Music Information
-               Retrieval Conference, {ISMIR} 2021, Online, November 7-12, 2021},
-  pages     = {246--253},
-  year      = {2021},
-  url       = {https://archives.ismir.net/ismir2021/paper/000030.pdf},
-  timestamp = {Mon, 06 Dec 2021 13:56:05 +0100},
-  biburl    = {https://dblp.org/rec/conf/ismir/HawthorneSSME21.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-@inproceedings{gardner2022,
-title={{MT}3: Multi-Task Multitrack Music Transcription},
-author={Joshua P Gardner and Ian Simon and Ethan Manilow and Curtis Hawthorne and Jesse Engel},
-booktitle={International Conference on Learning Representations},
-year={2022},
-url={https://openreview.net/forum?id=iMSjopcOn0p}
-}
-% library
-@article{paszke2017automatic,
-  title={Automatic differentiation in PyTorch},
-  author={Paszke, Adam and Gross, Sam and Chintala, Soumith and Chanan, Gregory and Yang, Edward and DeVito, Zachary and Lin, Zeming and Desmaison, Alban and Antiga, Luca and Lerer, Adam},
-  year={2017}
-}
-@inproceedings{wolf-etal-2020-transformers,
-    title = "Transformers: State-of-the-Art Natural Language Processing",
-    author = "Thomas Wolf and Lysandre Debut and Victor Sanh and Julien Chaumond and Clement Delangue and Anthony Moi and Pierric Cistac and Tim Rault and Rémi Louf and Morgan Funtowicz and Joe Davison and Sam Shleifer and Patrick von Platen and Clara Ma and Yacine Jernite and Julien Plu and Canwen Xu and Teven Le Scao and Sylvain Gugger and Mariama Drame and Quentin Lhoest and Alexander M. Rush",
-    booktitle = "Proceedings of the 2020 Conference on Empirical Methods in Natural Language Processing: System Demonstrations",
-    month = oct,
-    year = "2020",
-    address = "Online",
-    publisher = "Association for Computational Linguistics",
-    url = "https://www.aclweb.org/anthology/2020.emnlp-demos.6",
-    pages = "38--45"
-}
-@misc{hfmodels,
-  author       = {HuggingFace},
-  title        = {HuggingFace Models},
-  year         = {2021},
-  month        = {2},
-  howpublished = {\url{https://huggingface.co/models}},
-  note         = {(Accessed on 01/04/2023)}
-}
-@misc{wav2vec2-base,
-  author       = {HuggingFace},
-  title        = {facebook/wav2vec2-base},
-  year         = {2021},
-  month        = {2},
-  howpublished = {\url{https://huggingface.co/facebook/wav2vec2-base}},
-  note         = {(Accessed on 01/04/2023)}
-}
-% musical skill learning
-@article{herholz2015,
-    author = {Herholz, Sibylle C. and Coffey, Emily B.J. and Pantev, Christo and Zatorre, Robert J.},
-    title = "{Dissociation of Neural Networks for Predisposition and for Training-Related Plasticity in Auditory-Motor Learning}",
-    journal = {Cerebral Cortex},
-    volume = {26},
-    number = {7},
-    pages = {3125-3134},
-    year = {2015},
-    month = {07},
-    abstract = "{Skill learning results in changes to brain function, but at the same time individuals strongly differ in their abilities to learn specific skills. Using a 6-week piano-training protocol and pre- and post-fMRI of melody perception and imagery in adults, we dissociate learning-related patterns of neural activity from pre-training activity that predicts learning rates. Fronto-parietal and cerebellar areas related to storage of newly learned auditory-motor associations increased their response following training; in contrast, pre-training activity in areas related to stimulus encoding and motor control, including right auditory cortex, hippocampus, and caudate nuclei, was predictive of subsequent learning rate. We discuss the implications of these results for models of perceptual and of motor learning. These findings highlight the importance of considering individual predisposition in plasticity research and applications.}",
-    issn = {1047-3211},
-    doi = {10.1093/cercor/bhv138},
-    url = {https://doi.org/10.1093/cercor/bhv138},
-    eprint = {https://academic.oup.com/cercor/article-pdf/26/7/3125/6710612/bhv138.pdf},
-}
-% others
-@article{alphago2016,
-  author    = {David Silver and
-               Aja Huang and
-               Chris J. Maddison and
-               Arthur Guez and
-               Laurent Sifre and
-               George van den Driessche and
-               Julian Schrittwieser and
-               Ioannis Antonoglou and
-               Vedavyas Panneershelvam and
-               Marc Lanctot and
-               Sander Dieleman and
-               Dominik Grewe and
-               John Nham and
-               Nal Kalchbrenner and
-               Ilya Sutskever and
-               Timothy P. Lillicrap and
-               Madeleine Leach and
-               Koray Kavukcuoglu and
-               Thore Graepel and
-               Demis Hassabis},
-  title     = {Mastering the game of Go with deep neural networks and tree search},
-  journal   = {Nat.},
-  volume    = {529},
-  number    = {7587},
-  pages     = {484--489},
-  year      = {2016},
-  url       = {https://doi.org/10.1038/nature16961},
-  doi       = {10.1038/nature16961},
-  timestamp = {Mon, 27 Sep 2021 17:38:59 +0200},
-  biburl    = {https://dblp.org/rec/journals/nature/SilverHMGSDSAPL16.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
-@article{homo-cyberneticus,
-  author    = {Jun Rekimoto},
-  title     = {Homo Cyberneticus: The Era of Human-AI Integration},
-  journal   = {CoRR},
-  volume    = {abs/1911.02637},
-  year      = {2019},
-  url       = {http://arxiv.org/abs/1911.02637},
-  eprinttype = {arXiv},
-  eprint    = {1911.02637},
-  timestamp = {Mon, 11 Nov 2019 18:38:09 +0100},
-  biburl    = {https://dblp.org/rec/journals/corr/abs-1911-02637.bib},
-  bibsource = {dblp computer science bibliography, https://dblp.org}
-}
+

@@ -1,0 +1,26 @@
+{
+  "evaluation_id": "eval_1759458441769",
+  "evaluator": "Kurihara",
+  "audio_filename": "amateur_piano_6.wav",
+  "audio_display": "amateur_piano_6.wav",
+  "audio_file": "amateur_piano_6.wav",
+  "audio_index": 6,
+  "duration": 16.22,
+  "total_score": 5,
+  "problem_sections": [
+    {
+      "start": 4.8,
+      "end": 5.6
+    },
+    {
+      "start": 7.1,
+      "end": 8.7
+    },
+    {
+      "start": 9.4,
+      "end": 10.5
+    }
+  ],
+  "evaluation_time": 1759458441769,
+  "timestamp": "2025-10-03T02:27:21.769Z"
+}

@@ -1,0 +1,30 @@
+{
+  "evaluation_id": "eval_1759899892949",
+  "evaluator": "Hashimoto",
+  "audio_filename": "amateur_piano_17.wav",
+  "audio_display": "amateur_piano_17.wav",
+  "audio_file": "amateur_piano_17.wav",
+  "audio_index": 17,
+  "duration": 10.9,
+  "total_score": 6,
+  "problem_sections": [
+    {
+      "start": 1.1,
+      "end": 1.4
+    },
+    {
+      "start": 1.7,
+      "end": 2
+    },
+    {
+      "start": 3.4,
+      "end": 4.205796488820239
+    },
+    {
+      "start": 6.8,
+      "end": 7.97494397229987
+    }
+  ],
+  "evaluation_time": 1759899892949,
+  "timestamp": "2025-10-08T05:04:52.949Z"
+}

@@ -1,0 +1,42 @@
+{
+  "evaluation_id": "eval_1759988098516",
+  "evaluator": "Mita",
+  "audio_filename": "amateur_piano_18.wav",
+  "audio_display": "amateur_piano_18.wav",
+  "audio_file": "amateur_piano_18.wav",
+  "audio_index": 18,
+  "duration": 11.03,
+  "total_score": 5,
+  "problem_sections": [
+    {
+      "start": 2.907413509060955,
+      "end": 3.5
+    },
+    {
+      "start": 4.833574958813839,
+      "end": 5.260601317957166
+    },
+    {
+      "start": 5.3787149917627675,
+      "end": 5.9
+    },
+    {
+      "start": 6,
+      "end": 6.4
+    },
+    {
+      "start": 6.5,
+      "end": 6.896021416803953
+    },
+    {
+      "start": 7.359390444810543,
+      "end": 7.7
+    },
+    {
+      "start": 8.4,
+      "end": 8.8
+    }
+  ],
+  "evaluation_time": 1759988098516,
+  "timestamp": "2025-10-09T05:34:58.516Z"
+}

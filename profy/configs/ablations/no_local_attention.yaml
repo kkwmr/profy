@@ -1,0 +1,3 @@
+# Ablation: disable temporal attention (uniform pooling).
+model_kwargs:
+  use_temporal_attention: false

@@ -1,0 +1,18 @@
+{
+  "evaluation_id": "eval_1759370965266",
+  "evaluator": "Aoki",
+  "audio_filename": "amateur_piano_1.wav",
+  "audio_display": "amateur_piano_1.wav",
+  "audio_file": "amateur_piano_1.wav",
+  "audio_index": 1,
+  "duration": 11.08,
+  "total_score": 9,
+  "problem_sections": [
+    {
+      "start": 1.8,
+      "end": 2.5
+    }
+  ],
+  "evaluation_time": 1759370965266,
+  "timestamp": "2025-10-02T02:09:25.266Z"
+}

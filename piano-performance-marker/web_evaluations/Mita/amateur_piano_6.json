@@ -1,0 +1,30 @@
+{
+  "evaluation_id": "eval_1759987077833",
+  "evaluator": "Mita",
+  "audio_filename": "amateur_piano_6.wav",
+  "audio_display": "amateur_piano_6.wav",
+  "audio_file": "amateur_piano_6.wav",
+  "audio_index": 6,
+  "duration": 16.22,
+  "total_score": 6,
+  "problem_sections": [
+    {
+      "start": 1.7369028006589784,
+      "end": 2.338138385502471
+    },
+    {
+      "start": 4.9,
+      "end": 7.7225370675453044
+    },
+    {
+      "start": 9.2,
+      "end": 9.7
+    },
+    {
+      "start": 10.701993410214168,
+      "end": 11.597166392092255
+    }
+  ],
+  "evaluation_time": 1759987077833,
+  "timestamp": "2025-10-09T05:17:57.833Z"
+}

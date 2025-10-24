@@ -1,0 +1,22 @@
+{
+  "evaluation_id": "eval_1759816947055",
+  "evaluator": "Shioki",
+  "audio_filename": "amateur_piano_12.wav",
+  "audio_display": "amateur_piano_12.wav",
+  "audio_file": "amateur_piano_12.wav",
+  "audio_index": 12,
+  "duration": 10.13,
+  "total_score": 4,
+  "problem_sections": [
+    {
+      "start": 4.8,
+      "end": 6.344029976314547
+    },
+    {
+      "start": 7.53667946366574,
+      "end": 8.3
+    }
+  ],
+  "evaluation_time": 1759816947055,
+  "timestamp": "2025-10-07T06:02:27.055Z"
+}

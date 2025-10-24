@@ -1,0 +1,26 @@
+{
+  "evaluation_id": "eval_1759987170383",
+  "evaluator": "Mita",
+  "audio_filename": "amateur_piano_7.wav",
+  "audio_display": "amateur_piano_7.wav",
+  "audio_file": "amateur_piano_7.wav",
+  "audio_index": 7,
+  "duration": 15.3,
+  "total_score": 8,
+  "problem_sections": [
+    {
+      "start": 3.2,
+      "end": 3.7
+    },
+    {
+      "start": 4.3,
+      "end": 4.9
+    },
+    {
+      "start": 10.951976935749588,
+      "end": 11.569522240527183
+    }
+  ],
+  "evaluation_time": 1759987170383,
+  "timestamp": "2025-10-09T05:19:30.383Z"
+}

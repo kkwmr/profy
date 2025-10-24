@@ -1,0 +1,7 @@
+# Baseline configuration enabling balanced sampling and default entropy regularization.
+use_balanced_sampler: true
+entropy_regularization: 0.1
+model_kwargs:
+  use_temporal_attention: true
+  use_residual_heads: true
+  use_audio_tcn: true

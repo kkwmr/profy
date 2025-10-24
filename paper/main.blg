@@ -6,89 +6,105 @@ Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
 Database file #1: references/references.bib
-Database file #2: references/refs_1_beginner.bib
-Database file #3: references/refs_2_intermediate.bib
-Database file #4: references/refs_3_intermediate_feature_learning.bib
-Database file #5: references/refs_4_speech.bib
-Warning--I didn't find a database entry for "dannenberg2013"
-Warning--I didn't find a database entry for "andante2020"
-Warning--I didn't find a database entry for "xiao2014"
-Warning--I didn't find a database entry for "oshima2021"
-Warning--I didn't find a database entry for "holland2010"
-Warning--I didn't find a database entry for "anderson1995"
-Warning--I didn't find a database entry for "porayska2013"
-Warning--I didn't find a database entry for "holstein2019"
-Warning--I didn't find a database entry for "duolingo2019"
-Warning--I didn't find a database entry for "koedinger2013"
-Warning--I didn't find a database entry for "davis2016"
-Warning--I didn't find a database entry for "wang2022"
-Warning--I didn't find a database entry for "sigtia2016"
-Warning--I didn't find a database entry for "chou2022"
-Warning--I didn't find a database entry for "mt3"
-Warning--I didn't find a database entry for "nakamura2017"
-Warning--I didn't find a database entry for "widmer2003"
-Warning--I didn't find a database entry for "jeong2019"
-Warning--I didn't find a database entry for "goebl2008"
-Warning--I didn't find a database entry for "cancino2018"
-Warning--I didn't find a database entry for "mert2023"
-Warning--I didn't find a database entry for "atanasova2020diagnostic"
 Reallocated singl_function (elt_size=4) to 100 items from 50.
 Reallocated glb_str_ptr (elt_size=4) to 20 items from 10.
 Reallocated global_strs (elt_size=200001) to 20 items from 10.
 Reallocated glb_str_end (elt_size=4) to 20 items from 10.
 Reallocated singl_function (elt_size=4) to 100 items from 50.
-Warning--empty publisher in gardner2022
-Warning--empty address in gardner2022
-Warning--page numbers missing in both pages and numpages fields in gardner2022
-Warning--page numbers missing in both pages and numpages fields in giraldo2019
-Warning--empty publisher in hawthorne2021
-Warning--empty address in hawthorne2021
-Warning--empty address in nakano2006
-Warning--page numbers missing in both pages and numpages fields in nakano2006
-Warning--no number and no volume in romani2015
-Warning--empty publisher in seshadri2021
-Warning--empty address in seshadri2021
-Warning--empty publisher in wu2018
-Warning--empty address in wu2018
-You've used 10 entries,
+Warning--no number and no volume in Bai2018TCN
+Warning--page numbers missing in both pages and numpages fields in Bai2018TCN
+Warning--empty address in BryanKinns2024
+Warning--empty publisher in Chiang2015
+Warning--empty address in Chiang2015
+Warning--empty address in Dannenberg1992
+Warning--empty publisher in Donahue2019
+Warning--empty address in Donahue2019
+Warning--empty publisher in Foscarin2020ASAP
+Warning--empty address in Foscarin2020ASAP
+Warning--empty publisher in HarteSandler2006
+Warning--empty address in HarteSandler2006
+Warning--empty publisher in Hawthorne2019MAESTRO
+Warning--empty address in Hawthorne2019MAESTRO
+Warning--page numbers missing in both pages and numpages fields in Hawthorne2019MAESTRO
+Warning--empty publisher in Ilse2018
+Warning--empty address in Ilse2018
+Warning--page numbers missing in both pages and numpages fields in Ilse2018
+Warning--empty publisher in Jiang2002
+Warning--empty address in Jiang2002
+Warning--page numbers missing in both pages and numpages fields in Jiang2002
+Warning--empty publisher in Jiang2023
+Warning--empty address in Jiang2023
+Warning--empty publisher in Johnson2010
+Warning--empty address in Johnson2010
+Warning--empty publisher in Karolus2023
+Warning--empty address in Karolus2023
+Warning--empty publisher in Kawamura2021
+Warning--empty address in Kawamura2021
+Warning--empty address in Kim2022APPA
+Warning--empty publisher in liang2024
+Warning--empty address in liang2024
+Warning--empty publisher in LoshchilovHutter2019AdamW
+Warning--empty address in LoshchilovHutter2019AdamW
+Warning--page numbers missing in both pages and numpages fields in LoshchilovHutter2019AdamW
+Warning--empty publisher in Lu2019ViLBERT
+Warning--empty address in Lu2019ViLBERT
+Warning--page numbers missing in both pages and numpages fields in Lu2019ViLBERT
+Warning--empty publisher in mcfee2015librosa
+Warning--empty address in mcfee2015librosa
+Warning--empty publisher in Pinheiro2015
+Warning--empty address in Pinheiro2015
+Warning--page numbers missing in both pages and numpages fields in Pinheiro2015
+Warning--empty publisher in Rigby2020
+Warning--empty address in Rigby2020
+Warning--empty publisher in Rogers2014
+Warning--empty address in Rogers2014
+Warning--no number and no volume in Shazeer2017MoE
+Warning--page numbers missing in both pages and numpages fields in Shazeer2017MoE
+Warning--empty publisher in Vaswani2017
+Warning--empty address in Vaswani2017
+Warning--empty publisher in xiao2011
+Warning--empty address in xiao2011
+Warning--empty publisher in Yuksel2016
+Warning--empty address in Yuksel2016
+You've used 40 entries,
             5981 wiz_defined-function locations,
-            1568 strings with 21193 characters,
-and the built_in function-call counts, 11342 in all, are:
-= -- 1266
-> -- 432
+            1764 strings with 28033 characters,
+and the built_in function-call counts, 49695 in all, are:
+= -- 6260
+> -- 1707
 < -- 0
-+ -- 148
-- -- 154
-* -- 847
-:= -- 1142
-add.period$ -- 51
-call.type$ -- 10
-change.case$ -- 76
-chr.to.int$ -- 10
-cite$ -- 23
-duplicate$ -- 1015
-empty$ -- 710
-format.name$ -- 186
-if$ -- 2650
++ -- 588
+- -- 592
+* -- 3547
+:= -- 4707
+add.period$ -- 198
+call.type$ -- 40
+change.case$ -- 323
+chr.to.int$ -- 40
+cite$ -- 95
+duplicate$ -- 4419
+empty$ -- 3060
+format.name$ -- 740
+if$ -- 12195
 int.to.chr$ -- 2
 int.to.str$ -- 1
-missing$ -- 38
-newline$ -- 142
-num.names$ -- 74
-pop$ -- 436
+missing$ -- 176
+newline$ -- 424
+num.names$ -- 286
+pop$ -- 1832
 preamble$ -- 1
-purify$ -- 156
+purify$ -- 643
 quote$ -- 0
-skip$ -- 378
+skip$ -- 1650
 stack$ -- 0
-substring$ -- 711
-swap$ -- 85
+substring$ -- 3558
+swap$ -- 461
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 272
-warning$ -- 13
-while$ -- 60
+type$ -- 976
+warning$ -- 55
+while$ -- 259
 width$ -- 0
-write$ -- 253
-(There were 35 warnings)
+write$ -- 860
+(There were 55 warnings)

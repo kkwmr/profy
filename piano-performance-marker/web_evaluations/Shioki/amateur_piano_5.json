@@ -1,0 +1,50 @@
+{
+  "evaluation_id": "eval_1759816267305",
+  "evaluator": "Shioki",
+  "audio_filename": "amateur_piano_5.wav",
+  "audio_display": "amateur_piano_5.wav",
+  "audio_file": "amateur_piano_5.wav",
+  "audio_index": 5,
+  "duration": 16.63,
+  "total_score": 4,
+  "problem_sections": [
+    {
+      "start": 0.8498405992565307,
+      "end": 0.9958861531229471
+    },
+    {
+      "start": 1.6794799047940185,
+      "end": 1.8
+    },
+    {
+      "start": 2.6189459705312697,
+      "end": 2.7362623366977443
+    },
+    {
+      "start": 3.4,
+      "end": 3.6
+    },
+    {
+      "start": 4.955273551058301,
+      "end": 5.136426200505395
+    },
+    {
+      "start": 5.765344959023379,
+      "end": 6.009690393161319
+    },
+    {
+      "start": 6.7,
+      "end": 6.9
+    },
+    {
+      "start": 9.6,
+      "end": 10.180414182757188
+    },
+    {
+      "start": 13.9,
+      "end": 14.768210351312643
+    }
+  ],
+  "evaluation_time": 1759816267305,
+  "timestamp": "2025-10-07T05:51:07.305Z"
+}

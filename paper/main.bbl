@@ -2,7 +2,7 @@
 %%% Do NOT edit. File created by BibTeX with style
 %%% ACM-Reference-Format-Journals [18-Jan-2012].
 
-\begin{thebibliography}{10}
+\begin{thebibliography}{40}
 
 %%% ====================================================================
 %%% NOTE TO THE USER: you can override these defaults by providing
@@ -37,159 +37,577 @@
 \providecommand\natexlab[1]{#1}
 \providecommand\showeprint[2][]{arXiv:#2}
 
-\bibitem[Gardner et~al\mbox{.}(2022)]%
-        {gardner2022}
-\bibfield{author}{\bibinfo{person}{Joshua~P Gardner}, \bibinfo{person}{Ian
-  Simon}, \bibinfo{person}{Ethan Manilow}, \bibinfo{person}{Curtis Hawthorne},
-  {and} \bibinfo{person}{Jesse Engel}.} \bibinfo{year}{2022}\natexlab{}.
-\newblock \showarticletitle{{MT}3: Multi-Task Multitrack Music Transcription}.
-  In \bibinfo{booktitle}{\emph{International Conference on Learning
-  Representations}}.
+\bibitem[Bai et~al\mbox{.}(2018)]%
+        {Bai2018TCN}
+\bibfield{author}{\bibinfo{person}{Shaojie Bai}, \bibinfo{person}{J.~Zico
+  Kolter}, {and} \bibinfo{person}{Vladlen Koltun}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{An Empirical Evaluation of Generic Convolutional
+  and Recurrent Networks for Sequence Modeling}.
+\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:1803.01271}}
+  (\bibinfo{year}{2018}).
 \newblock
-\urldef\tempurl%
-\url{https://openreview.net/forum?id=iMSjopcOn0p}
-\showURL{%
-\tempurl}
 
 
-\bibitem[Giraldo et~al\mbox{.}(2019)]%
-        {giraldo2019}
-\bibfield{author}{\bibinfo{person}{Sergio Giraldo}, \bibinfo{person}{George
-  Waddell}, \bibinfo{person}{Ignasi Nou}, \bibinfo{person}{Ariadna Ortega},
-  \bibinfo{person}{Oscar Mayor}, \bibinfo{person}{Alfonso Perez},
-  \bibinfo{person}{Aaron Williamon}, {and} \bibinfo{person}{Rafael Ramirez}.}
-  \bibinfo{year}{2019}\natexlab{}.
-\newblock \showarticletitle{Automatic Assessment of Tone Quality in Violin
-  Music Performance}.
-\newblock \bibinfo{journal}{\emph{Frontiers in Psychology}}
-  \bibinfo{volume}{10} (\bibinfo{year}{2019}).
+\bibitem[Bryan{-}Kinns et~al\mbox{.}(2024)]%
+        {BryanKinns2024}
+\bibfield{author}{\bibinfo{person}{Nick Bryan{-}Kinns}, \bibinfo{person}{Berker
+  Banar}, \bibinfo{person}{Corey Ford}, \bibinfo{person}{Courtney~N. Reed},
+  \bibinfo{person}{Yixiao Zhang}, {and} \bibinfo{person}{Jack Armitage}.}
+  \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Explainable AI and Music}.
+\newblock In \bibinfo{booktitle}{\emph{Artificial Intelligence for Art Creation
+  and Understanding}}, \bibfield{editor}{\bibinfo{person}{L.~Mou}} (Ed.).
+  \bibinfo{publisher}{CRC Press}, \bibinfo{pages}{1--29}.
 \newblock
-\showISSN{1664-1078}
 \urldef\tempurl%
-\url{https://doi.org/10.3389/fpsyg.2019.00334}
+\url{https://doi.org/10.1201/9781003406273-1}
 \showDOI{\tempurl}
 
 
-\bibitem[Hawthorne et~al\mbox{.}(2021)]%
-        {hawthorne2021}
-\bibfield{author}{\bibinfo{person}{Curtis Hawthorne}, \bibinfo{person}{Ian
-  Simon}, \bibinfo{person}{Rigel Swavely}, \bibinfo{person}{Ethan Manilow},
-  {and} \bibinfo{person}{Jesse~H. Engel}.} \bibinfo{year}{2021}\natexlab{}.
-\newblock \showarticletitle{Sequence-to-Sequence Piano Transcription with
-  Transformers}. In \bibinfo{booktitle}{\emph{Proceedings of the 22nd
-  International Society for Music Information Retrieval Conference, {ISMIR}
-  2021, Online, November 7-12, 2021}},
-  \bibfield{editor}{\bibinfo{person}{Jin~Ha Lee}, \bibinfo{person}{Alexander
-  Lerch}, \bibinfo{person}{Zhiyao Duan}, \bibinfo{person}{Juhan Nam},
-  \bibinfo{person}{Preeti Rao}, \bibinfo{person}{Peter van Kranenburg}, {and}
-  \bibinfo{person}{Ajay Srinivasamurthy}} (Eds.). \bibinfo{pages}{246--253}.
+\bibitem[Chiang and Sun(2015)]%
+        {Chiang2015}
+\bibfield{author}{\bibinfo{person}{Pei-Ying Chiang} {and}
+  \bibinfo{person}{Chung-Hsuan Sun}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{OnCall Piano Sensei: Portable {AR} Piano Training
+  System}. In \bibinfo{booktitle}{\emph{Proceedings of the 3rd ACM Symposium on
+  Spatial User Interaction (SUI '15)}}. \bibinfo{pages}{134}.
 \newblock
 \urldef\tempurl%
-\url{https://archives.ismir.net/ismir2021/paper/000030.pdf}
+\url{https://doi.org/10.1145/2788940.2794353}
+\showDOI{\tempurl}
+
+
+\bibitem[Dannenberg and Joseph(1992)]%
+        {Dannenberg1992}
+\bibfield{author}{\bibinfo{person}{Roger~B. Dannenberg} {and}
+  \bibinfo{person}{Robert~L. Joseph}.} \bibinfo{year}{1992}\natexlab{}.
+\newblock \showarticletitle{Human-Computer Interaction in the Piano Tutor}.
+\newblock In \bibinfo{booktitle}{\emph{Multimedia Interface Design}},
+  \bibfield{editor}{\bibinfo{person}{M.~M. Blattner} {and}
+  \bibinfo{person}{R.~B. Dannenberg}} (Eds.). \bibinfo{publisher}{ACM Press},
+  \bibinfo{pages}{65--78}.
+\newblock
+
+
+\bibitem[Donahue et~al\mbox{.}(2019)]%
+        {Donahue2019}
+\bibfield{author}{\bibinfo{person}{Chris Donahue}, \bibinfo{person}{Ian Simon},
+  \bibinfo{person}{Sander Dieleman}, \bibinfo{person}{Erich Elsen},
+  \bibinfo{person}{Karen Simonyan}, {and} \bibinfo{person}{Douglas Eck}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Piano Genie}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 24th International Conference on
+  Intelligent User Interfaces (IUI '19)}}. \bibinfo{pages}{160--164}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3301275.3302288}
+\showDOI{\tempurl}
+
+
+\bibitem[Emiya et~al\mbox{.}(2010)]%
+        {Emiya2010MAPS}
+\bibfield{author}{\bibinfo{person}{Valentin Emiya}, \bibinfo{person}{Roland
+  Badeau}, {and} \bibinfo{person}{Bertrand David}.}
+  \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{Multipitch Estimation of Piano Sounds Using a New
+  Probabilistic Spectral Smoothness Principle}.
+\newblock \bibinfo{journal}{\emph{IEEE Transactions on Audio, Speech, and
+  Language Processing}} \bibinfo{volume}{18}, \bibinfo{number}{6}
+  (\bibinfo{year}{2010}), \bibinfo{pages}{1643--1654}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1109/TASL.2010.2042119}
+\showDOI{\tempurl}
+
+
+\bibitem[Foscarin et~al\mbox{.}(2020)]%
+        {Foscarin2020ASAP}
+\bibfield{author}{\bibinfo{person}{Francesco Foscarin}, \bibinfo{person}{Andrew
+  McLeod}, \bibinfo{person}{Pierre Rigaux}, \bibinfo{person}{Florent
+  Jacquemard}, {and} \bibinfo{person}{Masatoshi Sakai}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{ASAP: A Dataset of Aligned Scores and Performances
+  for Piano Transcription}. In \bibinfo{booktitle}{\emph{Proc. of the
+  International Society for Music Information Retrieval Conference (ISMIR)}}.
+  \bibinfo{pages}{534--541}.
+\newblock
+
+
+\bibitem[Harte et~al\mbox{.}(2006)]%
+        {HarteSandler2006}
+\bibfield{author}{\bibinfo{person}{Christopher Harte}, \bibinfo{person}{Mark
+  Sandler}, {and} \bibinfo{person}{Martin Gasser}.}
+  \bibinfo{year}{2006}\natexlab{}.
+\newblock \showarticletitle{Detecting Harmonic Change in Musical Audio}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 1st ACM Workshop on Audio and
+  Music Computing for Multimedia}}. \bibinfo{pages}{21--26}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/1178723.1178727}
+\showDOI{\tempurl}
+
+
+\bibitem[Hawthorne et~al\mbox{.}(2019)]%
+        {Hawthorne2019MAESTRO}
+\bibfield{author}{\bibinfo{person}{Curtis Hawthorne}, \bibinfo{person}{Andriy
+  Stasyuk}, \bibinfo{person}{Adam Roberts}, \bibinfo{person}{Ian Simon},
+  \bibinfo{person}{Cheng-Zhi~Anna Huang}, \bibinfo{person}{Sander Dieleman},
+  \bibinfo{person}{Erich Elsen}, \bibinfo{person}{Jesse Engel}, {and}
+  \bibinfo{person}{Douglas Eck}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Enabling Factorized Piano Music Modeling and
+  Generation with the MAESTRO Dataset}. In
+  \bibinfo{booktitle}{\emph{International Conference on Learning
+  Representations (ICLR)}}.
+\newblock
+\newblock
+\shownote{arXiv:1810.12247}.
+
+
+\bibitem[Holstein et~al\mbox{.}(2019)]%
+        {Holstein2019}
+\bibfield{author}{\bibinfo{person}{Kenneth Holstein}, \bibinfo{person}{Bruce~M.
+  McLaren}, {and} \bibinfo{person}{Vincent Aleven}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Co-Designing a Real-Time Classroom Orchestration
+  Tool to Support Teacher-AI Complementarity}.
+\newblock \bibinfo{journal}{\emph{Journal of Learning Analytics}}
+  \bibinfo{volume}{6}, \bibinfo{number}{2} (\bibinfo{year}{2019}),
+  \bibinfo{pages}{27--52}.
+\newblock
+\urldef\tempurl%
+\url{http://files.eric.ed.gov/fulltext/EJ1224130.pdf}
 \showURL{%
 \tempurl}
 
 
+\bibitem[Ilse et~al\mbox{.}(2018)]%
+        {Ilse2018}
+\bibfield{author}{\bibinfo{person}{Maximilian Ilse}, \bibinfo{person}{Jakub
+  Tomczak}, {and} \bibinfo{person}{Max Welling}.}
+  \bibinfo{year}{2018}\natexlab{}.
+\newblock \showarticletitle{Attention-based Deep Multiple Instance Learning}.
+  In \bibinfo{booktitle}{\emph{International Conference on Machine Learning}}.
+\newblock
+\newblock
+\shownote{Proceedings of Machine Learning Research (PMLR), Vol. 80, pp.
+  2127--2136}.
+
+
+\bibitem[Jacobs et~al\mbox{.}(1991)]%
+        {Jacobs1991MoE}
+\bibfield{author}{\bibinfo{person}{Robert~A. Jacobs},
+  \bibinfo{person}{Michael~I. Jordan}, \bibinfo{person}{Steven~J. Nowlan},
+  {and} \bibinfo{person}{Geoffrey~E. Hinton}.} \bibinfo{year}{1991}\natexlab{}.
+\newblock \showarticletitle{Adaptive Mixtures of Local Experts}.
+\newblock \bibinfo{journal}{\emph{Neural Computation}} \bibinfo{volume}{3},
+  \bibinfo{number}{1} (\bibinfo{year}{1991}), \bibinfo{pages}{79--87}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1162/neco.1991.3.1.79}
+\showDOI{\tempurl}
+
+
+\bibitem[Jiang et~al\mbox{.}(2002)]%
+        {Jiang2002}
+\bibfield{author}{\bibinfo{person}{Dan-Ning Jiang}, \bibinfo{person}{Lie Lu},
+  \bibinfo{person}{Hong-Jiang Zhang}, \bibinfo{person}{Jian-Hua Tao}, {and}
+  \bibinfo{person}{Lian-Hong Cai}.} \bibinfo{year}{2002}\natexlab{}.
+\newblock \showarticletitle{Music Type Classification by Spectral Contrast
+  Feature}. In \bibinfo{booktitle}{\emph{IEEE International Conference on
+  Multimedia and Expo}}.
+\newblock
+
+
+\bibitem[Jiang(2023)]%
+        {Jiang2023}
+\bibfield{author}{\bibinfo{person}{Yucong Jiang}.}
+  \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Expert and Novice Evaluations of Piano
+  Performances: Criteria for Computer-Aided Feedback}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 24th International Society for
+  Music Information Retrieval Conference (ISMIR 2023)}}.
+  \bibinfo{pages}{367--374}.
+\newblock
+
+
+\bibitem[Johnson et~al\mbox{.}(2010)]%
+        {Johnson2010}
+\bibfield{author}{\bibinfo{person}{Rose M.~G. Johnson}, \bibinfo{person}{Janet
+  van~der Linden}, {and} \bibinfo{person}{Yvonne Rogers}.}
+  \bibinfo{year}{2010}\natexlab{}.
+\newblock \showarticletitle{MusicJacket: The Efficacy of Real-Time Vibrotactile
+  Feedback for Learning to Play the Violin}. In
+  \bibinfo{booktitle}{\emph{Extended Abstracts of the 28th International
+  Conference on Human Factors in Computing Systems (CHI EA '10)}}.
+  \bibinfo{pages}{3475--3480}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/1753846.1754004}
+\showDOI{\tempurl}
+
+
+\bibitem[Karolus et~al\mbox{.}(2023)]%
+        {Karolus2023}
+\bibfield{author}{\bibinfo{person}{Jakob Karolus}, \bibinfo{person}{Johannes
+  Sylupp}, \bibinfo{person}{Albrecht Schmidt}, {and}
+  \bibinfo{person}{Pawe{\l}~W. Wo{\'z}niak}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{{EyePiano}: Leveraging Gaze for Reflective Piano
+  Learning}. In \bibinfo{booktitle}{\emph{Proceedings of the Designing
+  Interactive Systems Conference (DIS '23)}}. \bibinfo{pages}{1209--1223}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3563657.3596065}
+\showDOI{\tempurl}
+
+
 \bibitem[Kawamura and Rekimoto(2021)]%
-        {kawamura2021uist}
+        {Kawamura2021}
 \bibfield{author}{\bibinfo{person}{Kazuki Kawamura} {and} \bibinfo{person}{Jun
   Rekimoto}.} \bibinfo{year}{2021}\natexlab{}.
-\newblock \showarticletitle{A Language Acquisition Support System That Presents
+\newblock \showarticletitle{A Language Acquisition Support System that Presents
   Differences and Distances from Model Speech}. In
-  \bibinfo{booktitle}{\emph{The Adjunct Publication of the 34th Annual ACM
-  Symposium on User Interface Software and Technology}} (Virtual Event, USA)
-  \emph{(\bibinfo{series}{UIST '21})}. \bibinfo{publisher}{Association for
-  Computing Machinery}, \bibinfo{address}{New York, NY, USA},
-  \bibinfo{pages}{44–46}.
+  \bibinfo{booktitle}{\emph{UIST '21 Adjunct: Proceedings of the 34th Annual
+  ACM Symposium on User Interface Software and Technology}}.
+  \bibinfo{pages}{44--46}.
 \newblock
-\showISBNx{9781450386555}
 \urldef\tempurl%
 \url{https://doi.org/10.1145/3474349.3480225}
 \showDOI{\tempurl}
 
 
-\bibitem[MakeMusic(2023)]%
-        {smartmusic}
-\bibfield{author}{\bibinfo{person}{Inc. MakeMusic}.}
-  \bibinfo{year}{2023}\natexlab{}.
-\newblock \bibinfo{title}{SmartMusic | Music Learning Software for Educators \&
-  Students}.
-\newblock \bibinfo{howpublished}{\url{https://www.smartmusic.com/}}.
-\newblock
-\newblock
-\shownote{(Accessed on 01/04/2023)}.
-
-
-\bibitem[Nakano et~al\mbox{.}(2006)]%
-        {nakano2006}
-\bibfield{author}{\bibinfo{person}{Tomoyasu Nakano}, \bibinfo{person}{Masataka
-  Goto}, {and} \bibinfo{person}{Yuzuru Hiraga}.}
-  \bibinfo{year}{2006}\natexlab{}.
-\newblock \showarticletitle{An automatic singing skill evaluation method for
-  unknown melodies using pitch interval accuracy and vibrato features}. In
-  \bibinfo{booktitle}{\emph{{INTERSPEECH} 2006 - ICSLP, Ninth International
-  Conference on Spoken Language Processing, Pittsburgh, PA, USA, September
-  17-21}}. \bibinfo{publisher}{{ISCA}}.
-\newblock
-
-
-\bibitem[romani picas et~al\mbox{.}(2015)]%
-        {romani2015}
-\bibfield{author}{\bibinfo{person}{oriol romani picas}, \bibinfo{person}{hector
-  parra rodriguez}, \bibinfo{person}{dara dabiri}, \bibinfo{person}{hiroshi
-  tokuda}, \bibinfo{person}{wataru hariya}, \bibinfo{person}{koji oishi}, {and}
-  \bibinfo{person}{xavier serra}.} \bibinfo{year}{2015}\natexlab{}.
-\newblock \showarticletitle{a real-time system for measuring sound goodness in
-  instrumental sounds}.
-\newblock \bibinfo{journal}{\emph{journal of the audio engineering society}}
-  (\bibinfo{date}{may} \bibinfo{year}{2015}).
-\newblock
-
-
-\bibitem[Seshadri and 0001(2021)]%
-        {seshadri2021}
-\bibfield{author}{\bibinfo{person}{Pavan Seshadri} {and}
-  \bibinfo{person}{Alexander~Lerch 0001}.} \bibinfo{year}{2021}\natexlab{}.
-\newblock \showarticletitle{Improving Music Performance Assessment With
-  Contrastive Learning}. In \bibinfo{booktitle}{\emph{Proceedings of the 22nd
-  International Society for Music Information Retrieval Conference, ISMIR 2021,
-  Online, November 7-12, 2021}}, \bibfield{editor}{\bibinfo{person}{Jin Ha~Lee
-  0001}, \bibinfo{person}{Alexander~Lerch 0001}, \bibinfo{person}{Zhiyao Duan},
-  \bibinfo{person}{Juhan Nam}, \bibinfo{person}{Preeti Rao},
-  \bibinfo{person}{Peter van Kranenburg}, {and} \bibinfo{person}{Ajay
-  Srinivasamurthy}} (Eds.). \bibinfo{pages}{634--641}.
-\newblock
-\showISBNx{978-1-7327299-0-2}
-\urldef\tempurl%
-\url{https://archives.ismir.net/ismir2021/paper/000079.pdf}
-\showURL{%
-\tempurl}
-
-
-\bibitem[Wu and Lerch(2018)]%
-        {wu2018}
-\bibfield{author}{\bibinfo{person}{Chih-Wei Wu} {and}
-  \bibinfo{person}{Alexander Lerch}.} \bibinfo{year}{2018}\natexlab{}.
-\newblock \showarticletitle{Learned Features for the Assessment of Percussive
-  Music Performances}. In \bibinfo{booktitle}{\emph{2018 IEEE 12th
-  International Conference on Semantic Computing (ICSC)}}.
-  \bibinfo{pages}{93--99}.
+\bibitem[Kim et~al\mbox{.}(2022)]%
+        {Kim2022APPA}
+\bibfield{author}{\bibinfo{person}{Hyon Kim}, \bibinfo{person}{Pedro Ramoneda},
+  \bibinfo{person}{Marius Miron}, {and} \bibinfo{person}{Xavier Serra}.}
+  \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{An Overview of Automatic Piano Performance
+  Assessment within the Music Education Context}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 14th International Conference on
+  Computer Supported Education (CSEDU 2022), Volume 1}},
+  \bibfield{editor}{\bibinfo{person}{Mutlu Cukurova}, \bibinfo{person}{Nikol
+  Rummel}, \bibinfo{person}{Denis Gillet}, \bibinfo{person}{Bruce~M. McLaren},
+  {and} \bibinfo{person}{James Uhomoibhi}} (Eds.).
+  \bibinfo{publisher}{SCITEPRESS}, \bibinfo{pages}{465--474}.
 \newblock
 \urldef\tempurl%
-\url{https://doi.org/10.1109/ICSC.2018.00022}
+\url{https://doi.org/10.5220/0011137600003182}
 \showDOI{\tempurl}
 
 
-\bibitem[Yousician(2023)]%
-        {yousician}
-\bibfield{author}{\bibinfo{person}{Oy Yousician}.}
-  \bibinfo{year}{2023}\natexlab{}.
-\newblock \bibinfo{title}{Yousician | Learn Guitar, Piano, Ukulele With The
-  Songs you Love}.
-\newblock \bibinfo{howpublished}{\url{https://yousician.com/}}.
+\bibitem[Kuromiya et~al\mbox{.}(2025)]%
+        {Kuromiya2025PNAS}
+\bibfield{author}{\bibinfo{person}{Kaori Kuromiya}, \bibinfo{person}{Yuya
+  Kobayashi}, \bibinfo{person}{Masato Hirano}, {and} \bibinfo{person}{Shinichi
+  Furuya}.} \bibinfo{year}{2025}\natexlab{}.
+\newblock \showarticletitle{Motor origins of timbre in piano performance}.
+\newblock \bibinfo{journal}{\emph{Proceedings of the National Academy of
+  Sciences}} \bibinfo{volume}{122}, \bibinfo{number}{39}
+  (\bibinfo{year}{2025}), \bibinfo{pages}{e2425073122}.
 \newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1073/pnas.2425073122}
+\showDOI{\tempurl}
+
+
+\bibitem[Liang et~al\mbox{.}(2024)]%
+        {liang2024}
+\bibfield{author}{\bibinfo{person}{Xiao Liang}, \bibinfo{person}{Zijian Zhao},
+  \bibinfo{person}{Weichao Zeng}, \bibinfo{person}{Yutong He},
+  \bibinfo{person}{Fupeng He}, \bibinfo{person}{Yiyi Wang}, {and}
+  \bibinfo{person}{Chengying Gao}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{PianoBART: Symbolic Piano Music Generation and
+  Understanding with Large-Scale Pre-Training}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 2024 {IEEE} International
+  Conference on Multimedia and Expo}}. \bibinfo{pages}{1--6}.
 \newblock
-\shownote{(Accessed on 01/04/2023)}.
+\urldef\tempurl%
+\url{https://doi.org/10.1109/ICME57554.2024.10688332}
+\showDOI{\tempurl}
+
+
+\bibitem[Loshchilov and Hutter(2019)]%
+        {LoshchilovHutter2019AdamW}
+\bibfield{author}{\bibinfo{person}{Ilya Loshchilov} {and}
+  \bibinfo{person}{Frank Hutter}.} \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{Decoupled Weight Decay Regularization}. In
+  \bibinfo{booktitle}{\emph{International Conference on Learning
+  Representations}}.
+\newblock
+
+
+\bibitem[Lu et~al\mbox{.}(2019)]%
+        {Lu2019ViLBERT}
+\bibfield{author}{\bibinfo{person}{Jiasen Lu}, \bibinfo{person}{Dhruv Batra},
+  \bibinfo{person}{Devi Parikh}, {and} \bibinfo{person}{Stefan Lee}.}
+  \bibinfo{year}{2019}\natexlab{}.
+\newblock \showarticletitle{ViLBERT: Pretraining Task-Agnostic Visiolinguistic
+  Representations for Vision-and-Language Tasks}. In
+  \bibinfo{booktitle}{\emph{Advances in Neural Information Processing
+  Systems}}.
+\newblock
+
+
+\bibitem[McFee et~al\mbox{.}(2015)]%
+        {mcfee2015librosa}
+\bibfield{author}{\bibinfo{person}{Brian McFee}, \bibinfo{person}{Colin
+  Raffel}, \bibinfo{person}{Dawen Liang}, \bibinfo{person}{Daniel P.~W. Ellis},
+  \bibinfo{person}{Matt McVicar}, \bibinfo{person}{Eric Battenberg}, {and}
+  \bibinfo{person}{Oriol Nieto}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{librosa: Audio and Music Signal Analysis in
+  Python}. In \bibinfo{booktitle}{\emph{Proceedings of the 14th Python in
+  Science Conference}}. \bibinfo{pages}{18--24}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.25080/Majora-7b98e3ed-003}
+\showDOI{\tempurl}
+
+
+\bibitem[Nakamura et~al\mbox{.}(2016)]%
+        {nakamura2016}
+\bibfield{author}{\bibinfo{person}{Tomohiko Nakamura}, \bibinfo{person}{Eita
+  Nakamura}, {and} \bibinfo{person}{Shigeki Sagayama}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{Real-Time Audio-to-Score Alignment of Music
+  Performances Containing Errors and Arbitrary Repeats and Skips}.
+\newblock \bibinfo{journal}{\emph{IEEE/ACM Transactions on Audio, Speech, and
+  Language Processing}} \bibinfo{volume}{24}, \bibinfo{number}{2}
+  (\bibinfo{year}{2016}), \bibinfo{pages}{329--339}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1109/TASLP.2015.2507862}
+\showDOI{\tempurl}
+
+
+\bibitem[Oku and Furuya(2022)]%
+        {Oku2022Sensors}
+\bibfield{author}{\bibinfo{person}{Ryota Oku} {and} \bibinfo{person}{Shinichi
+  Furuya}.} \bibinfo{year}{2022}\natexlab{}.
+\newblock \showarticletitle{A non-contact and high-speed piano key motion
+  measurement system using deep learning}.
+\newblock \bibinfo{journal}{\emph{Sensors}} \bibinfo{volume}{22},
+  \bibinfo{number}{21} (\bibinfo{year}{2022}), \bibinfo{pages}{8793}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.3390/s22218793}
+\showDOI{\tempurl}
+
+
+\bibitem[Pedregosa et~al\mbox{.}(2011)]%
+        {Pedregosa2011Scikit}
+\bibfield{author}{\bibinfo{person}{Fabian Pedregosa}, \bibinfo{person}{Ga{\"e}l
+  Varoquaux}, \bibinfo{person}{Alexandre Gramfort}, \bibinfo{person}{Vincent
+  Michel}, \bibinfo{person}{Bertrand Thirion}, \bibinfo{person}{Olivier
+  Grisel}, \bibinfo{person}{Mathieu Blondel}, \bibinfo{person}{Peter
+  Prettenhofer}, \bibinfo{person}{Ron Weiss}, \bibinfo{person}{Vincent
+  Dubourg}, {et~al\mbox{.}}} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{Scikit-learn: Machine Learning in Python}.
+\newblock \bibinfo{journal}{\emph{Journal of Machine Learning Research}}
+  \bibinfo{volume}{12} (\bibinfo{year}{2011}), \bibinfo{pages}{2825--2830}.
+\newblock
+
+
+\bibitem[Phanichraksaphong and Tsai(2021)]%
+        {Phanichraksaphong2021}
+\bibfield{author}{\bibinfo{person}{Varinya Phanichraksaphong} {and}
+  \bibinfo{person}{Wei-Ho Tsai}.} \bibinfo{year}{2021}\natexlab{}.
+\newblock \showarticletitle{Automatic Evaluation of Piano Performances for
+  STEAM Education}.
+\newblock \bibinfo{journal}{\emph{Applied Sciences}} \bibinfo{volume}{11},
+  \bibinfo{number}{24} (\bibinfo{year}{2021}), \bibinfo{pages}{11783}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.3390/app112411783}
+\showDOI{\tempurl}
+
+
+\bibitem[Pinheiro and Collobert(2015)]%
+        {Pinheiro2015}
+\bibfield{author}{\bibinfo{person}{Pedro~O. Pinheiro} {and}
+  \bibinfo{person}{Ronan Collobert}.} \bibinfo{year}{2015}\natexlab{}.
+\newblock \showarticletitle{From Image-Level to Pixel-Level Labeling with
+  Convolutional Networks}. In \bibinfo{booktitle}{\emph{IEEE Conference on
+  Computer Vision and Pattern Recognition}}.
+\newblock
+
+
+\bibitem[Porayska-Pomsta(2016)]%
+        {Porayska2016}
+\bibfield{author}{\bibinfo{person}{Kaska Porayska-Pomsta}.}
+  \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{AI as a Methodology for Supporting Educational
+  Praxis and Teacher Metacognition}.
+\newblock \bibinfo{journal}{\emph{International Journal of Artificial
+  Intelligence in Education}} \bibinfo{volume}{26}, \bibinfo{number}{2}
+  (\bibinfo{year}{2016}), \bibinfo{pages}{679--700}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1007/s40593-016-0101-4}
+\showDOI{\tempurl}
+
+
+\bibitem[Rigby et~al\mbox{.}(2020)]%
+        {Rigby2020}
+\bibfield{author}{\bibinfo{person}{Liam Rigby}, \bibinfo{person}{Burkhard~C.
+  W{\"u}nsche}, {and} \bibinfo{person}{Alex Shaw}.}
+  \bibinfo{year}{2020}\natexlab{}.
+\newblock \showarticletitle{piARno -- An Augmented Reality Piano Tutor}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 32nd Australian Conference on
+  Human-Computer Interaction (OzCHI '20)}}. \bibinfo{pages}{481--491}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3441000.3441039}
+\showDOI{\tempurl}
+
+
+\bibitem[Rogers et~al\mbox{.}(2014)]%
+        {Rogers2014}
+\bibfield{author}{\bibinfo{person}{Katja Rogers}, \bibinfo{person}{Amrei
+  R{\"o}hlig}, \bibinfo{person}{Matthias Weing}, \bibinfo{person}{Jan
+  Gugenheimer}, \bibinfo{person}{Bastian K{\"o}nings}, \bibinfo{person}{Melina
+  Klepsch}, \bibinfo{person}{Florian Schaub}, \bibinfo{person}{Enrico Rukzio},
+  \bibinfo{person}{Tina Seufert}, {and} \bibinfo{person}{Michael Weber}.}
+  \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{{P.I.A.N.O.}: Faster Piano Learning with
+  Interactive Projection}. In \bibinfo{booktitle}{\emph{Proceedings of the 2014
+  ACM International Conference on Interactive Tabletops and Surfaces (ITS
+  '14)}}. \bibinfo{pages}{149--158}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2669485.2669514}
+\showDOI{\tempurl}
+
+
+\bibitem[Sadakata et~al\mbox{.}(2008)]%
+        {Sadakata2008}
+\bibfield{author}{\bibinfo{person}{Makiko Sadakata}, \bibinfo{person}{David
+  Hoppe}, \bibinfo{person}{Alex Brandmeyer}, \bibinfo{person}{Ren{\'e}e
+  Timmers}, {and} \bibinfo{person}{Peter Desain}.}
+  \bibinfo{year}{2008}\natexlab{}.
+\newblock \showarticletitle{Real-Time Visual Feedback for Learning to Perform
+  Short Rhythms with Expressive Variations in Timing and Loudness}.
+\newblock \bibinfo{journal}{\emph{Journal of New Music Research}}
+  \bibinfo{volume}{37}, \bibinfo{number}{3} (\bibinfo{year}{2008}),
+  \bibinfo{pages}{207--220}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1080/09298210802322401}
+\showDOI{\tempurl}
+
+
+\bibitem[Shazeer et~al\mbox{.}(2017)]%
+        {Shazeer2017MoE}
+\bibfield{author}{\bibinfo{person}{Noam Shazeer}, \bibinfo{person}{Azalia
+  Mirhoseini}, \bibinfo{person}{Krzysztof Maziarz}, \bibinfo{person}{Andy
+  Davis}, \bibinfo{person}{Quoc~V. Le}, \bibinfo{person}{Geoffrey~E. Hinton},
+  {and} \bibinfo{person}{Jeff Dean}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Outrageously Large Neural Networks: The
+  Sparsely-Gated Mixture-of-Experts Layer}.
+\newblock \bibinfo{journal}{\emph{arXiv preprint arXiv:1701.06538}}
+  (\bibinfo{year}{2017}).
+\newblock
+
+
+\bibitem[Trevi{\~n}o and Sapp(2014)]%
+        {Trevino2014}
+\bibfield{author}{\bibinfo{person}{Jeffrey Trevi{\~n}o} {and}
+  \bibinfo{person}{Craig~Stuart Sapp}.} \bibinfo{year}{2014}\natexlab{}.
+\newblock \showarticletitle{Automated Notation of Piano Recordings for Historic
+  Performance Analysis}.
+\newblock \bibinfo{journal}{\emph{ACM Journal on Computing and Cultural
+  Heritage}} \bibinfo{volume}{7}, \bibinfo{number}{3} (\bibinfo{year}{2014}),
+  \bibinfo{pages}{17:1--17:19}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2597179}
+\showDOI{\tempurl}
+
+
+\bibitem[Vaswani et~al\mbox{.}(2017)]%
+        {Vaswani2017}
+\bibfield{author}{\bibinfo{person}{Ashish Vaswani}, \bibinfo{person}{Noam
+  Shazeer}, \bibinfo{person}{Niki Parmar}, \bibinfo{person}{Jakob Uszkoreit},
+  \bibinfo{person}{Llion Jones}, \bibinfo{person}{Aidan~N. Gomez},
+  \bibinfo{person}{{\L}ukasz Kaiser}, {and} \bibinfo{person}{Illia
+  Polosukhin}.} \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Attention Is All You Need}. In
+  \bibinfo{booktitle}{\emph{Advances in Neural Information Processing
+  Systems}}. \bibinfo{pages}{5998--6008}.
+\newblock
+
+
+\bibitem[Widmer(2017)]%
+        {Widmer2017}
+\bibfield{author}{\bibinfo{person}{Gerhard Widmer}.}
+  \bibinfo{year}{2017}\natexlab{}.
+\newblock \showarticletitle{Getting Closer to the Essence of Music: The Con
+  Espressione Manifesto}.
+\newblock \bibinfo{journal}{\emph{ACM Transactions on Intelligent Systems and
+  Technology}} \bibinfo{volume}{8}, \bibinfo{number}{2} (\bibinfo{year}{2017}),
+  \bibinfo{pages}{19:1--19:13}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/3047275}
+\showDOI{\tempurl}
+
+
+\bibitem[Wilson and Pfeiffer(2023)]%
+        {Wilson2023VRPianoReview}
+\bibfield{author}{\bibinfo{person}{Katie Wilson} {and}
+  \bibinfo{person}{Phillip~E. Pfeiffer}.} \bibinfo{year}{2023}\natexlab{}.
+\newblock \showarticletitle{Feedback in augmented and virtual reality piano
+  tutoring systems: a mini review}.
+\newblock \bibinfo{journal}{\emph{Frontiers in Virtual Reality}}
+  \bibinfo{volume}{4} (\bibinfo{year}{2023}), \bibinfo{pages}{1207397}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.3389/frvir.2023.1207397}
+\showDOI{\tempurl}
+
+
+\bibitem[Xiao and Ishii(2011)]%
+        {xiao2011}
+\bibfield{author}{\bibinfo{person}{Xiao Xiao} {and} \bibinfo{person}{Hiroshi
+  Ishii}.} \bibinfo{year}{2011}\natexlab{}.
+\newblock \showarticletitle{MirrorFugue: Communicating Hand Gesture in Remote
+  Piano Collaboration}. In \bibinfo{booktitle}{\emph{Proceedings of the Fifth
+  International Conference on Tangible, Embedded, and Embodied Interaction}}
+  \emph{(\bibinfo{series}{TEI '11})}. \bibinfo{pages}{13--20}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/1935701.1935705}
+\showDOI{\tempurl}
+
+
+\bibitem[Yasuhara et~al\mbox{.}(2024)]%
+        {Yasuhara2024iScience}
+\bibfield{author}{\bibinfo{person}{Naoya Yasuhara}, \bibinfo{person}{Hitoshi
+  Hachiya}, \bibinfo{person}{Yusuke Takeda}, {and} \bibinfo{person}{Shinichi
+  Furuya}.} \bibinfo{year}{2024}\natexlab{}.
+\newblock \showarticletitle{Coupling of neural oscillations and motor timing in
+  piano performance revealed by synchronized EEG and key-motion sensing}.
+\newblock \bibinfo{journal}{\emph{iScience}} \bibinfo{volume}{27},
+  \bibinfo{number}{7} (\bibinfo{year}{2024}), \bibinfo{pages}{109218}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1016/j.isci.2024.109218}
+\showDOI{\tempurl}
+
+
+\bibitem[Yuksel et~al\mbox{.}(2016)]%
+        {Yuksel2016}
+\bibfield{author}{\bibinfo{person}{Beste~F. Yuksel}, \bibinfo{person}{Kurt~B.
+  Oleson}, \bibinfo{person}{Lane Harrison}, \bibinfo{person}{Evan~M. Peck},
+  \bibinfo{person}{Daniel Afergan}, \bibinfo{person}{Remco Chang}, {and}
+  \bibinfo{person}{Robert~J.K. Jacob}.} \bibinfo{year}{2016}\natexlab{}.
+\newblock \showarticletitle{{Learn Piano with BACh}: An Adaptive Learning
+  Interface that Adjusts Task Difficulty Based on Brain State}. In
+  \bibinfo{booktitle}{\emph{Proceedings of the 2016 CHI Conference on Human
+  Factors in Computing Systems (CHI '16)}}. \bibinfo{pages}{5372--5384}.
+\newblock
+\urldef\tempurl%
+\url{https://doi.org/10.1145/2858036.2858388}
+\showDOI{\tempurl}
 
 
 \end{thebibliography}
